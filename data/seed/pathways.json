@@ -1,0 +1,32 @@
+[
+  {
+    "fund_name": "CAF Earthquake Reconstruction Seed Fund",
+    "license_id": "GL 60",
+    "Compliance_Verdict": "Green",
+    "Human_Verified": true
+  },
+  {
+    "fund_name": "IDB WASH Emergency Response Grant",
+    "license_id": "GL 60",
+    "Compliance_Verdict": "Green",
+    "Human_Verified": true
+  },
+  {
+    "fund_name": "Private Equity Hospital Stabilization Tranche",
+    "license_id": "GL 56",
+    "Compliance_Verdict": "Yellow",
+    "Human_Verified": true
+  },
+  {
+    "fund_name": "Andean Blended Finance Reconstruction Facility",
+    "license_id": "GL 46C",
+    "Compliance_Verdict": "Red",
+    "Human_Verified": true
+  },
+  {
+    "fund_name": "IDB WASH Emergency Response Grant",
+    "license_id": "GL 56",
+    "Compliance_Verdict": "Yellow",
+    "Human_Verified": true
+  }
+]

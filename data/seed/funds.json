@@ -1,0 +1,38 @@
+[
+  {
+    "Fund_Name": "CAF Earthquake Reconstruction Seed Fund",
+    "Capital_Type": "Grant",
+    "Target_Sectors": ["Healthcare", "Infrastructure", "Housing"],
+    "Source_URL": "https://www.caf.com/en/currently/news/",
+    "Content_Hash": "seed-caf-eq",
+    "Raw_Snippet": "CAF announces a seed grant facility for earthquake reconstruction priorities including hospital stabilization and housing repair in Venezuela.",
+    "Human_Verified": true
+  },
+  {
+    "Fund_Name": "IDB WASH Emergency Response Grant",
+    "Capital_Type": "Grant",
+    "Target_Sectors": ["WASH", "Healthcare"],
+    "Source_URL": "https://www.iadb.org/en/news",
+    "Content_Hash": "seed-idb-wash",
+    "Raw_Snippet": "IDB emergency grant supporting water sanitation and public-health infrastructure in disaster-affected municipalities.",
+    "Human_Verified": true
+  },
+  {
+    "Fund_Name": "Andean Blended Finance Reconstruction Facility",
+    "Capital_Type": "Blended Finance",
+    "Target_Sectors": ["Infrastructure", "Energy", "Housing"],
+    "Source_URL": "https://www.caf.com/en/currently/news/",
+    "Content_Hash": "seed-blended",
+    "Raw_Snippet": "Blended facility combining concessional and commercial capital for infrastructure and energy restoration.",
+    "Human_Verified": true
+  },
+  {
+    "Fund_Name": "Private Equity Hospital Stabilization Tranche",
+    "Capital_Type": "Commercial Debt",
+    "Target_Sectors": ["Healthcare"],
+    "Source_URL": "https://example.com/pe-hospital-tranche",
+    "Content_Hash": "seed-pe-hospital",
+    "Raw_Snippet": "Commercial debt tranche targeting hospital stabilization projects in La Guaira and Caracas.",
+    "Human_Verified": true
+  }
+]

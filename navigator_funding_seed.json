@@ -1,0 +1,805 @@
+{
+  "meta": {
+    "dataset": "Venezuela Relief & Reconstruction Financing Sources",
+    "compiled": "2026-07-04",
+    "compiled_by": "Web research via Claude (claude.ai) — every entry sourced from a live public page as of compile date",
+    "important": "verification_status is 'unverified' for ALL entries. Verdicts (Green/Red) must be assigned by a human after reviewing the license text and the org's own compliance posture. Do NOT auto-mark pathways as verified on import.",
+    "reference_figures": {
+      "un_reconstruction_estimate_usd": 6700000000,
+      "people_in_need_earthquake": 1800000,
+      "people_in_need_pre_quake": 7900000,
+      "gl60_issued": "2026-06-25",
+      "gl60_expires": "2026-10-23"
+    },
+    "community_funds_added": "2026-07-05 — 4 community/individually organized funds added (accreditation noted per entry)"
+  },
+  "funding_sources": [
+    {
+      "id": "caf-reconstruction-fund",
+      "name_en": "Fund for the Recovery and Reconstruction of Venezuela",
+      "name_es": "Fondo para la Recuperación y Reconstrucción de Venezuela",
+      "org": "CAF — Development Bank of Latin America and the Caribbean",
+      "org_type": "multilateral_development_bank",
+      "category": "pooled_reconstruction_fund",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": 200000000,
+      "amount_committed_usd": 1000000,
+      "amount_notes": "Up to $200M target; $1M non-reimbursable seed from CAF plus prior $300K emergency donation. UN estimates total reconstruction bill ~$6.7B.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "governments",
+        "international_organizations",
+        "companies",
+        "foundations",
+        "individuals"
+      ],
+      "funds_go_to": "Projects identified and prioritized by the Government of Venezuela; executed via eligible implementing entities or directly by CAF",
+      "compliance_notes": "No management fees; resources segregated from CAF balance sheet; independent external audit; AML checks on donors; contributions in USD or EUR. Transfer reference required: 'Fondo para la Recuperación y Reconstrucción de Venezuela – [contributor name]'; receipt copy to alianzas@caf.com and trustfunds@caf.com.",
+      "suggested_license_pathway": "REVIEW — relief-phase activities may fall under GL 60 (expires 2026-10-23); reconstruction-phase contributions by US persons need separate analysis. Fund channels to GoV-prioritized projects, which is the key compliance question.",
+      "verification_status": "unverified",
+      "url": "https://www.caf.com/en/specials/recovery-and-reconstruction-fund-for-venezuela/",
+      "phase": [
+        "relief",
+        "rehabilitation",
+        "reconstruction"
+      ],
+      "notes_es": "Fondo multidonante de hasta USD 200 millones administrado por CAF, sin comisiones, con auditoría independiente. Recursos dirigidos a proyectos priorizados por el Gobierno de Venezuela."
+    },
+    {
+      "id": "un-venezuela-humanitarian-fund",
+      "name_en": "Venezuela Humanitarian Fund (UN OCHA country-based pooled fund)",
+      "name_es": "Fondo Humanitario para Venezuela (OCHA)",
+      "org": "UN OCHA",
+      "org_type": "un_pooled_fund",
+      "category": "pooled_humanitarian_fund",
+      "flow_direction": "both",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Open pooled fund; accepts public donations via UN Crisis Relief.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "governments",
+        "companies",
+        "foundations"
+      ],
+      "funds_go_to": "Dozens of vetted local NGOs and frontline responders in Venezuela — one of the few channels where LOCAL Venezuelan NGOs can receive allocations",
+      "compliance_notes": "UN-administered; donations via crisisrelief.un.org; bank transfer/check via crisisrelief@un.org.",
+      "suggested_license_pathway": "REVIEW — UN-channel giving generally low-friction for US persons; confirm against GL 60 and pre-existing humanitarian authorizations.",
+      "verification_status": "unverified",
+      "url": "https://crisisrelief.un.org/en/donate-venezuela-crisis",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Fondo mancomunado de la ONU que canaliza recursos a ONG locales y socios de primera línea en Venezuela. Uno de los pocos canales donde las ONG venezolanas locales pueden recibir asignaciones."
+    },
+    {
+      "id": "unicef-earthquake-appeal",
+      "name_en": "UNICEF Venezuela Earthquake Emergency Appeal",
+      "name_es": "Llamamiento de emergencia de UNICEF por los terremotos en Venezuela",
+      "org": "UNICEF",
+      "org_type": "un_agency",
+      "category": "emergency_appeal",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": 52000000,
+      "amount_committed_usd": 3500000,
+      "amount_notes": "$52M earthquake requirement within the wider 2026 Humanitarian Action for Children appeal of $137.6M (only 35% funded pre-quake). $3.5M mobilized from UNICEF internal emergency funds.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "governments",
+        "companies",
+        "foundations"
+      ],
+      "funds_go_to": "UNICEF operations: health, nutrition, WASH, child protection, education; target 650,000 people incl. 234,000 children",
+      "compliance_notes": "US donors can give via UNICEF USA (tax-deductible).",
+      "suggested_license_pathway": "REVIEW — established UN agency; standard humanitarian authorizations expected to apply.",
+      "verification_status": "unverified",
+      "url": "https://www.unicefusa.org/stories/venezuela-earthquakes-children-need-help-now",
+      "phase": [
+        "relief",
+        "rehabilitation"
+      ],
+      "notes_es": "UNICEF requiere USD 52 millones para la emergencia sísmica, dentro de su llamamiento 2026 de USD 137,6 millones. Meta: 650.000 personas, incluidos 234.000 niños."
+    },
+    {
+      "id": "paho-donor-appeal",
+      "name_en": "PAHO/WHO Venezuela Earthquakes Donor Appeal",
+      "name_es": "Llamamiento de la OPS/OMS por los terremotos en Venezuela",
+      "org": "Pan American Health Organization / WHO",
+      "org_type": "un_agency",
+      "category": "emergency_appeal",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": 23900000,
+      "amount_committed_usd": null,
+      "amount_notes": "$23.9M appeal covering six months of health emergency response.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "governments",
+        "foundations",
+        "companies"
+      ],
+      "funds_go_to": "Lifesaving health interventions and continuity of essential health services",
+      "compliance_notes": "Primarily institutional-donor oriented.",
+      "suggested_license_pathway": "REVIEW — UN system health channel.",
+      "verification_status": "unverified",
+      "url": "https://www.paho.org/en/documents/response-strategy-and-donor-appeal-venezuela-earthquakes-2026",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "La OPS lanzó un llamamiento de USD 23,9 millones para seis meses de respuesta sanitaria de emergencia."
+    },
+    {
+      "id": "ifrc-emergency-appeal",
+      "name_en": "IFRC Emergency Appeal — Venezuela Earthquake",
+      "name_es": "Llamamiento de emergencia de la FICR — Terremoto de Venezuela",
+      "org": "International Federation of Red Cross and Red Crescent Societies / Venezuelan Red Cross",
+      "org_type": "red_cross_movement",
+      "category": "emergency_appeal",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": 62000000,
+      "amount_committed_usd": 2200000,
+      "amount_notes": "CHF 50M appeal (~USD equivalent varies; store CHF 50M as canonical) to assist 300,000 people; CHF 2M released from IFRC-DREF within hours of the disaster.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "governments",
+        "companies"
+      ],
+      "funds_go_to": "Venezuelan Red Cross response: search and rescue, first aid, health network support, family links",
+      "compliance_notes": "Bilateral example: Ireland contributed €1M to IFRC for this response.",
+      "suggested_license_pathway": "REVIEW — Red Cross Movement channel.",
+      "verification_status": "unverified",
+      "url": "https://www.ifrc.org/document/emergency-appeal-venezuela-earthquake",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Llamamiento de CHF 50 millones para asistir a 300.000 personas a través de la Cruz Roja Venezolana; CHF 2 millones liberados del fondo DREF."
+    },
+    {
+      "id": "dec-uk-appeal",
+      "name_en": "DEC Venezuela Earthquake Appeal (UK)",
+      "name_es": "Llamamiento DEC por el terremoto de Venezuela (Reino Unido)",
+      "org": "Disasters Emergency Committee (15 UK charities incl. Oxfam, IRC UK, Save the Children UK, British Red Cross, CAFOD, Christian Aid)",
+      "org_type": "ingo_coalition",
+      "category": "emergency_appeal",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": 9500000,
+      "amount_notes": "Over £7M raised in first day (store GBP as canonical); UK Government matching public donations up to £2M via UK Aid Match.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "14 of 15 DEC member charities responding in Venezuela with local partners",
+      "compliance_notes": "UK-jurisdiction giving channel; UK Aid Match doubles impact up to cap.",
+      "suggested_license_pathway": "N/A for US persons (UK channel); note for UK-based diaspora.",
+      "verification_status": "unverified",
+      "url": "https://www.dec.org.uk/appeal/venezuela-earthquake-appeal",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Coalición de 15 ONG británicas; más de £7 millones recaudados el primer día, con contrapartida del gobierno británico de hasta £2 millones."
+    },
+    {
+      "id": "eu-echo-emergency",
+      "name_en": "EU Humanitarian Aid (ECHO) — Venezuela earthquake emergency funding",
+      "name_es": "Ayuda humanitaria de la UE (ECHO) — financiamiento de emergencia",
+      "org": "European Commission — DG ECHO",
+      "org_type": "government_donor",
+      "category": "institutional_donor_funding",
+      "flow_direction": "grants_to_ngos",
+      "amount_target_usd": null,
+      "amount_committed_usd": 5900000,
+      "amount_notes": "€5M emergency release post-quake, on top of €52M allocated to Venezuela in 2026; €577M total since 2016. Store EUR as canonical.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "Channelled solely through humanitarian partners: UN agencies and international NGOs working with local partners — INGOs with ECHO framework partnership can access",
+      "compliance_notes": "Not a public donation channel; relevant as a funding source NGOs can pursue.",
+      "suggested_license_pathway": "N/A — EU institutional funding.",
+      "verification_status": "unverified",
+      "url": "https://civil-protection-humanitarian-aid.ec.europa.eu/where/latin-america-and-caribbean/venezuela_en",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "€5 millones de emergencia liberados tras los sismos, además de €52 millones asignados en 2026. Canalizado exclusivamente a través de agencias de la ONU y ONG internacionales socias."
+    },
+    {
+      "id": "imf-sdr-reconstruction",
+      "name_en": "Venezuela IMF Special Drawing Rights — reconstruction access",
+      "name_es": "Derechos Especiales de Giro del FMI — acceso para reconstrucción",
+      "org": "Government of Venezuela / IMF",
+      "org_type": "sovereign_multilateral",
+      "category": "sovereign_financing",
+      "flow_direction": "government_resource",
+      "amount_target_usd": 200000000,
+      "amount_committed_usd": null,
+      "amount_notes": "Venezuela aims to initially access $200M of its $4.5B in SDR holdings for reconstruction (Bloomberg, citing people familiar; details not public).",
+      "status": "reported",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "Government-led reconstruction",
+      "compliance_notes": "Sovereign channel — include for capital-stack completeness, flag as reported/unconfirmed.",
+      "suggested_license_pathway": "N/A — sovereign resource.",
+      "verification_status": "reported_unconfirmed",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-25/venezuela-to-tap-its-money-at-imf-for-quake-reconstruction",
+      "phase": [
+        "reconstruction"
+      ],
+      "notes_es": "Venezuela busca acceder inicialmente a USD 200 millones de sus USD 4.500 millones en DEG del FMI para la reconstrucción (reportado, no confirmado oficialmente)."
+    },
+    {
+      "id": "givedirectly-cash",
+      "name_en": "GiveDirectly Venezuela Earthquake Cash Relief",
+      "name_es": "Ayuda en efectivo de GiveDirectly por el terremoto",
+      "org": "GiveDirectly",
+      "org_type": "ingo",
+      "category": "direct_cash_transfer",
+      "flow_direction": "direct_to_beneficiaries",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Scoping cash response; targets hundreds of families initially, scalable with funding. Historically delivers cash 2-3 weeks post-disaster.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "foundations",
+        "companies"
+      ],
+      "funds_go_to": "Unconditional digital cash transfers to affected families, selected via damage and poverty data",
+      "compliance_notes": "GiveDirectly explicitly cites GL 60 as the authorization enabling it to move funds into Venezuela. US tax-deductible (EIN 27-1661997). Accepts card, ACH, PayPal, DAF, wire, stock, crypto.",
+      "suggested_license_pathway": "GL 60 — org itself cites this license publicly. Still verify scope before marking Green.",
+      "verification_status": "unverified",
+      "url": "https://www.givedirectly.org/venezuela-earthquakes",
+      "phase": [
+        "relief",
+        "recovery"
+      ],
+      "notes_es": "Transferencias de efectivo directas y sin condiciones a familias afectadas. La organización cita públicamente la Licencia General 60 como habilitante para mover fondos a Venezuela."
+    },
+    {
+      "id": "gem-ilv",
+      "name_en": "Global Empowerment Mission + I Love Venezuela earthquake response",
+      "name_es": "Respuesta de Global Empowerment Mission + I Love Venezuela",
+      "org": "Global Empowerment Mission (Doral, FL) with I Love Venezuela / We Love Foundation",
+      "org_type": "diaspora_ngo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": 35000000,
+      "amount_notes": "Initial $35M commitment in humanitarian aid and support; U.S. State Department partnership (with Walmart) for supply delivery; corporate in-kind (e.g., Goya 100,000 lbs food).",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Emergency logistics, supplies to hospitals and local NGOs, transition to long-term recovery incl. housing and schools",
+      "compliance_notes": "The flagship diaspora-institutional bridge: Miami collection points, coordination with municipalities, faith orgs, and Venezuelan diaspora groups.",
+      "suggested_license_pathway": "REVIEW — US-based 501(c)(3) operating under GL 60 window presumed; verify.",
+      "verification_status": "unverified",
+      "url": "https://www.globalempowermentmission.org/mission/venezuela-earthquakes/",
+      "phase": [
+        "relief",
+        "recovery"
+      ],
+      "notes_es": "Compromiso inicial de USD 35 millones; alianza con el Departamento de Estado de EE.UU. y Walmart. Principal puente entre la diáspora de Miami y la respuesta institucional."
+    },
+    {
+      "id": "globalgiving-fund",
+      "name_en": "GlobalGiving Venezuela Earthquake Relief Fund",
+      "name_es": "Fondo de Ayuda de GlobalGiving por el Terremoto de Venezuela",
+      "org": "GlobalGiving",
+      "org_type": "regranting_platform",
+      "category": "regranting_fund",
+      "flow_direction": "both",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Pooled fund regranting to vetted local organizations.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Local organizations — flexible, rapid funding for emergency medical care, SAR support, shelter, food, water, hygiene. KEY entry point for Venezuelan local NGOs seeking funding.",
+      "compliance_notes": "GlobalGiving performs its own partner vetting.",
+      "suggested_license_pathway": "REVIEW — US 501(c)(3) platform.",
+      "verification_status": "unverified",
+      "url": "https://www.globalgiving.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Fondo que reotorga subvenciones flexibles y rápidas a organizaciones locales — punto de entrada clave para ONG venezolanas que buscan financiamiento."
+    },
+    {
+      "id": "cdp-recovery-fund",
+      "name_en": "Center for Disaster Philanthropy — Venezuela recovery grants",
+      "name_es": "Center for Disaster Philanthropy — subvenciones de recuperación",
+      "org": "Center for Disaster Philanthropy",
+      "org_type": "grantmaker",
+      "category": "recovery_grants",
+      "flow_direction": "grants_to_ngos",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Focus on medium- to long-term recovery via partners — money arrives after the media cycle ends.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "foundations",
+        "companies"
+      ],
+      "funds_go_to": "Partner organizations for medium/long-term recovery",
+      "compliance_notes": "Relevant for NGOs planning beyond the GL 60 window.",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://disasterphilanthropy.org",
+      "phase": [
+        "recovery",
+        "reconstruction"
+      ],
+      "notes_es": "Enfocado en recuperación de mediano y largo plazo a través de socios — financiamiento que llega después del ciclo mediático."
+    },
+    {
+      "id": "irc-response",
+      "name_en": "International Rescue Committee Venezuela response",
+      "name_es": "Respuesta del International Rescue Committee",
+      "org": "IRC",
+      "org_type": "ingo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Donation-match campaign active; in Venezuela since 2021.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "foundations"
+      ],
+      "funds_go_to": "Health, nutrition, WASH, protection, food security services",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.rescue.org/article/how-help-survivors-earthquakes-venezuela",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Servicios de salud, nutrición, agua y saneamiento, protección y seguridad alimentaria; presente en Venezuela desde 2021."
+    },
+    {
+      "id": "crs-caritas",
+      "name_en": "Catholic Relief Services via Caritas Venezuela",
+      "name_es": "Catholic Relief Services a través de Cáritas Venezuela",
+      "org": "CRS / Caritas Venezuela",
+      "org_type": "faith_based_ingo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "One of the State Department's three named partner organizations (with Samaritan's Purse and World Vision).",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Emergency food, water, shelter via long-standing Caritas Venezuela network",
+      "compliance_notes": "Caritas network gives deep local parish-level reach.",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.crs.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Alimentos, agua y refugio de emergencia a través de la red de Cáritas Venezuela; socio nombrado por el Departamento de Estado de EE.UU."
+    },
+    {
+      "id": "wck-response",
+      "name_en": "World Central Kitchen Venezuela response",
+      "name_es": "Respuesta de World Central Kitchen",
+      "org": "World Central Kitchen",
+      "org_type": "ingo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": 1000000,
+      "amount_notes": "Announced initial $1M donation; working with longtime in-country partners on meals and water.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Hot meals and water in disaster zones via local partners",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://wck.org/donate",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Donación inicial de USD 1 millón; comidas calientes y agua a través de socios locales de larga data."
+    },
+    {
+      "id": "direct-relief",
+      "name_en": "Direct Relief — emergency medical aid",
+      "name_es": "Direct Relief — ayuda médica de emergencia",
+      "org": "Direct Relief",
+      "org_type": "ingo",
+      "category": "medical_relief",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Medicines for acute injuries plus chronic disease medications for disrupted routine care; responds to healthcare partner requests.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Medical aid to healthcare partners in Venezuela",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.directrelief.org/donate",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Medicamentos para lesiones agudas y enfermedades crónicas, entregados a socios de salud en Venezuela."
+    },
+    {
+      "id": "americares",
+      "name_en": "Americares — medical aid and relief supplies",
+      "name_es": "Americares — ayuda médica y suministros",
+      "org": "Americares",
+      "org_type": "ingo",
+      "category": "medical_relief",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Medicines, antibiotics, water purification, orthopedic supplies, hygiene kits; coordinating with PAHO and OCHA.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Medical aid to hardest-hit areas",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.americares.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Medicinas, antibióticos, purificación de agua y kits de higiene; coordina con la OPS y OCHA."
+    },
+    {
+      "id": "samaritans-purse",
+      "name_en": "Samaritan's Purse — Emergency Field Hospital deployment",
+      "name_es": "Samaritan's Purse — hospital de campaña de emergencia",
+      "org": "Samaritan's Purse",
+      "org_type": "faith_based_ingo",
+      "category": "medical_relief",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Airlifting Emergency Field Hospital, shelter tarps, solar lights, blankets, water filters. State Department named partner.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Field hospital operations and shelter supplies",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.samaritanspurse.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Hospital de campaña aerotransportado y suministros de refugio; socio nombrado por el Departamento de Estado."
+    },
+    {
+      "id": "alimenta-solidaridad",
+      "name_en": "Alimenta la Solidaridad — local emergency support",
+      "name_es": "Alimenta la Solidaridad — apoyo local de emergencia",
+      "org": "Alimenta la Solidaridad",
+      "org_type": "local_venezuelan_ngo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Venezuelan NGO providing food, water, equipment, and medical supplies to victims and first responders.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Direct local operations",
+      "compliance_notes": "One of the few named LOCAL orgs on GoFundMe's verified hub — model example of grassroots-to-compliant-channel routing.",
+      "suggested_license_pathway": "REVIEW — local recipient; the compliance question for foreign donors is the payment channel.",
+      "verification_status": "unverified",
+      "url": "https://www.alimentalasolidaridad.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "ONG venezolana que provee alimentos, agua, equipos y suministros médicos a víctimas y rescatistas. Ejemplo de canal local verificado."
+    },
+    {
+      "id": "aid-for-life",
+      "name_en": "Aid for Life earthquake relief fund",
+      "name_es": "Fondo de ayuda de Aid for Life",
+      "org": "Aid for Life",
+      "org_type": "diaspora_ngo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Founded 2018 for Venezuela crisis; on-ground team procures per requests from local orgs incl. UCV student rescuers, hospitals, clinics.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Direct procurement and distribution via in-country team and local partners",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://aidforlife.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Fundada en 2018 para la emergencia venezolana; equipo en terreno compra según pedidos de organizaciones locales, hospitales y clínicas."
+    },
+    {
+      "id": "hispanic-federation",
+      "name_en": "Hispanic Federation Venezuela relief",
+      "name_es": "Ayuda de Hispanic Federation para Venezuela",
+      "org": "Hispanic Federation",
+      "org_type": "diaspora_ngo",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Working with partner organizations on food, water, and emergency shelter access.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Partner organizations serving affected communities",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://www.hispanicfederation.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Trabaja con organizaciones socias para acceso a alimentos, agua y refugio de emergencia."
+    },
+    {
+      "id": "gofundme-verified-hub",
+      "name_en": "GoFundMe verified Venezuela earthquake fundraisers hub",
+      "name_es": "Centro de campañas verificadas de GoFundMe",
+      "org": "GoFundMe",
+      "org_type": "crowdfunding_platform",
+      "category": "verified_crowdfunding_directory",
+      "flow_direction": "directory",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Platform-level hub; each listed fundraiser passes enhanced Trust & Safety due diligence including compliance with evolving regulations and payment-partner policies.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Individual verified fundraisers (families, communities) + featured org campaigns (WCK, WFP)",
+      "compliance_notes": "IMPORTANT: link to the HUB, not individual campaigns — GoFundMe's own vetting does the trust work, keeping curation liability at the platform level. GoFundMe explicitly flags that diaspora direct-transfer fundraisers must comply with international law and payment-partner rules.",
+      "suggested_license_pathway": "Platform handles vetting; the Navigator's role is routing + the money-movement guidance layer for organizers.",
+      "verification_status": "platform_vetted",
+      "url": "https://www.gofundme.com/c/act/venezuela-earthquake-relief",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Cada campaña listada pasa por debida diligencia reforzada de GoFundMe. Enlazar al centro verificado, no a campañas individuales."
+    },
+    {
+      "id": "airlink-logistics",
+      "name_en": "Airlink — airlift support for responding NGOs",
+      "name_es": "Airlink — transporte aéreo para ONG",
+      "org": "Airlink",
+      "org_type": "logistics_ngo",
+      "category": "in_kind_logistics",
+      "flow_direction": "grants_to_ngos",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Donated and low-cost airlift for 20+ nonprofit partners moving responders and supplies to Venezuela.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Air transport for nonprofit responders — an in-kind resource NGOs can APPLY for",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW.",
+      "verification_status": "unverified",
+      "url": "https://airlinkflight.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Transporte aéreo donado o de bajo costo para más de 20 ONG — recurso en especie que las organizaciones pueden solicitar."
+    },
+    {
+      "id": "wfp-food",
+      "name_en": "World Food Programme Venezuela earthquake food assistance",
+      "name_es": "Asistencia alimentaria del PMA",
+      "org": "WFP",
+      "org_type": "un_agency",
+      "category": "relief_operations",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Expanding food assistance — hot meals and ready-to-eat rations, mainly La Guaira; 5,000 people reached in first week. Featured on GoFundMe hub.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "governments"
+      ],
+      "funds_go_to": "Food assistance in support of government-led response",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW — UN agency.",
+      "verification_status": "unverified",
+      "url": "https://www.wfp.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Comidas calientes y raciones listas para consumir, principalmente en La Guaira."
+    },
+    {
+      "id": "cuatro-por-venezuela",
+      "name_en": "Cuatro Por Venezuela Foundation earthquake response",
+      "name_es": "Respuesta al terremoto de Cuatro Por Venezuela Foundation",
+      "org": "Cuatro Por Venezuela Foundation",
+      "org_type": "community_fund",
+      "category": "community_organized_fund",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Founded 2016 by four Venezuelan women in Houston; delivers medical supplies, food and education programs through partner networks inside Venezuela.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies",
+        "foundations"
+      ],
+      "funds_go_to": "Medical supplies, nutrition and education programs delivered via vetted partner networks inside Venezuela",
+      "compliance_notes": "US 501(c)(3), EIN 81-4622309. Charity Navigator Four-Star charity, 95% score.",
+      "suggested_license_pathway": "REVIEW — US-person donations for earthquake relief may fall under GL 60 (expires 2026-10-23); confirm before contributing.",
+      "verification_status": "unverified",
+      "url": "https://cuatroporvenezuela.org",
+      "phase": [
+        "relief",
+        "rehabilitation"
+      ],
+      "notes_es": "Fundada en 2016 por cuatro mujeres venezolanas en Houston. 501(c)(3) con calificación Cuatro Estrellas (95%) de Charity Navigator. Entrega insumos médicos, alimentos y programas educativos mediante redes de aliados dentro de Venezuela."
+    },
+    {
+      "id": "healing-venezuela",
+      "name_en": "Healing Venezuela earthquake medical response",
+      "name_es": "Respuesta médica al terremoto de Healing Venezuela",
+      "org": "Healing Venezuela",
+      "org_type": "community_fund",
+      "category": "community_organized_fund",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Started 2014-2016 by a small group of Venezuelans living in the UK; raising funds for medical supplies for first responders and hospitals after the 2026 earthquakes.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies"
+      ],
+      "funds_go_to": "Medical supplies and equipment shipped to first responders and hospitals in affected areas; medical staff support",
+      "compliance_notes": "UK registered charity no. 1170709 (Charity Commission for England & Wales); also registered as a US 501(c)(3). Member of the UK Fundraising Regulator directory.",
+      "suggested_license_pathway": "REVIEW — UK charity; US-person donations for earthquake relief may fall under GL 60 (expires 2026-10-23).",
+      "verification_status": "unverified",
+      "url": "https://healingvenezuela.org",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Organización benéfica registrada en el Reino Unido (n.º 1170709) y como 501(c)(3) en EE. UU., creada por venezolanos en Londres. Recauda fondos para insumos médicos destinados a socorristas y hospitales tras los terremotos de 2026."
+    },
+    {
+      "id": "chamos-emergency-response",
+      "name_en": "Chamos earthquake emergency response",
+      "name_es": "Respuesta de emergencia al terremoto de Chamos",
+      "org": "Chamos",
+      "org_type": "community_fund",
+      "category": "community_organized_fund",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Venezuelan diaspora charity with 19+ years on the ground; activated within hours of the June 24 quakes — LifeStraw water filters, baby formula, therapeutic food, medicines, hygiene kits; rebuilding damaged schools and community spaces.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals",
+        "companies",
+        "foundations"
+      ],
+      "funds_go_to": "Water filtration, child nutrition, medicines and hygiene kits for children and families; assessment and reconstruction of damaged schools",
+      "compliance_notes": "UK-registered Venezuelan diaspora charity. Earthquake project hosted and vetted on GlobalGiving (partner due-diligence applies).",
+      "suggested_license_pathway": "REVIEW — donations for earthquake relief may fall under GL 60 (expires 2026-10-23); school reconstruction phase needs separate analysis.",
+      "verification_status": "platform_vetted",
+      "url": "https://www.globalgiving.org/projects/chamos-emergency-response/",
+      "phase": [
+        "relief",
+        "reconstruction"
+      ],
+      "notes_es": "Organización de la diáspora venezolana registrada en el Reino Unido, con más de 19 años en terreno. Activó su respuesta a horas de los sismos: filtros de agua, fórmula infantil, alimentos terapéuticos, medicinas y kits de higiene; además reconstruye escuelas dañadas. Proyecto verificado en GlobalGiving."
+    },
+    {
+      "id": "un-dolar-por-venezuela",
+      "name_en": "Un Dólar Por Venezuela — $1 community campaign",
+      "name_es": "Un Dólar Por Venezuela — campaña comunitaria de $1",
+      "org": "Un Dólar Por Venezuela",
+      "org_type": "community_fund",
+      "category": "community_organized_fund",
+      "flow_direction": "accepts_contributions",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Grassroots micro-donation campaign: states 100% of each dollar collected goes directly to three verified non-profits actively responding to the earthquake.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [
+        "individuals"
+      ],
+      "funds_go_to": "Regranted in full to three verified non-profit organizations responding to the earthquake",
+      "compliance_notes": "Community-organized regranting campaign; the named recipient non-profits carry their own accreditation. Confirm the current recipient list on the campaign page before giving.",
+      "suggested_license_pathway": "REVIEW — pass-through to US non-profits; end-use should fall under GL 60 (expires 2026-10-23) but verify recipients.",
+      "verification_status": "reported_unconfirmed",
+      "url": "https://www.undolarporvenezuela.com/",
+      "phase": [
+        "relief"
+      ],
+      "notes_es": "Campaña comunitaria de microdonaciones: declara que el 100% de cada dólar va directamente a tres organizaciones sin fines de lucro verificadas que responden al terremoto. Confirme la lista de receptores en la página antes de donar."
+    },
+    {
+      "id": "ocha-revised-plan",
+      "name_en": "OCHA Revised Response Plan (forthcoming)",
+      "name_es": "Plan de Respuesta Revisado de OCHA (próximo)",
+      "org": "UN OCHA",
+      "org_type": "un_coordination",
+      "category": "coordinated_appeal_pipeline",
+      "flow_direction": "pipeline",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "Rapid Needs Assessment underway to inform a revised response plan launching the week of July 6, 2026. Expect a consolidated funding requirement — the single most important upcoming number for the Navigator.",
+      "status": "pipeline",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "TBD — will define sector requirements and partner allocations",
+      "compliance_notes": "Track FTS for the appeal code once launched; auto-update Capital Stack from FTS API.",
+      "suggested_license_pathway": "N/A yet.",
+      "verification_status": "pipeline",
+      "url": "https://www.unocha.org/venezuela",
+      "phase": [
+        "relief",
+        "recovery"
+      ],
+      "notes_es": "Plan de respuesta revisado se lanza la semana del 6 de julio — la cifra consolidada más importante por venir. Monitorear FTS."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "License_ID": "GL 60",
+    "Status": "Active",
+    "Expiration_Date": "2026-10-23",
+    "Authorized_Activities": [
+      "Hospital Repair",
+      "Hospital Stabilization",
+      "Rubble Removal",
+      "Water Sanitation",
+      "Humanitarian Aid"
+    ],
+    "Excluded_Entities": "PdVSA, Minerven, and any person blocked solely pursuant to E.O. 13850",
+    "Source_URL": "https://ofac.treasury.gov/recent-actions/20260625_33",
+    "Content_Hash": "seed-gl60",
+    "Raw_Snippet": "Venezuela-related General License 60 authorizes certain transactions related to earthquake relief and reconstruction activities through October 23, 2026.",
+    "Human_Verified": true
+  },
+  {
+    "License_ID": "GL 56",
+    "Status": "Active",
+    "Expiration_Date": null,
+    "Authorized_Activities": [
+      "Humanitarian Aid",
+      "Hospital Stabilization",
+      "Water Sanitation"
+    ],
+    "Excluded_Entities": "Requires specific license application for transactions involving certain Government of Venezuela entities",
+    "Source_URL": "https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions",
+    "Content_Hash": "seed-gl56",
+    "Raw_Snippet": "GL 56 authorizes certain humanitarian-related transactions involving Venezuela, subject to specific caveats and application requirements.",
+    "Human_Verified": true
+  },
+  {
+    "License_ID": "GL 46C",
+    "Status": "Expired",
+    "Expiration_Date": "2024-11-15",
+    "Authorized_Activities": [
+      "Oil Extraction",
+      "Energy Restoration"
+    ],
+    "Excluded_Entities": "PdVSA and related entities remain restricted outside narrow authorizations",
+    "Source_URL": "https://ofac.treasury.gov/recent-actions",
+    "Content_Hash": "seed-gl46c",
+    "Raw_Snippet": "GL 46C previously authorized limited energy-sector transactions; authorization has expired.",
+    "Human_Verified": true
+  }
+]

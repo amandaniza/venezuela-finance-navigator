@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+data/raw/
+data/state/
+data/extracted/
+data/seed/local_db.json
+data/navigator.db
+*.log
+.streamlit/secrets.toml
+.gstack/
+.claude/
