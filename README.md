@@ -4,6 +4,10 @@ Bilingual intelligence dashboard that maps earthquake relief and reconstruction
 capital to active U.S. OFAC General Licenses, enabling rapid, compliant
 deployment of funds in Venezuela.
 
+> **Maintaining the site?** See [EDITING_GUIDE.md](EDITING_GUIDE.md) — how to
+> add/edit funding sources, footer contacts, and site text, and how to publish
+> changes. Questions: amandanizagm@gmail.com
+
 **Personas**
 
 - **Capital Provider (D.C.)** — verify whether a funding tranche falls under an
@@ -97,6 +101,18 @@ pipeline/
 scripts/seed_demo.py    # demo data loader
 data/seed/              # seed JSON + local_db.json
 ```
+
+## Deploying publicly (Streamlit Community Cloud)
+
+1. Push this repo to GitHub (public).
+2. At https://share.streamlit.io → **New app** → pick the repo, branch `main`,
+   main file `app.py`.
+3. Done — the app self-seeds on first boot (directory from
+   `navigator_funding_seed.json`, licenses/pathways demo seed, live flows from
+   the public UNOCHA FTS API). No secrets are required for the public site;
+   API keys in `.env` are only needed for the ingestion pipeline.
+
+Every `git push` to `main` redeploys automatically.
 
 ## Compliance notice
 
