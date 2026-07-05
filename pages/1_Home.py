@@ -13,16 +13,9 @@ from html import escape
 import streamlit as st
 
 import config
+import data_cache
 import layout as L
-from database import (
-    fetch_funding_sources,
-    fetch_licenses,
-    fetch_public_funds,
-    fetch_verified_pathways,
-    init_db,
-)
 
-init_db()
 c = L.Ctx("home")
 
 # --- Redirect legacy deep links to their new home ---
@@ -33,11 +26,11 @@ if c.pathway:
     st.query_params["pathway"] = c.pathway
     st.switch_page("pages/3_Pathways.py")
 
-# --- Live data for metrics + teasers ---
-licenses = fetch_licenses()
-pathways = fetch_verified_pathways()
-funds = fetch_public_funds()
-sources = fetch_funding_sources()
+# --- Live data for metrics + teasers (cached reads — see data_cache.py) ---
+licenses = data_cache.licenses()
+pathways = data_cache.verified_pathways()
+funds = data_cache.public_funds()
+sources = data_cache.funding_sources()
 
 tracked_usd = sum(f.get("amount_usd") or 0 for f in funds)
 active_licenses = sum(1 for lic in licenses if (lic.get("status") or "").lower() == "active")

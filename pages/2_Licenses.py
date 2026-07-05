@@ -4,12 +4,11 @@ from __future__ import annotations
 
 from html import escape
 
+import data_cache
 import layout as L
-from database import fetch_licenses, init_db
 
-init_db()
 c = L.Ctx("licenses")
-licenses = fetch_licenses()
+licenses = data_cache.licenses()
 
 
 def _license_card(lic: dict) -> str:
@@ -77,8 +76,7 @@ else:
     grid = f'<p style="font-size:14px;color:{L.MUTE};">{escape(c.t("lic_none"))}</p>'
 
 body = (
-    L.breadcrumb(c)
-    + '<section style="padding:24px 48px 64px;">'
+    '<section style="padding:24px 48px 64px;">'
     '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;">'
     f'<span style="color:{L.RED};">OFAC</span> {escape(c.t("nav_licenses"))}</div>'
     f'<p style="margin:12px 0 28px;font-size:15px;color:{L.MUTE};max-width:640px;'

@@ -54,8 +54,7 @@ blocks = (
 )
 
 body = (
-    L.breadcrumb(c)
-    + '<section style="padding:24px 48px 64px;">'
+    '<section style="padding:24px 48px 64px;">'
     '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;margin-bottom:12px;">'
     f'{escape(c.t("nav_about"))}</div>'
     f'<p style="margin:0 0 32px;font-size:16px;color:{L.MUTE};max-width:720px;'

@@ -80,8 +80,15 @@ elif "lang" not in st.session_state:
     st.session_state.lang = DEFAULT_LANG
 
 
+# Persist the admin session like the language: st.page_link navigation is
+# client-side and drops query params, so ?auth=admin must survive in state.
+_auth = _query_value("auth")
+if _auth:
+    st.session_state.auth = _auth
+
+
 def _is_admin() -> bool:
-    return _query_value("auth") == ADMIN_TOKEN
+    return ADMIN_TOKEN in (_query_value("auth"), st.session_state.get("auth"))
 
 
 home = st.Page("pages/1_Home.py", title="Home", icon="🏠", default=True)

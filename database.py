@@ -126,13 +126,26 @@ def _migrate(conn: sqlite3.Connection) -> None:
             conn.execute(f"ALTER TABLE funds_tb ADD COLUMN {name} {decl}")
 
 
+# DB paths already initialized in this process. init_db is called by every
+# fetch and every page render; running the DDL + migration on each call adds
+# measurable latency to every rerun, so it executes once per path per process.
+_INITIALIZED: set[str] = set()
+
+
 def init_db(db_path: Path | None = None) -> Path:
-    """Create tables if they do not exist, then apply migrations. Returns path."""
+    """Create tables if they do not exist, then apply migrations. Returns path.
+
+    Idempotent and cached: the schema script runs once per process per path.
+    """
     path = db_path or DB_PATH
+    key = str(path)
+    if key in _INITIALIZED and path.exists():
+        return path
     with get_connection(path) as conn:
         conn.executescript(SCHEMA_SQL)
         _migrate(conn)
         conn.commit()
+    _INITIALIZED.add(key)
     return path
 
 

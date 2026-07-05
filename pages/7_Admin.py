@@ -7,6 +7,7 @@ from html import escape
 import pandas as pd
 import streamlit as st
 
+import data_cache
 from database import fetch_pathways_for_admin, init_db, update_pathways_batch
 from i18n.strings import t
 
@@ -101,5 +102,6 @@ if st.button(t("admin_save"), type="primary"):
         for _, row in edited.iterrows()
     ]
     updated = update_pathways_batch(payload)
+    data_cache.clear()  # verdict changes must show on public pages immediately
     st.success(t("admin_saved", count=updated))
     st.rerun()

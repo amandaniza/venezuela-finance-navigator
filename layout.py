@@ -884,7 +884,9 @@ class Ctx:
         self.active = active
         self.lang = _get_lang()
         self.bundle = STRINGS[self.lang]
-        self.auth = self._q("auth")
+        # SPA page_link navigation drops query params — fall back to the
+        # session copy (set in app.py) so the admin session survives.
+        self.auth = self._q("auth") or st.session_state.get("auth")
         self.cap = self._q("cap")           # capital-stack type filter
         self.fd = self._q("fd")             # directory money direction
         self.ph = self._q("ph")             # directory phase
@@ -969,42 +971,8 @@ def _flag_stripe(height: int = 5, radius: int = 0) -> str:
     )
 
 
-def _header(c: Ctx, active: str) -> str:
-    # ES/EN toggle: self-link to the current page with the language swapped, so
-    # the user stays on the same page when switching language.
-    es_active = c.lang == "es"
-    es_bg, es_col = (BLUE, "#FFF") if es_active else ("transparent", MUTE)
-    en_bg, en_col = (BLUE, "#FFF") if not es_active else ("transparent", MUTE)
-    toggle = (
-        '<div style="display:flex;border:1px solid #D8D5CC;border-radius:999px;'
-        'overflow:hidden;">'
-        f'<a href="{c.href(lang="es")}" style="text-decoration:none;padding:6px 14px;'
-        f'font-size:12px;font-weight:700;background:{es_bg};color:{es_col};">ES</a>'
-        f'<a href="{c.href(lang="en")}" style="text-decoration:none;padding:6px 14px;'
-        f'font-size:12px;font-weight:700;background:{en_bg};color:{en_col};">EN</a>'
-        "</div>"
-    )
-    logo = (
-        f'<a href="{c.page_url("home")}" style="text-decoration:none;display:flex;'
-        'align-items:center;gap:12px;">'
-        f'<div style="width:34px;height:34px;border-radius:8px;background:'
-        f'linear-gradient(180deg,{YELLOW} 0 33%,{BLUE} 33% 66%,{RED} 66% 100%);'
-        'flex:none;"></div>'
-        f'<div style="font-weight:800;font-size:16px;letter-spacing:-0.01em;'
-        f'color:{BLUE};">Reconstruction Finance '
-        f'<span style="color:{RED};">Navigator</span></div></a>'
-    )
-    nav_items = "".join(
-        c.nav_link(slug, c.t(key), active=(slug == active))
-        for slug, key in HEADER_NAV
-    )
-    return (
-        '<header style="display:flex;align-items:center;justify-content:space-between;'
-        'padding:18px 48px;border-bottom:1px solid #E7E5DF;flex-wrap:wrap;gap:16px;">'
-        f"{logo}"
-        '<nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">'
-        f"{nav_items}{toggle}</nav></header>"
-    )
+# (The old HTML _header was replaced by _render_header — widget-based nav with
+# client-side page transitions. See the "Page" section near the bottom.)
 
 
 def _hero(c: Ctx) -> str:
@@ -1462,27 +1430,17 @@ def _match_directory(fund: dict, known: set[str]) -> str | None:
     return None
 
 
+def capital_filter_options(c: Ctx, funds: list[dict]) -> list[tuple[str, object]]:
+    """Options for the capital-type pills widget (rendered by the page)."""
+    present = [ct for ct in CAPITAL_TYPES if any(f.get("capital_type") == ct for f in funds)]
+    return [(c.t("cap_all"), None)] + [
+        (_localize_capital(ct, c.lang), ct) for ct in present
+    ]
+
+
 def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = None) -> str:
     known_sources = known_sources or set()
-    # Capital-type filter pills (query-param links).
-    present_types = [ct for ct in CAPITAL_TYPES if any(f.get("capital_type") == ct for f in funds)]
-    pill_links = [(c.t("cap_all"), None)] + [
-        (_localize_capital(ct, c.lang), ct) for ct in present_types
-    ]
-    pills = []
-    for label, value in pill_links:
-        active = (c.cap or None) == value
-        bg = BLUE if active else "transparent"
-        color = "#FFF" if active else INK
-        pills.append(
-            f'<a href="{c.href(cap=value)}" style="text-decoration:none;'
-            'border:1px solid #D8D5CC;border-radius:999px;padding:7px 14px;'
-            f'font-size:12.5px;font-weight:600;background:{bg};color:{color};">'
-            f'{escape(label)}</a>'
-        )
-    pill_row = f'<div style="display:flex;flex-wrap:wrap;gap:8px;">{"".join(pills)}</div>'
-
-    # Filter + sort funds.
+    # Filter + sort funds (the capital-type pills are a widget on the page).
     shown = [f for f in funds if not c.cap or f.get("capital_type") == c.cap]
     shown.sort(key=lambda f: (f.get("amount_usd") or 0), reverse=True)
     total = sum(f.get("amount_usd") or 0 for f in funds)
@@ -1504,10 +1462,7 @@ def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = N
         f'{escape(c.t("stack_total", total="≈" + _fmt_usd(total), count=len(funds)))}</div>'
         f'<div style="font-size:12px;color:#9CA3AF;margin-bottom:14px;">'
         f'{escape(c.t("context_estimate"))}: '
-        f'~{_fmt_scaled(config.UN_RECONSTRUCTION_ESTIMATE_USD, "$")}</div>'
-        f'<div style="font-size:13px;font-weight:600;color:{INK};margin:18px 0 10px;">'
-        f'{escape(c.t("explore_capital"))}</div>'
-        f'{pill_row}</div>'
+        f'~{_fmt_scaled(config.UN_RECONSTRUCTION_ESTIMATE_USD, "$")}</div></div>'
     )
 
     if not shown:
@@ -1733,28 +1688,32 @@ def _directory_card(c: Ctx, s: dict) -> str:
     )
 
 
-def _filter_row(c: Ctx, param: str, label: str, options: list[tuple[str, object]]) -> str:
-    current = getattr(c, param) or None
-    pills = []
-    for opt_label, value in options:
-        active = current == value or (value is None and current is None)
-        bg = BLUE if active else "transparent"
-        color = "#FFF" if active else INK
-        pills.append(
-            f'<a href="{c.filter_href(**{param: value})}" style="text-decoration:none;'
-            'border:1px solid #D8D5CC;border-radius:999px;padding:6px 13px;'
-            f'font-size:12px;font-weight:600;background:{bg};color:{color};">'
-            f'{escape(opt_label)}</a>'
-        )
-    return (
-        '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;">'
-        f'<span style="font-size:11px;font-weight:700;letter-spacing:0.06em;'
-        f'text-transform:uppercase;color:#9CA3AF;margin-right:6px;">{escape(label)}</span>'
-        f'{"".join(pills)}</div>'
-    )
+def directory_filter_defs(c: Ctx) -> dict[str, tuple[str, list[tuple[str, object]]]]:
+    """Filter rows for the Directory: param -> (label key, [(label, value)])."""
+    return {
+        "fd": ("dir_filter_flow", [
+            (c.t("dir_flow_all"), None),
+            (c.t("dir_flow_give"), "give"),
+            (c.t("dir_flow_apply"), "apply"),
+        ]),
+        "ph": ("dir_filter_phase", [
+            (c.t("dir_phase_all"), None),
+            (c.t("phase_relief"), "relief"),
+            (c.t("phase_recovery"), "recovery"),
+            (c.t("phase_reconstruction"), "reconstruction"),
+        ]),
+        "ot": ("dir_filter_layer", [
+            (c.t("layer_all"), None),
+            (c.t("layer_institutional"), "institutional"),
+            (c.t("layer_ngo"), "ngo"),
+            (c.t("layer_diaspora"), "diaspora"),
+            (c.t("layer_community"), "community"),
+            (c.t("layer_platform"), "platform"),
+        ]),
+    }
 
 
-def _directory_section(c: Ctx, sources: list[dict]) -> str:
+def apply_directory_filters(c: Ctx, sources: list[dict]) -> list[dict]:
     def flow_ok(s: dict) -> bool:
         if c.fd == "give":
             return s["flow_direction"] in FLOW_GIVE
@@ -1775,44 +1734,31 @@ def _directory_section(c: Ctx, sources: list[dict]) -> str:
     shown = [s for s in sources if flow_ok(s) and phase_ok(s) and layer_ok(s)]
     # OCHA pipeline slot always first — the "obvious slot" for the July-6 plan.
     shown.sort(key=lambda s: (s["verification_status"] != "pipeline",))
+    return shown
 
-    filters = (
-        _filter_row(c, "fd", c.t("dir_filter_flow"), [
-            (c.t("dir_flow_all"), None),
-            (c.t("dir_flow_give"), "give"),
-            (c.t("dir_flow_apply"), "apply"),
-        ])
-        + _filter_row(c, "ph", c.t("dir_filter_phase"), [
-            (c.t("dir_phase_all"), None),
-            (c.t("phase_relief"), "relief"),
-            (c.t("phase_recovery"), "recovery"),
-            (c.t("phase_reconstruction"), "reconstruction"),
-        ])
-        + _filter_row(c, "ot", c.t("dir_filter_layer"), [
-            (c.t("layer_all"), None),
-            (c.t("layer_institutional"), "institutional"),
-            (c.t("layer_ngo"), "ngo"),
-            (c.t("layer_diaspora"), "diaspora"),
-            (c.t("layer_community"), "community"),
-            (c.t("layer_platform"), "platform"),
-        ])
-    )
 
-    if shown:
-        cards = "".join(_directory_card(c, s) for s in shown)
-        grid = f'<div style="display:flex;flex-wrap:wrap;gap:18px;">{cards}</div>'
-    else:
-        grid = f'<p style="font-size:14px;color:{MUTE};">{escape(c.t("dir_none"))}</p>'
-
+def _directory_intro(c: Ctx, total: int) -> str:
     header = (
         '<div style="font-size:28px;font-weight:800;letter-spacing:-0.01em;margin-bottom:6px;">'
         f'<span style="color:{RED};">{escape(c.t("dir_kicker"))}</span> '
         f'{escape(c.t("dir_heading"))}</div>'
         f'<p style="margin:0 0 6px;font-size:14.5px;color:{MUTE};max-width:680px;'
-        f'line-height:1.55;">{escape(c.t("dir_intro", count=len(sources)))}</p>'
-        f'<p style="margin:0 0 22px;font-size:12.5px;color:#9CA3AF;max-width:680px;'
+        f'line-height:1.55;">{escape(c.t("dir_intro", count=total))}</p>'
+        f'<p style="margin:0 0 4px;font-size:12.5px;color:#9CA3AF;max-width:680px;'
         f'line-height:1.5;">{escape(c.t("dir_review_note"))}</p>'
     )
+    return (
+        '<section id="directory" style="padding:64px 48px 10px;background:#FBFAF7;'
+        f'scroll-margin-top:70px;">{header}</section>'
+    )
+
+
+def _directory_grid(c: Ctx, sources: list[dict], shown: list[dict]) -> str:
+    if shown:
+        cards = "".join(_directory_card(c, s) for s in shown)
+        grid = f'<div style="display:flex;flex-wrap:wrap;gap:18px;">{cards}</div>'
+    else:
+        grid = f'<p style="font-size:14px;color:{MUTE};">{escape(c.t("dir_none"))}</p>'
     footer = (
         f'<p style="margin:18px 0 0;font-size:12.5px;color:#9CA3AF;">'
         f'{escape(c.t("dir_count", count=len(shown), total=len(sources)))} · '
@@ -1820,9 +1766,8 @@ def _directory_section(c: Ctx, sources: list[dict]) -> str:
         f'text-decoration:none;">{escape(c.t("dir_suggest"))}</a></p>'
     )
     return (
-        '<section id="directory" style="padding:64px 48px;background:#FBFAF7;'
-        'scroll-margin-top:70px;">'
-        f"{header}{filters}{grid}{footer}</section>"
+        '<section style="padding:8px 48px 64px;background:#FBFAF7;">'
+        f"{grid}{footer}</section>"
     )
 
 
@@ -2021,29 +1966,181 @@ html, body, [class*="css"], .stApp, .stMarkdown, p, span, div, h1, h2, h3, a, bu
 a {color:inherit;}
 a.row-link:hover {background:#FBFAF7 !important;}
 section[id] {scroll-margin-top:70px;}
+
+/* --- Widget chrome (SPA nav header, breadcrumb, filter pills) --- */
+/* Stack html blocks + widget rows flush, like one continuous document. */
+[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {gap:0 !important;}
+.st-key-navhdr {padding:15px 48px;border-bottom:1px solid #E7E5DF;background:#FFF;}
+.st-key-navhdr [data-testid="stPageLink-NavLink"] {padding:0;background:transparent;}
+.st-key-navhdr [data-testid="stPageLink-NavLink"] p
+  {font-size:13px;font-weight:600;color:#5B6472;white-space:nowrap;}
+.st-key-navhdr [data-testid="stPageLink-NavLink"]:hover p {color:#12172B;}
+.st-key-navhdr [data-testid="stPageLink-NavLink"][aria-current="page"] p
+  {color:#12172B;font-weight:700;border-bottom:2px solid #CF142B;padding-bottom:2px;}
+.st-key-navhdr [data-testid="stButtonGroup"]
+  {border:1px solid #D8D5CC;border-radius:999px;padding:2px;width:fit-content;
+   margin-left:auto;}
+.st-key-navhdr [data-testid="stButtonGroup"] button
+  {border:none;border-radius:999px;padding:2px 12px;min-height:26px;
+   font-size:12px;font-weight:700;color:#5B6472;background:transparent;}
+.st-key-navhdr [data-testid="stButtonGroup"] button[aria-checked="true"],
+.st-key-navhdr [data-testid="stButtonGroup"] button[kind$="Active"]
+  {background:#00247D !important;color:#FFF !important;}
+.st-key-navhdr [data-testid="stButtonGroup"] button p {font-size:12px;font-weight:700;}
+.st-key-crumb {padding:16px 48px 0;}
+.st-key-crumb [data-testid="stPageLink-NavLink"] {padding:0;background:transparent;}
+.st-key-crumb [data-testid="stPageLink-NavLink"] p
+  {font-size:13px;font-weight:700;color:#00247D;}
+.st-key-dirfilters {background:#FBFAF7;padding:0 48px 14px;}
+.st-key-capfilters {padding:2px 48px 8px;}
+.st-key-pwfilter {padding:0 48px 10px;}
+.st-key-dirfilters [data-testid="stWidgetLabel"] p,
+.st-key-capfilters [data-testid="stWidgetLabel"] p
+  {font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+   color:#9CA3AF;}
+.st-key-dirfilters [data-testid="stButtonGroup"] button,
+.st-key-capfilters [data-testid="stButtonGroup"] button
+  {border:1px solid #D8D5CC;border-radius:999px;padding:3px 13px;min-height:28px;
+   font-size:12px;font-weight:600;color:#12172B;background:transparent;}
+.st-key-dirfilters [data-testid="stButtonGroup"] button[aria-checked="true"],
+.st-key-dirfilters [data-testid="stButtonGroup"] button[kind$="Active"],
+.st-key-capfilters [data-testid="stButtonGroup"] button[aria-checked="true"],
+.st-key-capfilters [data-testid="stButtonGroup"] button[kind$="Active"]
+  {background:#00247D !important;color:#FFF !important;border-color:#00247D !important;}
+.st-key-dirfilters [data-testid="stButtonGroup"] button p,
+.st-key-capfilters [data-testid="stButtonGroup"] button p {font-size:12px;}
+.st-key-pwfilter button
+  {border:1px solid #D8D5CC;border-radius:999px;padding:3px 14px;min-height:28px;
+   font-size:12px;font-weight:700;color:#00247D;background:transparent;}
 </style>
 """
 
 
-def render_page(c: Ctx, active: str, body: str) -> None:
-    """Wrap a page body in shared chrome (flag stripe + header + footer)."""
+# st.page_link targets (must match the st.Page registrations in app.py).
+PAGE_FILES = {
+    "home": "pages/1_Home.py",
+    "licenses": "pages/2_Licenses.py",
+    "pathways": "pages/3_Pathways.py",
+    "directory": "pages/4_Directory.py",
+    "capital": "pages/5_Capital_Stack.py",
+    "about": "pages/6_About.py",
+}
+
+
+def _logo_html(c: Ctx) -> str:
+    return (
+        f'<a href="{c.page_url("home")}" style="text-decoration:none;display:flex;'
+        'align-items:center;gap:12px;">'
+        f'<div style="width:34px;height:34px;border-radius:8px;background:'
+        f'linear-gradient(180deg,{YELLOW} 0 33%,{BLUE} 33% 66%,{RED} 66% 100%);'
+        'flex:none;"></div>'
+        f'<div style="font-weight:800;font-size:16px;letter-spacing:-0.01em;'
+        f'color:{BLUE};white-space:nowrap;">Reconstruction Finance '
+        f'<span style="color:{RED};">Navigator</span></div></a>'
+    )
+
+
+def _render_header(c: Ctx, active: str) -> None:
+    """Header row: HTML logo + st.page_link nav + language segmented control.
+
+    page_link navigation is handled client-side by Streamlit's router (no
+    browser reload); the language toggle reruns over the websocket. Query
+    params drop on SPA navigation, so lang/auth persist in session_state
+    (see app.py) and Ctx falls back to them.
+    """
+    # This Streamlit build doesn't stamp aria-current on page links, so mark
+    # the active page by its (relative) href instead.
+    active_href = PAGE_SLUGS.get(active)
+    if active_href:
+        st.markdown(
+            f'<style>.st-key-navhdr a[data-testid="stPageLink-NavLink"]'
+            f'[href="{active_href}"] p {{color:{INK} !important;font-weight:700;'
+            f'border-bottom:2px solid {RED};padding-bottom:2px;}}</style>',
+            unsafe_allow_html=True,
+        )
+    with st.container(key="navhdr"):
+        cols = st.columns(
+            [2.6, 1.2, 0.75, 0.7, 0.75, 0.95, 1.0],
+            vertical_alignment="center",
+        )
+        with cols[0]:
+            st.html(_logo_html(c))
+        for col, (slug, label_key) in zip(cols[2:6], HEADER_NAV):
+            with col:
+                st.page_link(PAGE_FILES[slug], label=c.t(label_key))
+        with cols[6]:
+            sel = st.segmented_control(
+                "lang",
+                ["ES", "EN"],
+                default=("ES" if c.lang == "es" else "EN"),
+                key="lang_sel",
+                label_visibility="collapsed",
+            )
+            new_lang = {"ES": "es", "EN": "en"}.get(sel or "", c.lang)
+            if new_lang != c.lang:
+                st.session_state.lang = new_lang
+                st.query_params["lang"] = new_lang
+                c.lang = new_lang
+                st.rerun()
+
+
+def render_shell(c: Ctx, active: str) -> None:
+    """Top chrome: CSS + flag stripe + widget header (+ breadcrumb off Home)."""
     init_db()
     # Keep session + i18n in sync with the query param for the Admin page.
     st.session_state.lang = c.lang
-    shell = (
+    # CSS via st.markdown (st.html strips <style> blocks); page HTML via
+    # st.html, because Streamlit's markdown renderer forces every link to open
+    # in a new tab while st.html leaves anchors alone — same-tab navigation.
+    st.markdown(_BASE_CSS, unsafe_allow_html=True)
+    st.html(_flag_stripe())
+    _render_header(c, active)
+    if active != "home":
+        with st.container(key="crumb"):
+            st.page_link(PAGE_FILES["home"], label=c.t("crumb_home"))
+
+
+def render_footer(c: Ctx) -> None:
+    st.html(_footer(c))
+
+
+def render_body(body: str) -> None:
+    """One full-bleed HTML chunk of the page, styled like the original shell."""
+    st.html(
         '<div style="font-family:\'Open Sans\',Helvetica,Arial,sans-serif;'
         f'color:{INK};background:#FFF;width:100%;overflow-x:hidden;">'
-        + _flag_stripe()
-        + _header(c, active)
         + body
-        + _footer(c)
         + "</div>"
     )
-    # CSS via st.markdown (st.html strips <style> blocks); body via st.html,
-    # because Streamlit's markdown renderer forces every link to open in a new
-    # tab while st.html leaves anchors alone — navigation stays in the same tab.
-    st.markdown(_BASE_CSS, unsafe_allow_html=True)
-    st.html(shell)
+
+
+def render_page(c: Ctx, active: str, body: str) -> None:
+    """Single-chunk page: shell + body + footer (pages without widgets)."""
+    render_shell(c, active)
+    render_body(body)
+    render_footer(c)
+
+
+def pills_filter(
+    c: Ctx, param: str, label_key: str, options: list[tuple[str, object]]
+) -> object:
+    """One filter row as st.pills, two-way synced with its query param.
+
+    Clicking reruns over the websocket (no page reload) and the URL keeps the
+    param so filtered views stay shareable. Returns the selected value.
+    """
+    labels = [lbl for lbl, _v in options]
+    by_label = dict(options)
+    cur = getattr(c, param, None)
+    default = next((lbl for lbl, v in options if v == cur), labels[0])
+    sel = st.pills(c.t(label_key), labels, default=default, key=f"flt_{param}")
+    value = by_label.get(sel) if sel else None
+    if value != cur:
+        if value is None:
+            st.query_params.pop(param, None)
+        else:
+            st.query_params[param] = str(value)
+    return value
 
 
 def breadcrumb(c: Ctx) -> str:

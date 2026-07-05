@@ -1,17 +1,18 @@
-"""Capital Stack — live FTS flows with capital-type filter pills."""
+"""Capital Stack — live FTS flows with an instant capital-type filter."""
 
 from __future__ import annotations
 
 from html import escape
 
-import layout as L
-from database import fetch_funding_sources, fetch_public_funds, init_db
+import streamlit as st
 
-init_db()
+import data_cache
+import layout as L
+
 c = L.Ctx("capital")
-funds = fetch_public_funds()
+funds = data_cache.public_funds()
 # Known directory source_keys so flows can cross-link where a match exists.
-known = {s["source_key"] for s in fetch_funding_sources()}
+known = {s["source_key"] for s in data_cache.funding_sources()}
 
 heading = (
     '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;">'
@@ -21,9 +22,11 @@ heading = (
     f'line-height:1.6;">{escape(c.t("cap_intro"))}</p>'
 )
 
-body = (
-    L.breadcrumb(c)
-    + f'<section style="padding:24px 48px 0;">{heading}</section>'
-    + L._capital_stack(c, funds, known)
-)
-L.render_page(c, "capital", body)
+L.render_shell(c, "capital")
+L.render_body(f'<section style="padding:24px 48px 6px;">{heading}</section>')
+with st.container(key="capfilters"):
+    c.cap = L.pills_filter(
+        c, "cap", "explore_capital", L.capital_filter_options(c, funds)
+    )
+L.render_body(L._capital_stack(c, funds, known))
+L.render_footer(c)
