@@ -362,6 +362,139 @@ STRINGS: dict[str, dict[str, str]] = {
         "contact_ofac": "OFAC sanctions & license questions (U.S. Treasury)",
         "contact_caf": "CAF Reconstruction Fund contributions",
         "contact_fts": "UNOCHA FTS funding-flow data",
+        # Glossary (hover/tap definitions for acronyms, both modes)
+        "gl_mdb_term": "MDB (Multilateral Development Bank)",
+        "gl_mdb_def": (
+            "A bank owned by many member governments — such as CAF or the "
+            "IDB — that finances development and reconstruction projects."
+        ),
+        "gl_ingo_term": "INGO (International NGO)",
+        "gl_ingo_def": (
+            "A non-governmental organization that works in many countries — "
+            "for example the International Rescue Committee or Save the "
+            "Children."
+        ),
+        # Simple paths — intent-first front door
+        "nav_donate": "Donate",
+        "nav_remit": "Send money",
+        "nav_volunteer": "Volunteer",
+        "nav_full": "Full Navigator",
+        "intent_heading": "How do you want to help?",
+        "intent_sub": (
+            "Pick the option that sounds like you — we'll show only what you "
+            "need, in plain language."
+        ),
+        "intent_donate_t": "I want to donate",
+        "intent_donate_d": "Trusted places to give money for earthquake relief.",
+        "intent_remit_t": "I want to send money to family",
+        "intent_remit_d": (
+            "What's allowed right now, which channels work, and what to avoid."
+        ),
+        "intent_vol_t": "I want to volunteer",
+        "intent_vol_d": (
+            "Organizations working on the response, and how to reach them."
+        ),
+        "intent_org_t": "I work for an organization / I'm a lawyer",
+        "intent_org_d": (
+            "Skip ahead — the full funding directory, licenses, and pathways."
+        ),
+        "intent_full_link": "Or explore the full navigator ↓",
+        "simple_details": "More detail →",
+        "simple_disclaimer": (
+            "General information, not legal advice. For your specific "
+            "situation, consult a licensed professional."
+        ),
+        # Donate path
+        "don_title": "Donate to earthquake relief",
+        "don_intro": (
+            "Trusted places to give, in plain language. Every entry links to "
+            "the organization's own donation page."
+        ),
+        "don_gl60_note": (
+            "U.S. rules currently allow donations for Venezuela earthquake "
+            "relief: a general authorization ({gl}) covers this through "
+            "{date}. Most donors don't need any special permission to give to "
+            "the groups below."
+        ),
+        "don_who_q": "Who is giving?",
+        "don_who_ind": "Me, personally",
+        "don_who_org": "An organization or company",
+        "don_how": "Donate here ↗",
+        "don_gov_note": (
+            "Heads up: money given here goes to projects prioritized by the "
+            "Venezuelan government. Read the compliance detail before giving."
+        ),
+        "don_license_link": (
+            "Want the compliance detail behind this? See the full license →"
+        ),
+        "don_none": "Nothing matches yet.",
+        "don_count": "{count} places to give",
+        # Send-money path
+        "rem_title": "Sending money to family in Venezuela",
+        "rem_intro": (
+            "What's allowed right now, in plain language. This page is about "
+            "personal transfers to family — not business payments or "
+            "donations."
+        ),
+        "rem_q1_h": "Can I send money right now?",
+        "rem_q1_a": "Yes — in most cases.",
+        "rem_q1_body": (
+            "Personal, non-commercial transfers to family in Venezuela are "
+            "generally allowed. A U.S. authorization ({gl}) permits the "
+            "financial services these transfers rely on, including "
+            "transactions involving certain Venezuelan banks."
+        ),
+        "rem_q2_h": "What channels can I use?",
+        "rem_q2_b1": (
+            "Bank transfers to accounts at the four banks GL 57 covers: "
+            "Banco Central de Venezuela, Banco de Venezuela, Banco Digital "
+            "de los Trabajadores, and Banco del Tesoro — plus entities they "
+            "own 50% or more of."
+        ),
+        "rem_q2_b2": (
+            "Licensed money-transfer services that serve Venezuela. Check "
+            "that the service is licensed where you live before sending."
+        ),
+        "rem_q2_note": (
+            "Transfers to accounts at other Venezuelan banks — including "
+            "private banks like Banesco, Mercantil, or BOD — are not covered "
+            "by GL 57. If you're not sure which bank your family uses, check "
+            "with a professional before sending."
+        ),
+        "rem_q3_h": "Is there a deadline?",
+        "rem_q3_noexp": (
+            "{gl} has no stated end date, but U.S. authorizations can change "
+            "or be withdrawn with little notice. If you're planning a large "
+            "transfer, don't assume today's rules will hold indefinitely."
+        ),
+        "rem_q3_exp": (
+            "{gl} is currently set to expire on {date}. After that date the "
+            "rules may change — check back before sending."
+        ),
+        "rem_q4_h": "What should I avoid?",
+        "rem_q4_b1": (
+            "Sending money to anyone on a U.S. sanctions list, or to "
+            "Venezuelan government entities."
+        ),
+        "rem_q4_b2": (
+            "Dressing up business or commercial payments as family support — "
+            "only personal, non-commercial transfers are covered."
+        ),
+        "rem_q4_b3": (
+            "Unlicensed, informal transfer networks — you have no protection "
+            "if the money disappears."
+        ),
+        "rem_license_link": "Full license details →",
+        # Volunteer path
+        "vol_title": "Volunteer for the response",
+        "vol_intro": (
+            "Organizations working on the earthquake response, what they do, "
+            "and how to reach them. Needs change quickly — start from each "
+            "organization's own site or contact."
+        ),
+        "vol_reach": "Reach out ↗",
+        "vol_count": "{count} organizations",
+        "vol_none": "No organizations to show yet.",
     },
     "es": {
         "nav_navigator": "Navegador",
@@ -675,6 +808,146 @@ STRINGS: dict[str, dict[str, str]] = {
         "contact_ofac": "Consultas de sanciones y licencias OFAC (Tesoro de EE. UU.)",
         "contact_caf": "Contribuciones al Fondo de Reconstrucción CAF",
         "contact_fts": "Datos de flujos de financiamiento UNOCHA FTS",
+        # Glosario (definiciones al pasar el cursor / tocar, ambos modos)
+        "gl_mdb_term": "MDB (Banco Multilateral de Desarrollo)",
+        "gl_mdb_def": (
+            "Un banco cuyos dueños son varios gobiernos — como CAF o el BID — "
+            "que financia proyectos de desarrollo y reconstrucción."
+        ),
+        "gl_ingo_term": "INGO (ONG internacional)",
+        "gl_ingo_def": (
+            "Una organización no gubernamental que trabaja en muchos países — "
+            "por ejemplo el International Rescue Committee o Save the "
+            "Children."
+        ),
+        # Rutas simples — portada por intención
+        "nav_donate": "Donar",
+        "nav_remit": "Enviar dinero",
+        "nav_volunteer": "Voluntariado",
+        "nav_full": "Navegador completo",
+        "intent_heading": "¿Cómo quiere ayudar?",
+        "intent_sub": (
+            "Elija la opción que más se le parezca — le mostramos solo lo "
+            "necesario, en lenguaje claro."
+        ),
+        "intent_donate_t": "Quiero donar",
+        "intent_donate_d": (
+            "Opciones confiables para donar dinero al alivio del terremoto."
+        ),
+        "intent_remit_t": "Quiero enviar dinero a mi familia",
+        "intent_remit_d": (
+            "Qué está permitido ahora, qué canales funcionan y qué evitar."
+        ),
+        "intent_vol_t": "Quiero ser voluntario",
+        "intent_vol_d": (
+            "Organizaciones que trabajan en la respuesta y cómo contactarlas."
+        ),
+        "intent_org_t": "Trabajo en una organización / soy abogado",
+        "intent_org_d": (
+            "Vaya directo al directorio completo, las licencias y las rutas."
+        ),
+        "intent_full_link": "O explore el navegador completo ↓",
+        "simple_details": "Más detalle →",
+        "simple_disclaimer": (
+            "Información general, no asesoría legal. Para su situación "
+            "específica, consulte a un profesional autorizado."
+        ),
+        # Ruta de donación
+        "don_title": "Donar para el alivio del terremoto",
+        "don_intro": (
+            "Opciones confiables para donar, en lenguaje claro. Cada entrada "
+            "enlaza a la página oficial de donación de la organización."
+        ),
+        "don_gl60_note": (
+            "Las reglas de EE. UU. permiten hoy donar para el alivio del "
+            "terremoto en Venezuela: una autorización general ({gl}) lo cubre "
+            "hasta el {date}. La mayoría de los donantes no necesita ningún "
+            "permiso especial para donar a los grupos de abajo."
+        ),
+        "don_who_q": "¿Quién dona?",
+        "don_who_ind": "Yo, a título personal",
+        "don_who_org": "Una organización o empresa",
+        "don_how": "Done aquí ↗",
+        "don_gov_note": (
+            "Atención: el dinero donado aquí va a proyectos priorizados por "
+            "el gobierno de Venezuela. Lea el detalle de cumplimiento antes "
+            "de donar."
+        ),
+        "don_license_link": (
+            "¿Quiere el detalle de cumplimiento detrás de esto? Vea la "
+            "licencia completa →"
+        ),
+        "don_none": "Ninguna opción coincide todavía.",
+        "don_count": "{count} opciones para donar",
+        # Ruta de envío de dinero
+        "rem_title": "Enviar dinero a su familia en Venezuela",
+        "rem_intro": (
+            "Qué está permitido ahora mismo, en lenguaje claro. Esta página "
+            "trata de transferencias personales a familiares — no de pagos "
+            "comerciales ni donaciones."
+        ),
+        "rem_q1_h": "¿Puedo enviar dinero ahora?",
+        "rem_q1_a": "Sí — en la mayoría de los casos.",
+        "rem_q1_body": (
+            "Las transferencias personales, no comerciales, a familiares en "
+            "Venezuela están generalmente permitidas. Una autorización de "
+            "EE. UU. ({gl}) permite los servicios financieros de los que "
+            "dependen estas transferencias, incluidas las operaciones con "
+            "ciertos bancos venezolanos."
+        ),
+        "rem_q2_h": "¿Qué canales puedo usar?",
+        "rem_q2_b1": (
+            "Transferencias bancarias a cuentas en los cuatro bancos que "
+            "cubre la GL 57: Banco Central de Venezuela, Banco de Venezuela, "
+            "Banco Digital de los Trabajadores y Banco del Tesoro — más las "
+            "entidades de las que sean dueños en un 50 % o más."
+        ),
+        "rem_q2_b2": (
+            "Servicios de envío de dinero con licencia que operan hacia "
+            "Venezuela. Verifique que el servicio tenga licencia donde usted "
+            "vive antes de enviar."
+        ),
+        "rem_q2_note": (
+            "Las transferencias a cuentas en otros bancos venezolanos — "
+            "incluidos bancos privados como Banesco, Mercantil o BOD — no "
+            "están cubiertas por la GL 57. Si no sabe con seguridad qué banco "
+            "usa su familia, consulte a un profesional antes de enviar."
+        ),
+        "rem_q3_h": "¿Hay una fecha límite?",
+        "rem_q3_noexp": (
+            "{gl} no tiene fecha de vencimiento declarada, pero las "
+            "autorizaciones de EE. UU. pueden cambiar o retirarse con poco "
+            "aviso. Si planea una transferencia grande, no asuma que las "
+            "reglas de hoy se mantendrán indefinidamente."
+        ),
+        "rem_q3_exp": (
+            "{gl} vence actualmente el {date}. Después de esa fecha las "
+            "reglas pueden cambiar — verifique antes de enviar."
+        ),
+        "rem_q4_h": "¿Qué debo evitar?",
+        "rem_q4_b1": (
+            "Enviar dinero a cualquier persona en una lista de sanciones de "
+            "EE. UU., o a entidades del gobierno venezolano."
+        ),
+        "rem_q4_b2": (
+            "Disfrazar pagos comerciales como apoyo familiar — solo las "
+            "transferencias personales, no comerciales, están cubiertas."
+        ),
+        "rem_q4_b3": (
+            "Redes informales de envío sin licencia — no tiene ninguna "
+            "protección si el dinero desaparece."
+        ),
+        "rem_license_link": "Detalles completos de la licencia →",
+        # Ruta de voluntariado
+        "vol_title": "Ser voluntario en la respuesta",
+        "vol_intro": (
+            "Organizaciones que trabajan en la respuesta al terremoto, qué "
+            "hacen y cómo contactarlas. Las necesidades cambian rápido — "
+            "empiece por el sitio o contacto de cada organización."
+        ),
+        "vol_reach": "Contactar ↗",
+        "vol_count": "{count} organizaciones",
+        "vol_none": "Aún no hay organizaciones para mostrar.",
     },
 }
 
@@ -743,6 +1016,76 @@ FLOW_BADGE = {
 }
 FLOW_GIVE = {"accepts_contributions", "both", "direct_to_beneficiaries"}
 FLOW_APPLY = {"grants_to_ngos", "both"}
+
+# ---------------------------------------------------------------------------
+# Simple paths (Donate / Send money / Volunteer) — plain-language views of the
+# same directory + license data the advanced pages use. No new content lives
+# here except the plain-language phrasing.
+# ---------------------------------------------------------------------------
+
+# Glossary: acronym → (term string key, definition string key). Rendered by
+# gloss() as a hover/tap tooltip. Shared across simple AND advanced modes.
+GLOSSARY = {
+    "OFAC": ("gl_ofac_term", "gl_ofac_def"),
+    "GL": ("gl_gl_term", "gl_gl_def"),
+    "MDB": ("gl_mdb_term", "gl_mdb_def"),
+    "INGO": ("gl_ingo_term", "gl_ingo_def"),
+}
+
+# Plain-language phrase for each directory `category` tag (EN, ES). The simple
+# paths show these instead of raw tags; unknown categories fall back to the
+# humanized tag.
+CATEGORY_PLAIN = {
+    "pooled_reconstruction_fund": (
+        "Shared reconstruction fund", "Fondo común de reconstrucción"),
+    "pooled_humanitarian_fund": (
+        "Shared fund that supports local relief groups",
+        "Fondo común que apoya a grupos locales de ayuda"),
+    "emergency_appeal": (
+        "Emergency fundraising appeal", "Llamamiento de emergencia"),
+    "relief_operations": (
+        "Relief organization working on the ground",
+        "Organización de ayuda trabajando en el terreno"),
+    "medical_relief": ("Medical aid and supplies", "Ayuda e insumos médicos"),
+    "community_organized_fund": (
+        "Community-run fund", "Fondo organizado por la comunidad"),
+    "institutional_donor_funding": (
+        "Government donor funding", "Financiamiento de donante gubernamental"),
+    "sovereign_financing": (
+        "Government-to-government financing", "Financiamiento entre gobiernos"),
+    "direct_cash_transfer": (
+        "Cash sent directly to affected families",
+        "Dinero en efectivo directo a familias afectadas"),
+    "regranting_fund": (
+        "Fund that re-grants to vetted local organizations",
+        "Fondo que redistribuye a organizaciones locales verificadas"),
+    "recovery_grants": (
+        "Grants for recovery projects",
+        "Subvenciones para proyectos de recuperación"),
+    "verified_crowdfunding_directory": (
+        "Directory of verified fundraisers",
+        "Directorio de recaudaciones verificadas"),
+    "in_kind_logistics": (
+        "Transports donated supplies", "Transporta insumos donados"),
+    "coordinated_appeal_pipeline": (
+        "Coordinated UN appeal (upcoming)",
+        "Llamamiento coordinado de la ONU (próximamente)"),
+}
+
+# Donate path: flows a donor can act on, and who counts as an "organization"
+# donor. Until the dataset grows an explicit individual_actionable tag
+# (planned data work), individual-actionability is derived from accepts_from.
+SIMPLE_GIVE_FLOWS = FLOW_GIVE | {"directory"}
+ORG_DONOR_TAGS = {
+    "companies", "foundations", "governments", "international_organizations",
+}
+
+# Volunteer path: org types where a person can plausibly offer time/skills.
+VOLUNTEER_ORG_TYPES = {
+    "ingo", "faith_based_ingo", "ingo_coalition", "logistics_ngo",
+    "local_venezuelan_ngo", "diaspora_ngo", "community_fund",
+    "red_cross_movement",
+}
 
 CURRENCY_SYMBOLS = config.CURRENCY_SYMBOLS
 
@@ -851,6 +1194,22 @@ def _mailto(kind: str) -> str:
     return f"mailto:{CONTACT_EMAIL}?subject={subject}"
 
 
+def gloss(c: "Ctx", term: str, label: str | None = None) -> str:
+    """An acronym with a hover/tap definition (shared glossary component).
+
+    `term` is a GLOSSARY key (OFAC, GL, MDB, INGO); `label` is the visible
+    text (e.g. "GL 60" glossed under the GL definition). Returns an inline
+    HTML span — inject it into already-escaped copy, never escape() it again.
+    Tooltip styling lives in _BASE_CSS (.gl-term).
+    """
+    term_key, def_key = GLOSSARY[term]
+    tip = f"{c.t(term_key)}: {c.t(def_key)}"
+    return (
+        f'<span class="gl-term" tabindex="0" data-tip="{escape(tip)}">'
+        f"{escape(label or term)}</span>"
+    )
+
+
 # URL path for each page (Home is served at root). Keep in sync with app.py.
 PAGE_SLUGS = {
     "home": "",
@@ -860,6 +1219,9 @@ PAGE_SLUGS = {
     "capital": "capital-stack",
     "about": "about",
     "admin": "admin",
+    "donate": "donate",
+    "remit": "send-money",
+    "volunteer": "volunteer",
 }
 
 # Top-level header nav (five is the ceiling). Home reached via the logo,
@@ -871,6 +1233,16 @@ HEADER_NAV = [
     ("capital", "nav_capital"),
 ]
 
+# Reduced header for the simple paths: the three intents + a persistent way
+# back to the full navigator. Footer, language toggle, and ?lang= handling are
+# shared with the full nav — only this list differs.
+SIMPLE_HEADER_NAV = [
+    ("donate", "nav_donate"),
+    ("remit", "nav_remit"),
+    ("volunteer", "nav_volunteer"),
+    ("home", "nav_full"),
+]
+
 
 class Ctx:
     """Language + query-param aware render context, bound to the active page."""
@@ -878,6 +1250,7 @@ class Ctx:
     # Query params carried across links (per-page filters + detail routing).
     _NAV_PARAMS = (
         "lang", "auth", "cap", "fd", "ph", "ot", "gl", "source", "pathway",
+        "who",
     )
 
     def __init__(self, active: str = "home") -> None:
@@ -894,6 +1267,7 @@ class Ctx:
         self.gl = self._q("gl")             # pathways license filter
         self.source = self._q("source")     # directory detail
         self.pathway = self._q("pathway")   # pathways detail
+        self.who = self._q("who")           # donate path: individual vs org
 
     @staticmethod
     def _q(key: str) -> str | None:
@@ -1784,13 +2158,21 @@ def _kv(label: str, value_html: str) -> str:
     )
 
 
-def _gl60_context(c: Ctx, licenses: list[dict]) -> str:
-    exp = config.GL60_EXPIRES
+def find_license(licenses: list[dict], license_id: str) -> dict | None:
+    want = license_id.upper().replace(" ", "")
     for lic in licenses:
-        if (lic.get("license_id") or "").upper().replace(" ", "") == "GL60":
-            exp = lic.get("expiration_date") or exp
-            break
-    return c.t("detail_gl60_ctx", date=exp)
+        if (lic.get("license_id") or "").upper().replace(" ", "") == want:
+            return lic
+    return None
+
+
+def gl60_expiry(licenses: list[dict]) -> str:
+    lic = find_license(licenses, "GL 60")
+    return (lic or {}).get("expiration_date") or config.GL60_EXPIRES
+
+
+def _gl60_context(c: Ctx, licenses: list[dict]) -> str:
+    return c.t("detail_gl60_ctx", date=gl60_expiry(licenses))
 
 
 def _caf_contribute_block(c: Ctx) -> str:
@@ -1938,6 +2320,90 @@ def _pathway_detail(c: Ctx, p: dict, licenses: list[dict]) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Simple-path section builders (Donate / Send money / Volunteer)
+# ---------------------------------------------------------------------------
+
+def category_plain(c: Ctx, s: dict) -> str:
+    """Plain-language description of what a directory entry is."""
+    pair = CATEGORY_PLAIN.get(s.get("category") or "")
+    if pair:
+        return pair[1] if c.lang == "es" else pair[0]
+    return (s.get("category") or "").replace("_", " ")
+
+
+def donate_entries(sources: list[dict], who: str | None) -> list[dict]:
+    """Directory entries a donor can act on: `who` is None (individual) or "org".
+
+    Individual-actionability is derived from flow direction + accepts_from
+    until the dataset grows its planned individual_actionable tag.
+    """
+    out = []
+    for s in sources:
+        if s["flow_direction"] not in SIMPLE_GIVE_FLOWS:
+            continue
+        if not (s.get("url") or "").startswith(("http://", "https://")):
+            continue
+        accepts = set(s.get("accepts_from") or [])
+        if who == "org":
+            if not accepts & ORG_DONOR_TAGS:
+                continue
+        elif "individuals" not in accepts and s["flow_direction"] != "directory":
+            continue
+        out.append(s)
+    return out
+
+
+def volunteer_entries(sources: list[dict]) -> list[dict]:
+    """Directory entries where a person can plausibly offer time or skills."""
+    return [
+        s for s in sources
+        if s.get("org_type") in VOLUNTEER_ORG_TYPES
+        and (s.get("url") or "").startswith(("http://", "https://"))
+    ]
+
+
+def simple_source_card(c: Ctx, s: dict, action_key: str, note_html: str = "") -> str:
+    """Plain-language directory card: what it is, how to act, link to detail.
+
+    `note_html` is optional pre-built HTML (e.g. a compliance consequence
+    line) — pass "" unless the entry genuinely needs one.
+    """
+    name = _source_name(c, s)
+    detail = c.page_url("directory", source=s["source_key"])
+    url = (s.get("url") or "").strip()
+    action = (
+        f'<a href="{escape(url)}" style="text-decoration:none;background:{BLUE};'
+        'color:#FFF;padding:10px 20px;border-radius:999px;font-size:13px;'
+        f'font-weight:700;white-space:nowrap;">{escape(c.t(action_key))}</a>'
+    )
+    return (
+        '<div style="flex:1 1 320px;max-width:520px;border:1px solid #E1DFD8;'
+        'border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;'
+        'gap:8px;background:#FFF;">'
+        f'<div style="font-size:17px;font-weight:700;color:{BLUE};line-height:1.3;">'
+        f'{escape(name)}</div>'
+        f'<div style="font-size:13.5px;color:{INK};line-height:1.5;">'
+        f'{escape(category_plain(c, s))}</div>'
+        f'<div style="font-size:12.5px;color:{MUTE};">{escape(s.get("org") or "")}</div>'
+        + note_html
+        + '<div style="display:flex;justify-content:space-between;align-items:center;'
+        'gap:12px;margin-top:6px;padding-top:12px;border-top:1px solid #F0EEE9;">'
+        f'{action}'
+        f'<a href="{detail}" style="text-decoration:none;font-size:12.5px;'
+        f'font-weight:700;color:{INK};">{escape(c.t("simple_details"))}</a>'
+        "</div></div>"
+    )
+
+
+def simple_disclaimer_html(c: Ctx) -> str:
+    """Muted not-legal-advice line closing every simple-path page."""
+    return (
+        '<p style="margin:26px 0 0;font-size:12.5px;color:#9CA3AF;max-width:640px;'
+        f'line-height:1.5;">{escape(c.t("simple_disclaimer"))}</p>'
+    )
+
+
+# ---------------------------------------------------------------------------
 # Page
 # ---------------------------------------------------------------------------
 
@@ -2012,6 +2478,30 @@ section[id] {scroll-margin-top:70px;}
 .st-key-pwfilter button
   {border:1px solid #D8D5CC;border-radius:999px;padding:3px 14px;min-height:28px;
    font-size:12px;font-weight:700;color:#00247D;background:transparent;}
+.st-key-simplefilters {padding:2px 48px 10px;}
+.st-key-simplefilters [data-testid="stWidgetLabel"] p
+  {font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+   color:#9CA3AF;}
+.st-key-simplefilters [data-testid="stButtonGroup"] button
+  {border:1px solid #D8D5CC;border-radius:999px;padding:3px 13px;min-height:28px;
+   font-size:12px;font-weight:600;color:#12172B;background:transparent;}
+.st-key-simplefilters [data-testid="stButtonGroup"] button[aria-checked="true"],
+.st-key-simplefilters [data-testid="stButtonGroup"] button[kind$="Active"]
+  {background:#00247D !important;color:#FFF !important;border-color:#00247D !important;}
+.st-key-simplefilters [data-testid="stButtonGroup"] button p {font-size:12px;}
+
+/* Glossary tooltip (shared component — see gloss() in layout.py) */
+.gl-term {border-bottom:1px dotted #9CA3AF;cursor:help;position:relative;}
+.gl-term:hover::after, .gl-term:focus::after {
+  content:attr(data-tip);position:absolute;left:50%;transform:translateX(-50%);
+  top:135%;z-index:60;
+  width:min(280px,70vw);background:#12172B;color:#FFF;padding:10px 12px;
+  border-radius:6px;font-size:12px;font-weight:400;line-height:1.5;
+  white-space:normal;letter-spacing:normal;text-transform:none;text-align:left;}
+
+/* Intent cards (simple front door on Home) */
+a.intent-card:hover {border-color:#00247D !important;
+  box-shadow:0 3px 14px rgba(0,36,125,0.10);}
 </style>
 """
 
@@ -2024,6 +2514,9 @@ PAGE_FILES = {
     "directory": "pages/4_Directory.py",
     "capital": "pages/5_Capital_Stack.py",
     "about": "pages/6_About.py",
+    "donate": "pages/8_Donate.py",
+    "remit": "pages/9_Send_Money.py",
+    "volunteer": "pages/10_Volunteer.py",
 }
 
 
@@ -2040,14 +2533,19 @@ def _logo_html(c: Ctx) -> str:
     )
 
 
-def _render_header(c: Ctx, active: str) -> None:
+def _render_header(c: Ctx, active: str, simple: bool = False) -> None:
     """Header row: HTML logo + st.page_link nav + language segmented control.
+
+    `simple` swaps the five-page expert nav for the reduced simple-path nav
+    (Donate / Send money / Volunteer / Full Navigator). Logo, language toggle,
+    and ?lang= handling are identical in both modes.
 
     page_link navigation is handled client-side by Streamlit's router (no
     browser reload); the language toggle reruns over the websocket. Query
     params drop on SPA navigation, so lang/auth persist in session_state
     (see app.py) and Ctx falls back to them.
     """
+    nav = SIMPLE_HEADER_NAV if simple else HEADER_NAV
     # This Streamlit build doesn't stamp aria-current on page links, so mark
     # the active page by its (relative) href instead.
     active_href = PAGE_SLUGS.get(active)
@@ -2065,7 +2563,7 @@ def _render_header(c: Ctx, active: str) -> None:
         )
         with cols[0]:
             st.html(_logo_html(c))
-        for col, (slug, label_key) in zip(cols[2:6], HEADER_NAV):
+        for col, (slug, label_key) in zip(cols[2:6], nav):
             with col:
                 st.page_link(PAGE_FILES[slug], label=c.t(label_key))
         with cols[6]:
@@ -2084,8 +2582,11 @@ def _render_header(c: Ctx, active: str) -> None:
                 st.rerun()
 
 
-def render_shell(c: Ctx, active: str) -> None:
-    """Top chrome: CSS + flag stripe + widget header (+ breadcrumb off Home)."""
+def render_shell(c: Ctx, active: str, simple: bool = False) -> None:
+    """Top chrome: CSS + flag stripe + widget header (+ breadcrumb off Home).
+
+    `simple=True` renders the reduced simple-path nav (see _render_header).
+    """
     init_db()
     # Keep session + i18n in sync with the query param for the Admin page.
     st.session_state.lang = c.lang
@@ -2094,7 +2595,7 @@ def render_shell(c: Ctx, active: str) -> None:
     # in a new tab while st.html leaves anchors alone — same-tab navigation.
     st.markdown(_BASE_CSS, unsafe_allow_html=True)
     st.html(_flag_stripe())
-    _render_header(c, active)
+    _render_header(c, active, simple)
     if active != "home":
         with st.container(key="crumb"):
             st.page_link(PAGE_FILES["home"], label=c.t("crumb_home"))
@@ -2114,9 +2615,9 @@ def render_body(body: str) -> None:
     )
 
 
-def render_page(c: Ctx, active: str, body: str) -> None:
+def render_page(c: Ctx, active: str, body: str, simple: bool = False) -> None:
     """Single-chunk page: shell + body + footer (pages without widgets)."""
-    render_shell(c, active)
+    render_shell(c, active, simple)
     render_body(body)
     render_footer(c)
 

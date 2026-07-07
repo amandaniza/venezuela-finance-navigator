@@ -100,6 +100,31 @@ in quotes; keep placeholders like `{count}` or `{date}` intact.
 
 ---
 
+## 3b. The simple paths (Donate / Send money / Volunteer)
+
+The plain-language pages at `/donate`, `/send-money`, and `/volunteer` are
+filtered views of the same directory data — there is nothing separate to edit
+per entry. What controls where an entry appears:
+
+- **Donate** shows entries whose `flow_direction` is a giving flow
+  (`accepts_contributions`, `both`, `direct_to_beneficiaries`, `directory`)
+  and that have a working `url`. The "Me, personally" view additionally
+  requires `"individuals"` in `accepts_from`; the "organization" view requires
+  `companies` / `foundations` / `governments` / `international_organizations`.
+  (This is a stand-in until entries get an explicit `individual_actionable`
+  tag — the filter logic lives in `donate_entries()` in `layout.py`.)
+- **Volunteer** shows entries whose `org_type` is in `VOLUNTEER_ORG_TYPES`
+  in `layout.py` (INGOs, diaspora orgs, community funds, etc.).
+- The plain-language line under each name comes from the entry's `category`,
+  via the `CATEGORY_PLAIN` map in `layout.py`. If you add a new category,
+  add an EN/ES phrase there too, or the raw tag is shown.
+- **Send money** is not directory-driven: its copy lives in `STRINGS`
+  (`rem_*` keys) and it deep-links to the GL 57 card on the Licenses page.
+  ⚠️ The GL 57 entry in `scripts/seed_demo.py` was drafted from a summary —
+  verify it against the official license text before treating it as final.
+
+---
+
 ## 4. Licenses, pathways, and live funding flows
 
 - **Licenses & flows** are ingested by the pipeline (`python run_pipeline.py`)

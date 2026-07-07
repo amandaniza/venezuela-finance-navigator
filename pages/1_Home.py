@@ -1,8 +1,10 @@
-"""Home — short intro: hero, live metrics strip, four feature cards, footer.
+"""Home — intent-first front door layered over the full navigator.
 
-No data tables here. Each feature card links to its own sub-page and shows one
-live teaser pulled from the DB. Old deep links (?source= / ?pathway=) are
-redirected to the sub-page that now owns them.
+Order: GL 60 countdown (shared urgency signal), four intent cards (donate /
+send money / volunteer / organization), then the existing expert Home content
+(hero, metrics, feature cards) below a #full-navigator anchor so nothing is
+hidden from anyone who already knows what they want. Old deep links
+(?source= / ?pathway=) still redirect to the sub-page that now owns them.
 """
 
 from __future__ import annotations
@@ -38,6 +40,63 @@ gl60_exp = date.fromisoformat(config.GL60_EXPIRES)
 gl60_days = max((gl60_exp - date.today()).days, 0)
 
 
+def _countdown_band() -> str:
+    """GL 60 countdown — the shared urgency signal for every audience."""
+    return (
+        f'<section style="background:{L.INK};padding:26px 48px;display:flex;'
+        'gap:24px;align-items:center;flex-wrap:wrap;">'
+        f'<div style="font-size:44px;font-weight:800;color:{L.YELLOW};'
+        f'line-height:1;">{gl60_days}</div>'
+        '<div style="flex:1 1 320px;">'
+        '<div style="font-size:13px;font-weight:700;letter-spacing:0.05em;'
+        'text-transform:uppercase;color:rgba(255,255,255,0.85);">'
+        f'{escape(c.t("m_gl60_days"))}</div>'
+        '<div style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-top:4px;'
+        'max-width:560px;line-height:1.5;">'
+        f'{escape(c.t("gl60_countdown_note", date=config.GL60_EXPIRES))}</div>'
+        "</div></section>"
+    )
+
+
+def _intent_card(href: str, title: str, desc: str, accent: str) -> str:
+    return (
+        f'<a href="{href}" class="intent-card" style="text-decoration:none;'
+        'flex:1 1 420px;max-width:520px;border:1px solid #E1DFD8;border-radius:10px;'
+        'padding:26px 26px 22px;display:flex;flex-direction:column;gap:10px;'
+        'background:#FFF;">'
+        f'<div style="width:38px;height:5px;border-radius:3px;background:{accent};"></div>'
+        f'<div style="font-size:21px;font-weight:800;color:{L.INK};line-height:1.25;">'
+        f'{escape(title)}</div>'
+        f'<div style="font-size:14px;color:{L.MUTE};line-height:1.55;flex:1;">'
+        f'{escape(desc)}</div>'
+        f'<div style="font-size:14px;font-weight:700;color:{L.BLUE};">→</div></a>'
+    )
+
+
+def _intent_section() -> str:
+    cards = (
+        _intent_card(c.page_url("donate"), c.t("intent_donate_t"),
+                     c.t("intent_donate_d"), L.RED)
+        + _intent_card(c.page_url("remit"), c.t("intent_remit_t"),
+                       c.t("intent_remit_d"), L.BLUE)
+        + _intent_card(c.page_url("volunteer"), c.t("intent_vol_t"),
+                       c.t("intent_vol_d"), "#146C43")
+        + _intent_card(c.page_url("directory"), c.t("intent_org_t"),
+                       c.t("intent_org_d"), L.YELLOW)
+    )
+    return (
+        '<section style="padding:52px 48px 20px;">'
+        '<h1 style="margin:0;font-size:34px;font-weight:800;letter-spacing:-0.01em;'
+        f'color:{L.INK};">{escape(c.t("intent_heading"))}</h1>'
+        f'<p style="margin:12px 0 28px;font-size:15.5px;color:{L.MUTE};max-width:620px;'
+        f'line-height:1.6;">{escape(c.t("intent_sub"))}</p>'
+        f'<div style="display:flex;gap:20px;flex-wrap:wrap;">{cards}</div>'
+        '<p style="margin:26px 0 0;font-size:13.5px;">'
+        f'<a href="#full-navigator" style="color:{L.MUTE};font-weight:600;">'
+        f'{escape(c.t("intent_full_link"))}</a></p></section>'
+    )
+
+
 def _hero() -> str:
     return (
         '<section style="position:relative;min-height:300px;display:flex;'
@@ -61,17 +120,13 @@ def _hero() -> str:
 
 
 def _metrics() -> str:
-    def stat(value: str, label: str, accent: str, note: str = "") -> str:
-        note_html = (
-            f'<div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;'
-            f'max-width:230px;line-height:1.4;">{escape(note)}</div>' if note else ""
-        )
+    def stat(value: str, label: str, accent: str) -> str:
         return (
             '<div style="flex:1 1 200px;">'
             f'<div style="font-size:30px;font-weight:800;color:{accent};">{escape(value)}</div>'
             f'<div style="font-size:12px;font-weight:600;letter-spacing:0.04em;'
             f'text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:4px;">'
-            f'{escape(label)}</div>{note_html}</div>'
+            f'{escape(label)}</div></div>'
         )
     return (
         f'<section style="background:{L.INK};padding:30px 48px;display:flex;gap:32px;'
@@ -79,8 +134,6 @@ def _metrics() -> str:
         + stat("≈" + L._fmt_usd(tracked_usd), c.t("m_tracked"), "#FFF")
         + stat(str(active_licenses), c.t("m_licenses"), "#FFF")
         + stat(str(len(pathways)), c.t("m_pathways"), "#FFF")
-        + stat(str(gl60_days), c.t("m_gl60_days"), L.YELLOW,
-               c.t("gl60_countdown_note", date=config.GL60_EXPIRES))
         + "</section>"
     )
 
@@ -125,5 +178,15 @@ def _feature_cards() -> str:
     )
 
 
-body = _hero() + _metrics() + _feature_cards()
+body = (
+    _countdown_band()
+    + _intent_section()
+    # Full navigator (expert view) — everything the simple layer sits in
+    # front of, reachable via the anchor link above.
+    + '<div id="full-navigator" style="scroll-margin-top:70px;">'
+    + _hero()
+    + _metrics()
+    + _feature_cards()
+    + "</div>"
+)
 L.render_page(c, "home", body)

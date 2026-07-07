@@ -48,6 +48,23 @@ LICENSES = [
         "Source_URL": None,
         "Human_Verified": False,
     },
+    {
+        # Backs the "send money to family" simple path, which deep-links to
+        # this card. Covers only four named banks (BCV, Banco de Venezuela,
+        # Banco Digital de los Trabajadores, Banco del Tesoro) + 50%-owned
+        # entities; no stated expiry (both confirmed 2026-07-07). Activity
+        # bullets still pending final wording — keep Human_Verified False
+        # until they're confirmed.
+        "License_ID": "GL 57",
+        "Status": "Active",
+        "Expiration_Date": None,
+        "Authorized_Activities": [
+            "financial services involving certain Venezuelan banks",
+            "personal, non-commercial remittances to Venezuela",
+        ],
+        "Source_URL": "https://ofac.treasury.gov/recent-actions/20260414_33",
+        "Human_Verified": False,
+    },
 ]
 
 FUNDS = [
