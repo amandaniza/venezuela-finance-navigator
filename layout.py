@@ -65,14 +65,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "hero_title_l2": "Relief Follows",
         "app_subtitle": (
             "Mapping earthquake relief and reconstruction capital to active "
-            "U.S. OFAC General Licenses — so funds move fast, and stay "
+            "U.S. OFAC General Licenses, so funds move fast and stay "
             "compliant."
         ),
         "hero_cta": "View Verified Pathways",
-        "hero_photo": "PHOTO PLACEHOLDER — reconstruction site, La Guaira / Caracas",
+        "hero_photo": "PHOTO PLACEHOLDER: reconstruction site, La Guaira / Caracas",
         "stories_label": "ACTIVE LICENSES",
         "lic_authorized": "authorized",
-        "lic_expired_suffix": "— expired",
+        "lic_expired_suffix": "(expired)",
         "lic_tag_active": "ACTIVE",
         "lic_tag_expired": "EXPIRED",
         "lic_tag_expiring": "EXPIRING SOON",
@@ -89,14 +89,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "gl_source_glossary": "SOURCE: GLOSSARY",
         "gl_ofac_term": "OFAC",
         "gl_ofac_def": (
-            "Office of Foreign Assets Control — the U.S. Treasury agency "
+            "Office of Foreign Assets Control, the U.S. Treasury agency "
             "that enforces economic and trade sanctions."
         ),
         "gl_gl_term": "GL (General License)",
         "gl_gl_def": (
-            "A blanket authorization issued by OFAC that allows specific "
-            "transactions — like earthquake relief — otherwise "
-            "prohibited under sanctions."
+            "A blanket authorization issued by OFAC. It allows specific "
+            "transactions, such as earthquake relief, that sanctions "
+            "would otherwise prohibit."
         ),
         "signup_l1": "Stay current with",
         "signup_bold": "expiring license alerts",
@@ -113,17 +113,17 @@ STRINGS: dict[str, dict[str, str]] = {
         "verdict_green": "Green",
         "verdict_yellow": "Yellow",
         "verdict_red": "Red",
-        "feature_green_tmpl": "{fund} clears {license} — authorized for relief.",
-        "feature_red_tmpl": "{fund} blocked — governing license {license} is {status}.",
+        "feature_green_tmpl": "{fund} clears {license}. Authorized for relief.",
+        "feature_red_tmpl": "{fund} is blocked. Governing license {license} is {status}.",
         "feature_green_fallback": (
-            "Verified pathways clear their governing OFAC license — relief "
-            "capital authorized to move."
+            "Verified pathways clear their governing OFAC license. Relief "
+            "capital is authorized to move."
         ),
         "feature_red_fallback": (
             "Watch for pathways whose governing license has expired or been "
-            "revoked — capital is blocked until re-licensed."
+            "revoked. Capital is blocked until re-licensed."
         ),
-        "pathways_note": "Human-verified pathways only. Operational aid — not legal advice.",
+        "pathways_note": "Human-verified pathways only. Operational aid, not legal advice.",
         "pathways_empty": (
             "No verified pathways yet. Verify pathways in Admin to publish them here."
         ),
@@ -134,7 +134,7 @@ STRINGS: dict[str, dict[str, str]] = {
             "Sanctions compliance is the bottleneck between capital and relief. "
             "Verified pathways let providers and operators move faster, together."
         ),
-        "power_photo": "PHOTO PLACEHOLDER — relief worker / field team",
+        "power_photo": "PHOTO PLACEHOLDER: relief worker / field team",
         "metric_active_funds": "Active Relief Funds",
         "metric_expiring": "Expiring Licenses",
         "metric_pathways": "Verified Pathways",
@@ -150,7 +150,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "stack_kicker": "TRACKING",
         "stack_heading": "FUNDS TO IMPACT",
         "stack_seeall": "See all Funds",
-        "stack_photo": "PHOTO PLACEHOLDER — hospital reconstruction site",
+        "stack_photo": "PHOTO PLACEHOLDER: hospital reconstruction site",
         "explore_capital": "Filter by capital type",
         "cap_all": "All capital",
         "stack_open_badge": "Open for applications",
@@ -166,7 +166,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "source_fts": "UNOCHA FTS & Development Bank Announcements",
         "disclaimer": (
             "Confidential operational report. Does not constitute legal advice "
-            "or an OFAC determination. Phase 1 MVP — operational "
+            "or an OFAC determination. Phase 1 MVP: operational "
             "intelligence only."
         ),
         # Context bar
@@ -174,14 +174,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "context_tracked": "Tracked so far",
         "context_in_need": "People in need (earthquake)",
         "context_gap_note": (
-            "≈{tracked} identified against a ~{estimate} reconstruction bill — "
-            "the gap this directory exists to close."
+            "≈{tracked} identified against a ~{estimate} reconstruction bill. "
+            "This directory exists to close that gap."
         ),
         # Funding Directory
         "dir_heading": "FUNDING DIRECTORY",
         "dir_kicker": "RESEARCHED LEADS",
         "dir_intro": (
-            "{count} researched funding sources — where money can be given, and where "
+            "{count} researched funding sources: where money can be given and where "
             "NGOs can apply. Every entry links to its authoritative source."
         ),
         "dir_review_badge": "Compliance pathway under review",
@@ -238,7 +238,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_compliance": "Compliance notes",
         "detail_suggested": "Suggested license pathway",
         "detail_license_ctx": "License context",
-        "detail_gl60_ctx": "GL 60 — earthquake relief authorization, expires {date}.",
+        "detail_gl60_ctx": "GL 60: earthquake relief authorization, expires {date}.",
         "detail_status": "Status",
         "detail_phase": "Phase",
         "detail_org_type": "Organization type",
@@ -252,10 +252,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_pw_expiry": "License expiration",
         "detail_pw_sectors": "Target sectors",
         "detail_pw_capital": "Capital type",
-        "verif_unverified": "Unverified — pathway under review",
+        "verif_unverified": "Unverified, pathway under review",
         "verif_reported_unconfirmed": "Reported, unconfirmed",
         "verif_platform_vetted": "Platform-vetted",
-        "verif_pipeline": "Pipeline — not yet launched",
+        "verif_pipeline": "Pipeline, not yet launched",
         # Navigation + chrome
         "app_title": "Reconstruction Finance Navigator",
         "nav_licenses": "Licenses",
@@ -268,7 +268,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "footer_updated": "Updated {date}",
         "footer_learn_about": "What “verified” means →",
         "disclaimer_short": (
-            "Informational resource — not legal advice or an OFAC determination."
+            "Informational resource. Not legal advice or an OFAC determination."
         ),
         # Home
         "home_value_prop": (
@@ -282,14 +282,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_gl60_days": "Days until GL 60 expires",
         "gl60_countdown_note": (
             "GL 60 authorizes earthquake-relief transfers into Venezuela. It "
-            "expires {date} — the window to move funds under it is closing."
+            "expires {date}. The window to move funds under it is closing."
         ),
         "fc_licenses_desc": (
             "The OFAC General Licenses that authorize relief and reconstruction "
             "transactions."
         ),
         "fc_pathways_desc": "Human-verified funds mapped to the license that clears them.",
-        "fc_directory_desc": "Researched sources — where to give and where NGOs can apply.",
+        "fc_directory_desc": "Researched sources: where to give and where NGOs can apply.",
         "fc_capital_desc": "Live donor→recipient flows tracked from UNOCHA FTS.",
         "fc_licenses_teaser": "{n} active · GL 60 expires {date}",
         "fc_pathways_teaser": "{n} verified pathway(s)",
@@ -318,7 +318,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "pw_clear_filter": "Clear filter",
         # Capital page
         "cap_intro": (
-            "Live funding flows into Venezuela reported to UNOCHA FTS — who "
+            "Live funding flows into Venezuela reported to UNOCHA FTS: who "
             "gave, who received, how much, and where it sits in the pipeline."
         ),
         # About page
@@ -344,8 +344,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "about_sources_h": "Data sources",
         "about_sources_body": (
             "OFAC Recent Actions (licenses), UNOCHA FTS (funding flows), and a "
-            "curated directory of researched funding sources — including "
-            "accredited community-organized funds — each linked to its "
+            "curated directory of researched funding sources, including "
+            "accredited community-organized funds. Each links to its "
             "authoritative public page."
         ),
         "about_cadence_h": "Update cadence",
@@ -358,19 +358,19 @@ STRINGS: dict[str, dict[str, str]] = {
         "about_contact_body": "Report an issue or suggest a source:",
         # Footer contacts
         "footer_contacts_h": "CONTACTS",
-        "contact_maintainer": "Site maintainer — questions, corrections, new sources",
+        "contact_maintainer": "Site maintainer: questions, corrections, new sources",
         "contact_ofac": "OFAC sanctions & license questions (U.S. Treasury)",
         "contact_caf": "CAF Reconstruction Fund contributions",
         "contact_fts": "UNOCHA FTS funding-flow data",
         # Glossary (hover/tap definitions for acronyms, both modes)
         "gl_mdb_term": "MDB (Multilateral Development Bank)",
         "gl_mdb_def": (
-            "A bank owned by many member governments — such as CAF or the "
-            "IDB — that finances development and reconstruction projects."
+            "A bank owned by many member governments, such as CAF or the "
+            "IDB. It finances development and reconstruction projects."
         ),
         "gl_ingo_term": "INGO (International NGO)",
         "gl_ingo_def": (
-            "A non-governmental organization that works in many countries — "
+            "A non-governmental organization that works in many countries, "
             "for example the International Rescue Committee or Save the "
             "Children."
         ),
@@ -381,14 +381,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "nav_full": "Full Navigator",
         "intent_heading": "How do you want to help?",
         "intent_sub": (
-            "Pick the option that sounds like you — we'll show only what you "
-            "need, in plain language."
+            "Pick the option that fits you. We show only what you need, in "
+            "plain language."
         ),
         "intent_donate_t": "I want to donate",
         "intent_donate_d": "Trusted places to give money for earthquake relief.",
         "intent_remit_t": "I want to send money to family",
         "intent_remit_d": (
-            "What's allowed right now, which channels work, and what to avoid."
+            "What is allowed right now, which channels work, and what to avoid."
         ),
         "intent_vol_t": "I want to volunteer",
         "intent_vol_d": (
@@ -396,7 +396,7 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "intent_org_t": "I work for an organization / I'm a lawyer",
         "intent_org_d": (
-            "Skip ahead — the full funding directory, licenses, and pathways."
+            "Go straight to the full funding directory, licenses, and pathways."
         ),
         "intent_full_link": "Or explore the full navigator ↓",
         "simple_details": "More detail →",
@@ -413,31 +413,31 @@ STRINGS: dict[str, dict[str, str]] = {
         "don_gl60_note": (
             "U.S. rules currently allow donations for Venezuela earthquake "
             "relief: a general authorization ({gl}) covers this through "
-            "{date}. Most donors don't need any special permission to give to "
-            "the groups below."
+            "{date}. Most donors do not need special permission to give to "
+            "the groups listed below."
         ),
         "don_who_q": "Who is giving?",
         "don_who_ind": "Me, personally",
         "don_who_org": "An organization or company",
         "don_how": "Donate here ↗",
         "don_gov_note": (
-            "Heads up: money given here goes to projects prioritized by the "
+            "Money given here goes to projects prioritized by the "
             "Venezuelan government. Read the compliance detail before giving."
         ),
         "don_license_link": (
-            "Want the compliance detail behind this? See the full license →"
+            "See the license that covers this →"
         ),
         "don_none": "Nothing matches yet.",
         "don_count": "{count} places to give",
         # Send-money path
         "rem_title": "Sending money to family in Venezuela",
         "rem_intro": (
-            "What's allowed right now, in plain language. This page is about "
-            "personal transfers to family — not business payments or "
+            "What is allowed right now, in plain language. This page is about "
+            "personal transfers to family, not business payments or "
             "donations."
         ),
         "rem_q1_h": "Can I send money right now?",
-        "rem_q1_a": "Yes — in most cases.",
+        "rem_q1_a": "Yes, in most cases.",
         "rem_q1_body": (
             "Personal, non-commercial transfers to family in Venezuela are "
             "generally allowed. A U.S. authorization ({gl}) permits the "
@@ -448,7 +448,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "rem_q2_b1": (
             "Bank transfers to accounts at the four banks GL 57 covers: "
             "Banco Central de Venezuela, Banco de Venezuela, Banco Digital "
-            "de los Trabajadores, and Banco del Tesoro — plus entities they "
+            "de los Trabajadores, and Banco del Tesoro, plus entities they "
             "own 50% or more of."
         ),
         "rem_q2_b2": (
@@ -456,20 +456,20 @@ STRINGS: dict[str, dict[str, str]] = {
             "that the service is licensed where you live before sending."
         ),
         "rem_q2_note": (
-            "Transfers to accounts at other Venezuelan banks — including "
-            "private banks like Banesco, Mercantil, or BOD — are not covered "
-            "by GL 57. If you're not sure which bank your family uses, check "
-            "with a professional before sending."
+            "Transfers to accounts at other Venezuelan banks, including "
+            "private banks like Banesco, Mercantil, or BOD, are not covered "
+            "by GL 57. If you are not sure which bank your family uses, "
+            "check with a professional before sending."
         ),
         "rem_q3_h": "Is there a deadline?",
         "rem_q3_noexp": (
             "{gl} has no stated end date, but U.S. authorizations can change "
-            "or be withdrawn with little notice. If you're planning a large "
-            "transfer, don't assume today's rules will hold indefinitely."
+            "or be withdrawn with little notice. If you plan a large "
+            "transfer, do not assume today's rules will hold indefinitely."
         ),
         "rem_q3_exp": (
             "{gl} is currently set to expire on {date}. After that date the "
-            "rules may change — check back before sending."
+            "rules may change. Check back before sending."
         ),
         "rem_q4_h": "What should I avoid?",
         "rem_q4_b1": (
@@ -477,11 +477,11 @@ STRINGS: dict[str, dict[str, str]] = {
             "Venezuelan government entities."
         ),
         "rem_q4_b2": (
-            "Dressing up business or commercial payments as family support — "
-            "only personal, non-commercial transfers are covered."
+            "Disguising business or commercial payments as family support. "
+            "Only personal, non-commercial transfers are covered."
         ),
         "rem_q4_b3": (
-            "Unlicensed, informal transfer networks — you have no protection "
+            "Unlicensed, informal transfer networks. You have no protection "
             "if the money disappears."
         ),
         "rem_license_link": "Full license details →",
@@ -489,7 +489,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "vol_title": "Volunteer for the response",
         "vol_intro": (
             "Organizations working on the earthquake response, what they do, "
-            "and how to reach them. Needs change quickly — start from each "
+            "and how to reach them. Needs change quickly. Start from each "
             "organization's own site or contact."
         ),
         "vol_reach": "Reach out ↗",
@@ -504,14 +504,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "hero_title_l2": "el Alivio Sigue",
         "app_subtitle": (
             "Vincula el capital de alivio y reconstrucción por terremoto con "
-            "las Licencias Generales OFAC activas — para que los fondos se "
+            "las Licencias Generales OFAC activas, para que los fondos se "
             "muevan rápido y con cumplimiento."
         ),
         "hero_cta": "Ver Rutas Verificadas",
-        "hero_photo": "IMAGEN — sitio de reconstrucción, La Guaira / Caracas",
+        "hero_photo": "IMAGEN: sitio de reconstrucción, La Guaira / Caracas",
         "stories_label": "LICENCIAS ACTIVAS",
         "lic_authorized": "autorizado",
-        "lic_expired_suffix": "— vencida",
+        "lic_expired_suffix": "(vencida)",
         "lic_tag_active": "ACTIVA",
         "lic_tag_expired": "VENCIDA",
         "lic_tag_expiring": "POR VENCER",
@@ -528,7 +528,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "gl_source_glossary": "FUENTE: GLOSARIO",
         "gl_ofac_term": "OFAC",
         "gl_ofac_def": (
-            "Office of Foreign Assets Control — la agencia del Tesoro de "
+            "Office of Foreign Assets Control, la agencia del Tesoro de "
             "EE. UU. que aplica sanciones económicas y comerciales."
         ),
         "gl_gl_term": "GL (Licencia General)",
@@ -552,17 +552,17 @@ STRINGS: dict[str, dict[str, str]] = {
         "verdict_green": "Verde",
         "verdict_yellow": "Amarillo",
         "verdict_red": "Rojo",
-        "feature_green_tmpl": "{fund} cumple con {license} — autorizado para alivio.",
-        "feature_red_tmpl": "{fund} bloqueado — la licencia {license} está {status}.",
+        "feature_green_tmpl": "{fund} cumple con {license}. Autorizado para el alivio.",
+        "feature_red_tmpl": "{fund} está bloqueado. La licencia {license} está {status}.",
         "feature_green_fallback": (
-            "Las rutas verificadas cumplen con su licencia OFAC — capital de "
-            "alivio autorizado para moverse."
+            "Las rutas verificadas cumplen con su licencia OFAC. El capital "
+            "de alivio está autorizado para moverse."
         ),
         "feature_red_fallback": (
-            "Vigile las rutas cuya licencia haya vencido o sido revocada — "
-            "el capital queda bloqueado hasta relicenciarse."
+            "Vigile las rutas cuya licencia haya vencido o sido revocada. "
+            "El capital queda bloqueado hasta obtener una nueva licencia."
         ),
-        "pathways_note": "Solo rutas verificadas por humanos. Herramienta operativa — no constituye asesoría legal.",
+        "pathways_note": "Solo rutas con verificación humana. Herramienta operativa, no asesoría legal.",
         "pathways_empty": (
             "Aún no hay rutas verificadas. Verifíquelas en Admin para publicarlas aquí."
         ),
@@ -574,16 +574,16 @@ STRINGS: dict[str, dict[str, str]] = {
             "capital y el alivio. Las rutas verificadas permiten avanzar más "
             "rápido, juntos."
         ),
-        "power_photo": "IMAGEN — trabajador de alivio / equipo de campo",
+        "power_photo": "IMAGEN: personal de alivio / equipo de campo",
         "metric_active_funds": "Fondos de Alivio Activos",
         "metric_expiring": "Licencias por Vencer",
         "metric_pathways": "Rutas Verificadas",
         "banner_l1": "Vinculando Capital.",
         "banner_l2": "Habilitando el Alivio.",
         "banner_body": (
-            "Datos confiables y verificados por humanos ayudan a proveedores de "
-            "capital y operadores de alivio a desplegar fondos sin demora "
-            "regulatoria."
+            "Datos confiables con verificación humana ayudan a las "
+            "organizaciones que proveen capital y operan la ayuda a "
+            "desplegar fondos sin demora regulatoria."
         ),
         "banner_link1_title": "Metodología de Cumplimiento",
         "banner_link2_title": "Pipeline de Datos",
@@ -591,7 +591,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "stack_kicker": "RASTREANDO",
         "stack_heading": "FONDOS HASTA EL IMPACTO",
         "stack_seeall": "Ver todos los Fondos",
-        "stack_photo": "IMAGEN — sitio de reconstrucción hospitalaria",
+        "stack_photo": "IMAGEN: sitio de reconstrucción hospitalaria",
         "explore_capital": "Filtrar por tipo de capital",
         "cap_all": "Todo el capital",
         "stack_open_badge": "Abierto a solicitudes",
@@ -607,7 +607,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "source_fts": "UNOCHA FTS y Anuncios de Bancos de Desarrollo",
         "disclaimer": (
             "Informe operativo confidencial. No constituye asesoría legal ni "
-            "una determinación de OFAC. Fase 1 MVP — solo inteligencia "
+            "una determinación de OFAC. Fase 1 MVP: solo inteligencia "
             "operativa."
         ),
         # Context bar
@@ -616,21 +616,21 @@ STRINGS: dict[str, dict[str, str]] = {
         "context_in_need": "Personas necesitadas (terremoto)",
         "context_gap_note": (
             "≈{tracked} identificados frente a una factura de reconstrucción de "
-            "~{estimate} — la brecha que este directorio busca cerrar."
+            "~{estimate}. Este directorio busca cerrar esa brecha."
         ),
         # Directorio de Financiamiento
         "dir_heading": "DIRECTORIO DE FINANCIAMIENTO",
         "dir_kicker": "FUENTES INVESTIGADAS",
         "dir_intro": (
-            "{count} fuentes de financiamiento investigadas — dónde se puede donar y "
+            "{count} fuentes de financiamiento investigadas: dónde se puede donar y "
             "dónde las ONG pueden postular. Cada entrada enlaza a su fuente oficial."
         ),
         "dir_review_badge": "Ruta de cumplimiento en revisión",
         "dir_review_note": (
             "Ninguna de estas es un dictamen de cumplimiento verificado. Son "
-            "fuentes investigadas; un humano asigna un dictamen Verde/Rojo solo "
-            "tras revisar el texto de la licencia. Las rutas verificadas aparecen "
-            "en la sección Rutas más arriba."
+            "fuentes investigadas; el dictamen Verde/Rojo se asigna solo tras "
+            "una revisión humana del texto de la licencia. Las rutas "
+            "verificadas aparecen en la sección Rutas más arriba."
         ),
         "dir_filter_flow": "Dirección del dinero",
         "dir_flow_all": "Todo",
@@ -642,11 +642,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "phase_recovery": "Recuperación",
         "phase_reconstruction": "Reconstrucción",
         "dir_filter_layer": "Su perfil",
-        "layer_all": "Todos",
-        "layer_institutional": "Financiador institucional",
-        "layer_ngo": "ONG / operador",
+        "layer_all": "Cualquier perfil",
+        "layer_institutional": "Institución financiadora",
+        "layer_ngo": "ONG / entidad operadora",
         "layer_diaspora": "Diáspora / público",
-        "layer_community": "Organizados por la comunidad",
+        "layer_community": "Fondos comunitarios",
         "layer_platform": "Plataforma / directorio",
         "flow_give_badge": "Done aquí",
         "flow_apply_badge": "ONG pueden postular",
@@ -681,7 +681,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_compliance": "Notas de cumplimiento",
         "detail_suggested": "Ruta de licencia sugerida",
         "detail_license_ctx": "Contexto de licencia",
-        "detail_gl60_ctx": "GL 60 — autorización de alivio por terremoto, vence {date}.",
+        "detail_gl60_ctx": "GL 60: autorización de alivio por terremoto, vence {date}.",
         "detail_status": "Estado",
         "detail_phase": "Fase",
         "detail_org_type": "Tipo de organización",
@@ -695,10 +695,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_pw_expiry": "Vencimiento de licencia",
         "detail_pw_sectors": "Sectores objetivo",
         "detail_pw_capital": "Tipo de capital",
-        "verif_unverified": "Sin verificar — ruta en revisión",
+        "verif_unverified": "Sin verificar, ruta en revisión",
         "verif_reported_unconfirmed": "Reportado, sin confirmar",
         "verif_platform_vetted": "Verificado por la plataforma",
-        "verif_pipeline": "En preparación — aún no lanzado",
+        "verif_pipeline": "En preparación, aún sin lanzar",
         # Navegación + chrome
         "app_title": "Navegador de Financiamiento para la Reconstrucción",
         "nav_licenses": "Licencias",
@@ -711,7 +711,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "footer_updated": "Actualizado {date}",
         "footer_learn_about": "Qué significa “verificado” →",
         "disclaimer_short": (
-            "Recurso informativo — no constituye asesoría legal ni una "
+            "Recurso informativo. No constituye asesoría legal ni una "
             "determinación de OFAC."
         ),
         # Inicio
@@ -726,14 +726,14 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_gl60_days": "Días para que venza la GL 60",
         "gl60_countdown_note": (
             "La GL 60 autoriza transferencias de ayuda por terremoto hacia "
-            "Venezuela. Vence el {date} — la ventana para mover fondos se cierra."
+            "Venezuela. Vence el {date}. La ventana para mover fondos se está cerrando."
         ),
         "fc_licenses_desc": (
             "Las Licencias Generales de OFAC que autorizan transacciones de "
             "ayuda y reconstrucción."
         ),
         "fc_pathways_desc": "Fondos verificados vinculados a la licencia que los habilita.",
-        "fc_directory_desc": "Fuentes investigadas — dónde donar y dónde postulan las ONG.",
+        "fc_directory_desc": "Fuentes investigadas: dónde donar y dónde postulan las ONG.",
         "fc_capital_desc": "Flujos donante→receptor en vivo, desde UNOCHA FTS.",
         "fc_licenses_teaser": "{n} activas · GL 60 vence {date}",
         "fc_pathways_teaser": "{n} ruta(s) verificada(s)",
@@ -756,14 +756,14 @@ STRINGS: dict[str, dict[str, str]] = {
         # Página de Rutas
         "pw_intro": (
             "Fondos vinculados a la licencia OFAC que los rige, con un dictamen "
-            "de cumplimiento asignado por humanos. Solo entradas verificadas."
+            "de cumplimiento asignado tras revisión humana. Solo entradas verificadas."
         ),
         "pw_filtered_to": "Filtrado a {gl}",
         "pw_clear_filter": "Quitar filtro",
         # Página de Capital
         "cap_intro": (
-            "Flujos de financiamiento hacia Venezuela reportados a UNOCHA FTS — "
-            "quién dio, quién recibió, cuánto, y dónde está en el proceso."
+            "Flujos de financiamiento hacia Venezuela reportados a UNOCHA "
+            "FTS: quién dio, quién recibió, cuánto y dónde está en el proceso."
         ),
         # Página Acerca de
         "about_intro": (
@@ -774,9 +774,9 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "about_verified_h": "Qué significa “verificado”",
         "about_verified_body": (
-            "Una ruta se marca verificada solo después de que un humano revisa "
-            "el texto de la licencia y la postura de cumplimiento del fondo y "
-            "asigna un dictamen Verde, Amarillo o Rojo. Solo las rutas "
+            "Una ruta se marca como verificada solo tras una revisión humana "
+            "del texto de la licencia y de la postura de cumplimiento del "
+            "fondo, con un dictamen Verde, Amarillo o Rojo. Solo las rutas "
             "verificadas aparecen en la página de Rutas."
         ),
         "about_notverified_h": "Qué NO significa",
@@ -789,9 +789,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "about_sources_h": "Fuentes de datos",
         "about_sources_body": (
             "Acciones Recientes de OFAC (licencias), UNOCHA FTS (flujos de "
-            "financiamiento) y un directorio curado de fuentes investigadas — "
-            "incluye fondos comunitarios acreditados — cada una enlazada a su "
-            "página pública oficial."
+            "financiamiento) y un directorio curado de fuentes investigadas, "
+            "que incluye fondos comunitarios acreditados. Cada una enlaza a "
+            "su página pública oficial."
         ),
         "about_cadence_h": "Frecuencia de actualización",
         "about_cadence_body": (
@@ -804,19 +804,19 @@ STRINGS: dict[str, dict[str, str]] = {
         "about_contact_body": "Reporte un problema o sugiera una fuente:",
         # Contactos del pie de página
         "footer_contacts_h": "CONTACTOS",
-        "contact_maintainer": "Responsable del sitio — preguntas, correcciones, nuevas fuentes",
+        "contact_maintainer": "Responsable del sitio: preguntas, correcciones, nuevas fuentes",
         "contact_ofac": "Consultas de sanciones y licencias OFAC (Tesoro de EE. UU.)",
         "contact_caf": "Contribuciones al Fondo de Reconstrucción CAF",
         "contact_fts": "Datos de flujos de financiamiento UNOCHA FTS",
         # Glosario (definiciones al pasar el cursor / tocar, ambos modos)
         "gl_mdb_term": "MDB (Banco Multilateral de Desarrollo)",
         "gl_mdb_def": (
-            "Un banco cuyos dueños son varios gobiernos — como CAF o el BID — "
-            "que financia proyectos de desarrollo y reconstrucción."
+            "Un banco propiedad de varios gobiernos, como CAF o el BID. "
+            "Financia proyectos de desarrollo y reconstrucción."
         ),
         "gl_ingo_term": "INGO (ONG internacional)",
         "gl_ingo_def": (
-            "Una organización no gubernamental que trabaja en muchos países — "
+            "Una organización no gubernamental que trabaja en muchos países, "
             "por ejemplo el International Rescue Committee o Save the "
             "Children."
         ),
@@ -827,7 +827,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "nav_full": "Navegador completo",
         "intent_heading": "¿Cómo quiere ayudar?",
         "intent_sub": (
-            "Elija la opción que más se le parezca — le mostramos solo lo "
+            "Elija la opción que corresponda a su caso. Le mostramos solo lo "
             "necesario, en lenguaje claro."
         ),
         "intent_donate_t": "Quiero donar",
@@ -838,11 +838,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "intent_remit_d": (
             "Qué está permitido ahora, qué canales funcionan y qué evitar."
         ),
-        "intent_vol_t": "Quiero ser voluntario",
+        "intent_vol_t": "Quiero hacer voluntariado",
         "intent_vol_d": (
             "Organizaciones que trabajan en la respuesta y cómo contactarlas."
         ),
-        "intent_org_t": "Trabajo en una organización / soy abogado",
+        "intent_org_t": "Trabajo en una organización / soy profesional legal",
         "intent_org_d": (
             "Vaya directo al directorio completo, las licencias y las rutas."
         ),
@@ -850,7 +850,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "simple_details": "Más detalle →",
         "simple_disclaimer": (
             "Información general, no asesoría legal. Para su situación "
-            "específica, consulte a un profesional autorizado."
+            "específica, busque asesoría profesional autorizada."
         ),
         # Ruta de donación
         "don_title": "Donar para el alivio del terremoto",
@@ -861,21 +861,20 @@ STRINGS: dict[str, dict[str, str]] = {
         "don_gl60_note": (
             "Las reglas de EE. UU. permiten hoy donar para el alivio del "
             "terremoto en Venezuela: una autorización general ({gl}) lo cubre "
-            "hasta el {date}. La mayoría de los donantes no necesita ningún "
-            "permiso especial para donar a los grupos de abajo."
+            "hasta el {date}. En la mayoría de los casos no se necesita ningún "
+            "permiso especial para donar a los grupos de esta lista."
         ),
         "don_who_q": "¿Quién dona?",
         "don_who_ind": "Yo, a título personal",
         "don_who_org": "Una organización o empresa",
         "don_how": "Done aquí ↗",
         "don_gov_note": (
-            "Atención: el dinero donado aquí va a proyectos priorizados por "
-            "el gobierno de Venezuela. Lea el detalle de cumplimiento antes "
+            "El dinero donado aquí va a proyectos priorizados por el "
+            "gobierno de Venezuela. Lea el detalle de cumplimiento antes "
             "de donar."
         ),
         "don_license_link": (
-            "¿Quiere el detalle de cumplimiento detrás de esto? Vea la "
-            "licencia completa →"
+            "Ver la licencia que cubre esta entrada →"
         ),
         "don_none": "Ninguna opción coincide todavía.",
         "don_count": "{count} opciones para donar",
@@ -883,11 +882,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "rem_title": "Enviar dinero a su familia en Venezuela",
         "rem_intro": (
             "Qué está permitido ahora mismo, en lenguaje claro. Esta página "
-            "trata de transferencias personales a familiares — no de pagos "
+            "trata de transferencias personales a familiares, no de pagos "
             "comerciales ni donaciones."
         ),
         "rem_q1_h": "¿Puedo enviar dinero ahora?",
-        "rem_q1_a": "Sí — en la mayoría de los casos.",
+        "rem_q1_a": "Sí, en la mayoría de los casos.",
         "rem_q1_body": (
             "Las transferencias personales, no comerciales, a familiares en "
             "Venezuela están generalmente permitidas. Una autorización de "
@@ -899,8 +898,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "rem_q2_b1": (
             "Transferencias bancarias a cuentas en los cuatro bancos que "
             "cubre la GL 57: Banco Central de Venezuela, Banco de Venezuela, "
-            "Banco Digital de los Trabajadores y Banco del Tesoro — más las "
-            "entidades de las que sean dueños en un 50 % o más."
+            "Banco Digital de los Trabajadores y Banco del Tesoro, más las "
+            "entidades con 50 % o más de propiedad de esos bancos."
         ),
         "rem_q2_b2": (
             "Servicios de envío de dinero con licencia que operan hacia "
@@ -908,10 +907,10 @@ STRINGS: dict[str, dict[str, str]] = {
             "vive antes de enviar."
         ),
         "rem_q2_note": (
-            "Las transferencias a cuentas en otros bancos venezolanos — "
-            "incluidos bancos privados como Banesco, Mercantil o BOD — no "
+            "Las transferencias a cuentas en otros bancos venezolanos, "
+            "incluidos bancos privados como Banesco, Mercantil o BOD, no "
             "están cubiertas por la GL 57. Si no sabe con seguridad qué banco "
-            "usa su familia, consulte a un profesional antes de enviar."
+            "usa su familia, busque asesoría profesional antes de enviar."
         ),
         "rem_q3_h": "¿Hay una fecha límite?",
         "rem_q3_noexp": (
@@ -922,7 +921,7 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "rem_q3_exp": (
             "{gl} vence actualmente el {date}. Después de esa fecha las "
-            "reglas pueden cambiar — verifique antes de enviar."
+            "reglas pueden cambiar. Verifique antes de enviar."
         ),
         "rem_q4_h": "¿Qué debo evitar?",
         "rem_q4_b1": (
@@ -930,20 +929,20 @@ STRINGS: dict[str, dict[str, str]] = {
             "EE. UU., o a entidades del gobierno venezolano."
         ),
         "rem_q4_b2": (
-            "Disfrazar pagos comerciales como apoyo familiar — solo las "
+            "Disfrazar pagos comerciales como apoyo familiar. Solo las "
             "transferencias personales, no comerciales, están cubiertas."
         ),
         "rem_q4_b3": (
-            "Redes informales de envío sin licencia — no tiene ninguna "
+            "Redes informales de envío sin licencia. No tiene ninguna "
             "protección si el dinero desaparece."
         ),
         "rem_license_link": "Detalles completos de la licencia →",
         # Ruta de voluntariado
-        "vol_title": "Ser voluntario en la respuesta",
+        "vol_title": "Voluntariado en la respuesta",
         "vol_intro": (
             "Organizaciones que trabajan en la respuesta al terremoto, qué "
-            "hacen y cómo contactarlas. Las necesidades cambian rápido — "
-            "empiece por el sitio o contacto de cada organización."
+            "hacen y cómo contactarlas. Las necesidades cambian rápido. "
+            "Empiece por el sitio o el contacto de cada organización."
         ),
         "vol_reach": "Contactar ↗",
         "vol_count": "{count} organizaciones",
@@ -1194,7 +1193,7 @@ EXT = 'target="_blank" rel="noopener noreferrer"'
 def _mailto(kind: str) -> str:
     subjects = {
         "subscribe": "Subscribe: OFAC license & funding alerts",
-        "report": "Reconstruction Finance Navigator — report an issue / suggest a source",
+        "report": "Reconstruction Finance Navigator: report an issue or suggest a source",
     }
     subject = quote(subjects.get(kind, subjects["report"]))
     return f"mailto:{CONTACT_EMAIL}?subject={subject}"

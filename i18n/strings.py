@@ -28,7 +28,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "metric_expiring_licenses": "Expiring Licenses",
         "metric_pathways": "Verified Pathways",
         "navigator_help": (
-            "Human-verified pathways only. Operational aid — not legal advice."
+            "Human-verified pathways only. Operational aid, not legal advice."
         ),
         "col_fund": "Fund Name",
         "col_capital": "Capital Type",
@@ -78,7 +78,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "exec_col1_title": "The Regulatory Environment",
         "exec_ofac_term": "OFAC",
         "exec_ofac_def": (
-            "Office of Foreign Assets Control — the U.S. Treasury agency that "
+            "Office of Foreign Assets Control, the U.S. Treasury agency that "
             "enforces economic and trade sanctions."
         ),
         "exec_gl_term": "GL (General License)",
@@ -145,8 +145,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "metric_expiring_licenses": "Licencias por vencer",
         "metric_pathways": "Rutas verificadas",
         "navigator_help": (
-            "Solo rutas verificadas por humanos. Herramienta operativa — "
-            "no constituye asesoría legal."
+            "Solo rutas con verificación humana. Herramienta operativa, "
+            "no asesoría legal."
         ),
         "col_fund": "Nombre del fondo",
         "col_capital": "Tipo de capital",
@@ -196,7 +196,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "exec_col1_title": "El entorno regulatorio",
         "exec_ofac_term": "OFAC",
         "exec_ofac_def": (
-            "Office of Foreign Assets Control — la agencia del Tesoro de EE. UU. "
+            "Office of Foreign Assets Control, la agencia del Tesoro de EE. UU. "
             "que aplica sanciones económicas y comerciales."
         ),
         "exec_gl_term": "GL (Licencia General)",
