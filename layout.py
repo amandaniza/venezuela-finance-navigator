@@ -1184,6 +1184,12 @@ def _fmt_amount(currency: str, original: object, usd: object) -> str:
 OFAC_URL = config.OFAC_RECENT_ACTIONS_URL
 FTS_URL = "https://fts.unocha.org/countries/242/summary/2026"
 
+# Every OUTBOUND link must carry this. Internal links stay same-tab, but when
+# the app itself is viewed inside an iframe (e.g. Streamlit Cloud's embedded
+# viewer), a target-less external link navigates the iframe — and most org
+# sites send X-Frame-Options: DENY, which renders as "refused to connect".
+EXT = 'target="_blank" rel="noopener noreferrer"'
+
 
 def _mailto(kind: str) -> str:
     subjects = {
@@ -1717,7 +1723,7 @@ def _metrics_section(c: Ctx, pathways: list[dict]) -> str:
 def _dark_banner(c: Ctx) -> str:
     def link(title: str, url: str) -> str:
         return (
-            f'<a href="{escape(url)}" '
+            f'<a href="{escape(url)}" {EXT} '
             'style="text-decoration:none;display:block;">'
             '<div style="color:#FFF;font-size:14px;font-weight:700;">'
             f'{escape(title)}</div>'
@@ -1848,7 +1854,7 @@ def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = N
             url = (f.get("source_url") or "").strip()
             name = escape(f.get("fund_name") or "—")
             name_html = (
-                f'<a href="{escape(url)}" '
+                f'<a href="{escape(url)}" {EXT} '
                 f'style="text-decoration:none;color:{BLUE};">{name} ↗</a>'
                 if url.startswith(("http://", "https://"))
                 else name
@@ -1887,7 +1893,7 @@ def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = N
 def _sources(c: Ctx) -> str:
     def card(bg: str, label: str, url: str) -> str:
         return (
-            f'<a href="{escape(url)}" '
+            f'<a href="{escape(url)}" {EXT} '
             f'style="text-decoration:none;flex:1 1 320px;height:180px;border-radius:4px;'
             f'background:{bg};position:relative;padding:20px;display:flex;'
             'align-items:flex-end;">'
@@ -2034,7 +2040,7 @@ def _directory_card(c: Ctx, s: dict) -> str:
     visit = ""
     if url.startswith(("http://", "https://")):
         visit = (
-            f'<a href="{escape(url)}" '
+            f'<a href="{escape(url)}" {EXT} '
             f'style="text-decoration:none;font-size:12.5px;font-weight:700;color:{BLUE};">'
             f'{escape(c.t("dir_visit"))}</a>'
         )
@@ -2221,7 +2227,7 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
     source_link = ""
     if url.startswith(("http://", "https://")):
         source_link = (
-            f'<a href="{escape(url)}" '
+            f'<a href="{escape(url)}" {EXT} '
             f'style="text-decoration:none;display:inline-block;margin:8px 0 4px;'
             f'background:{BLUE};color:#FFF;padding:11px 22px;border-radius:999px;'
             f'font-size:13px;font-weight:700;">{escape(c.t("detail_source_link"))}</a>'
@@ -2372,7 +2378,8 @@ def simple_source_card(c: Ctx, s: dict, action_key: str, note_html: str = "") ->
     detail = c.page_url("directory", source=s["source_key"])
     url = (s.get("url") or "").strip()
     action = (
-        f'<a href="{escape(url)}" style="text-decoration:none;background:{BLUE};'
+        f'<a href="{escape(url)}" {EXT} '
+        f'style="text-decoration:none;background:{BLUE};'
         'color:#FFF;padding:10px 20px;border-radius:999px;font-size:13px;'
         f'font-weight:700;white-space:nowrap;">{escape(c.t(action_key))}</a>'
     )

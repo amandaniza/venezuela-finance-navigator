@@ -24,11 +24,11 @@ def _block(title: str, body_html: str, accent: str = L.BLUE) -> str:
 
 
 ofac_link = (
-    f'<a href="{escape(L.OFAC_URL)}" '
+    f'<a href="{escape(L.OFAC_URL)}" {L.EXT} '
     f'style="color:{L.BLUE};font-weight:600;">OFAC Recent Actions ↗</a>'
 )
 fts_link = (
-    f'<a href="{escape(L.FTS_URL)}" '
+    f'<a href="{escape(L.FTS_URL)}" {L.EXT} '
     f'style="color:{L.BLUE};font-weight:600;">UNOCHA FTS ↗</a>'
 )
 mail_link = (

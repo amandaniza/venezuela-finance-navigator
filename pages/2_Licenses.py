@@ -43,7 +43,7 @@ def _license_card(lic: dict) -> str:
         f'{escape(c.t("xl_license_pathways"))}</a>'
     )
     ofac_link = (
-        f'<a href="{escape(L.OFAC_URL)}" '
+        f'<a href="{escape(L.OFAC_URL)}" {L.EXT} '
         f'style="text-decoration:none;font-size:13px;font-weight:700;color:{L.INK};">'
         f'{escape(c.t("lic_official_source"))}</a>'
     )
