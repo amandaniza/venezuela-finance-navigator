@@ -11,7 +11,8 @@
       "gl60_issued": "2026-06-25",
       "gl60_expires": "2026-10-23"
     },
-    "community_funds_added": "2026-07-05 — 4 community/individually organized funds added (accreditation noted per entry)"
+    "community_funds_added": "2026-07-05 — 4 community/individually organized funds added (accreditation noted per entry)",
+    "link_audit": "2026-07-11 — every donation URL scraped and verified; 11 entries re-pointed from generic org homepages to Venezuela-specific campaign pages (aid-for-life also moved to the correct domain aidforlifeintl.org; wfp-food routes via WFP's ShareTheMeal Venezuela campaign; airlink-logistics via its official Donorbox campaign)"
   },
   "funding_sources": [
     {
@@ -313,7 +314,7 @@
       "compliance_notes": "GlobalGiving performs its own partner vetting.",
       "suggested_license_pathway": "REVIEW — US 501(c)(3) platform.",
       "verification_status": "unverified",
-      "url": "https://www.globalgiving.org",
+      "url": "https://www.globalgiving.org/projects/venezuela-earthquake-relief-fund/",
       "phase": [
         "relief"
       ],
@@ -341,7 +342,7 @@
       "compliance_notes": "Relevant for NGOs planning beyond the GL 60 window.",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://disasterphilanthropy.org",
+      "url": "https://disasterphilanthropy.org/blog/twin-earthquakes-strike-venezuela-how-you-can-help/",
       "phase": [
         "recovery",
         "reconstruction"
@@ -395,7 +396,7 @@
       "compliance_notes": "Caritas network gives deep local parish-level reach.",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://www.crs.org",
+      "url": "https://www.crs.org/donate/venezuela-earthquake",
       "phase": [
         "relief"
       ],
@@ -421,7 +422,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://wck.org/donate",
+      "url": "https://wck.org/relief/caracas-venezuela-earthquakes-2026/",
       "phase": [
         "relief"
       ],
@@ -448,7 +449,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://www.directrelief.org/donate",
+      "url": "https://www.directrelief.org/emergency/venezuela-earthquakes-2026/",
       "phase": [
         "relief"
       ],
@@ -475,7 +476,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://www.americares.org",
+      "url": "https://www.americares.org/emergency-program/venezuela-earthquakes-june-2026/",
       "phase": [
         "relief"
       ],
@@ -501,7 +502,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://www.samaritanspurse.org",
+      "url": "https://www.samaritanspurse.org/our-ministry/venezuela-quake-response/",
       "phase": [
         "relief"
       ],
@@ -553,7 +554,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://aidforlife.org",
+      "url": "https://aidforlifeintl.org/venezuela-earthquake-emergency-response-2026/",
       "phase": [
         "relief"
       ],
@@ -579,7 +580,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://www.hispanicfederation.org",
+      "url": "https://www.hispanicfederation.org/donate/ayuda-a-los-pueblos-venezuela-disaster-relief/",
       "phase": [
         "relief"
       ],
@@ -632,7 +633,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW.",
       "verification_status": "unverified",
-      "url": "https://airlinkflight.org",
+      "url": "https://donorbox.org/2026-venezuela-earthquakes-airlink",
       "phase": [
         "relief"
       ],
@@ -659,7 +660,7 @@
       "compliance_notes": "",
       "suggested_license_pathway": "REVIEW — UN agency.",
       "verification_status": "unverified",
-      "url": "https://www.wfp.org",
+      "url": "https://sharethemeal.org/campaigns/venezuela1",
       "phase": [
         "relief"
       ],

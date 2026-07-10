@@ -94,7 +94,7 @@ FTS_EARTHQUAKE_KEYWORDS = ["earthquake", "seismic", "terremoto", "sismo"]
 # ---------------------------------------------------------------------------
 
 FUNDING_SEED_PATH = ROOT / "navigator_funding_seed.json"
-FUNDING_LAST_CHECKED = "2026-07-04"
+FUNDING_LAST_CHECKED = "2026-07-11"
 
 # Reference context figures (from the seed meta block). Used for hero context.
 UN_RECONSTRUCTION_ESTIMATE_USD = 6_700_000_000
