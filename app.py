@@ -22,7 +22,9 @@ ADMIN_TOKEN = "admin"
 
 st.set_page_config(
     page_title="Venezuela Resiliente",
-    page_icon="🧭",
+    # Accurate Venezuelan flag (8-star arc) — assets/ve-square.svg, from the
+    # flag-icons project (MIT). Keep favicon and header logo on the same asset.
+    page_icon="assets/ve-square.svg",
     layout="wide",
     initial_sidebar_state="collapsed",
 )

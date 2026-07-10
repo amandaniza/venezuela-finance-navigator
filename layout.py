@@ -2308,6 +2308,9 @@ section[id] {scroll-margin-top:70px;}
 .st-key-pwfilter button
   {border:1px solid #D8D5CC;border-radius:999px;padding:3px 14px;min-height:28px;
    font-size:12px;font-weight:700;color:#00247D;background:transparent;}
+/* Header flag icon (inline SVG must fill its 34px chip) */
+.ve-flag svg {width:100%;height:100%;display:block;}
+
 /* Glossary tooltip (shared component — see gloss() in layout.py) */
 .gl-term {border-bottom:1px dotted #9CA3AF;cursor:help;position:relative;}
 .gl-term:hover::after, .gl-term:focus::after {
@@ -2336,13 +2339,19 @@ PAGE_FILES = {
 }
 
 
+# Venezuelan flag, square crop (flag-icons project, MIT). An accurate flag —
+# yellow/blue/red bands with the 8-star arc — NOT a hand-built tricolor, which
+# reads as Colombia/Ecuador. Inlined so the header never depends on static
+# file serving; the favicon in app.py uses the same asset.
+_FLAG_SVG = (config.ROOT / "assets" / "ve-square.svg").read_text(encoding="utf-8")
+
+
 def _logo_html(c: Ctx) -> str:
     return (
         f'<a href="{c.page_url("home")}" style="text-decoration:none;display:flex;'
         'align-items:center;gap:12px;">'
-        f'<div style="width:34px;height:34px;border-radius:8px;background:'
-        f'linear-gradient(180deg,{YELLOW} 0 33%,{BLUE} 33% 66%,{RED} 66% 100%);'
-        'flex:none;"></div>'
+        '<div class="ve-flag" style="width:34px;height:34px;border-radius:8px;'
+        f'overflow:hidden;flex:none;border:1px solid #E1DFD8;">{_FLAG_SVG}</div>'
         f'<div style="font-weight:800;font-size:16px;letter-spacing:-0.01em;'
         f'color:{BLUE};white-space:nowrap;">Venezuela '
         f'<span style="color:{RED};">Resiliente</span></div></a>'
