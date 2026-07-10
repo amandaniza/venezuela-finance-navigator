@@ -92,4 +92,4 @@ body = (
     + "</section>"
 )
 
-L.render_page(c, "remit", body, simple=True)
+L.render_page(c, "remit", body)

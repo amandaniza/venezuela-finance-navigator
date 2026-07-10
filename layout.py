@@ -386,9 +386,6 @@ STRINGS: dict[str, dict[str, str]] = {
             "Children."
         ),
         # Simple paths — intent-first front door
-        "nav_donate": "Donate",
-        "nav_remit": "Send money",
-        "nav_full": "Full Navigator",
         "home_welcome_eyebrow": "Welcome",
         "home_welcome_lead": (
             "The purpose of this independent initiative is to share "
@@ -420,36 +417,10 @@ STRINGS: dict[str, dict[str, str]] = {
             "What is allowed right now, which channels work, and what to avoid."
         ),
         "intent_full_link": "Or explore the full navigator ↓",
-        "simple_details": "More detail →",
         "simple_disclaimer": (
             "General information, not legal advice. For your specific "
             "situation, consult a licensed professional."
         ),
-        # Donate path
-        "don_title": "Donate to earthquake relief",
-        "don_intro": (
-            "Trusted places to give, in plain language. Every entry links to "
-            "the organization's own donation page."
-        ),
-        "don_gl60_note": (
-            "U.S. rules currently allow donations for Venezuela earthquake "
-            "relief: a general authorization ({gl}) covers this through "
-            "{date}. Most donors do not need special permission to give to "
-            "the groups listed below."
-        ),
-        "don_who_q": "Who is giving?",
-        "don_who_ind": "Me, personally",
-        "don_who_org": "An organization or company",
-        "don_how": "Donate here ↗",
-        "don_gov_note": (
-            "Money given here goes to projects prioritized by the "
-            "Venezuelan government. Read the compliance detail before giving."
-        ),
-        "don_license_link": (
-            "See the license that covers this →"
-        ),
-        "don_none": "Nothing matches yet.",
-        "don_count": "{count} places to give",
         # Send-money path
         "rem_title": "Sending money to family in Venezuela",
         "rem_intro": (
@@ -845,9 +816,6 @@ STRINGS: dict[str, dict[str, str]] = {
             "Children."
         ),
         # Rutas simples — portada por intención
-        "nav_donate": "Donar",
-        "nav_remit": "Enviar dinero",
-        "nav_full": "Navegador completo",
         "home_welcome_eyebrow": "Le damos la bienvenida",
         "home_welcome_lead": (
             "El propósito de esta iniciativa independiente es poner a su "
@@ -883,37 +851,10 @@ STRINGS: dict[str, dict[str, str]] = {
             "Qué está permitido ahora, qué canales funcionan y qué evitar."
         ),
         "intent_full_link": "O explore el navegador completo ↓",
-        "simple_details": "Más detalle →",
         "simple_disclaimer": (
             "Información general, no asesoría legal. Para su situación "
             "específica, busque asesoría profesional autorizada."
         ),
-        # Ruta de donación
-        "don_title": "Donar para el alivio del terremoto",
-        "don_intro": (
-            "Opciones confiables para donar, en lenguaje claro. Cada entrada "
-            "enlaza a la página oficial de donación de la organización."
-        ),
-        "don_gl60_note": (
-            "Las reglas de EE. UU. permiten hoy donar para el alivio del "
-            "terremoto en Venezuela: una autorización general ({gl}) lo cubre "
-            "hasta el {date}. En la mayoría de los casos no se necesita ningún "
-            "permiso especial para donar a los grupos de esta lista."
-        ),
-        "don_who_q": "¿Quién dona?",
-        "don_who_ind": "Yo, a título personal",
-        "don_who_org": "Una organización o empresa",
-        "don_how": "Done aquí ↗",
-        "don_gov_note": (
-            "El dinero donado aquí va a proyectos priorizados por el "
-            "gobierno de Venezuela. Lea el detalle de cumplimiento antes "
-            "de donar."
-        ),
-        "don_license_link": (
-            "Ver la licencia que cubre esta entrada →"
-        ),
-        "don_none": "Ninguna opción coincide todavía.",
-        "don_count": "{count} opciones para donar",
         # Ruta de envío de dinero
         "rem_title": "Enviar dinero a su familia en Venezuela",
         "rem_intro": (
@@ -1057,54 +998,6 @@ GLOSSARY = {
     "INGO": ("gl_ingo_term", "gl_ingo_def"),
 }
 
-# Plain-language phrase for each directory `category` tag (EN, ES). The simple
-# paths show these instead of raw tags; unknown categories fall back to the
-# humanized tag.
-CATEGORY_PLAIN = {
-    "pooled_reconstruction_fund": (
-        "Shared reconstruction fund", "Fondo común de reconstrucción"),
-    "pooled_humanitarian_fund": (
-        "Shared fund that supports local relief groups",
-        "Fondo común que apoya a grupos locales de ayuda"),
-    "emergency_appeal": (
-        "Emergency fundraising appeal", "Llamamiento de emergencia"),
-    "relief_operations": (
-        "Relief organization working on the ground",
-        "Organización de ayuda trabajando en el terreno"),
-    "medical_relief": ("Medical aid and supplies", "Ayuda e insumos médicos"),
-    "community_organized_fund": (
-        "Community-run fund", "Fondo organizado por la comunidad"),
-    "institutional_donor_funding": (
-        "Government donor funding", "Financiamiento de donante gubernamental"),
-    "sovereign_financing": (
-        "Government-to-government financing", "Financiamiento entre gobiernos"),
-    "direct_cash_transfer": (
-        "Cash sent directly to affected families",
-        "Dinero en efectivo directo a familias afectadas"),
-    "regranting_fund": (
-        "Fund that re-grants to vetted local organizations",
-        "Fondo que redistribuye a organizaciones locales verificadas"),
-    "recovery_grants": (
-        "Grants for recovery projects",
-        "Subvenciones para proyectos de recuperación"),
-    "verified_crowdfunding_directory": (
-        "Directory of verified fundraisers",
-        "Directorio de recaudaciones verificadas"),
-    "in_kind_logistics": (
-        "Transports donated supplies", "Transporta insumos donados"),
-    "coordinated_appeal_pipeline": (
-        "Coordinated UN appeal (upcoming)",
-        "Llamamiento coordinado de la ONU (próximamente)"),
-}
-
-# Donate path: flows a donor can act on, and who counts as an "organization"
-# donor. Until the dataset grows an explicit individual_actionable tag
-# (planned data work), individual-actionability is derived from accepts_from.
-SIMPLE_GIVE_FLOWS = FLOW_GIVE | {"directory"}
-ORG_DONOR_TAGS = {
-    "companies", "foundations", "governments", "international_organizations",
-}
-
 CURRENCY_SYMBOLS = config.CURRENCY_SYMBOLS
 
 
@@ -1243,7 +1136,6 @@ PAGE_SLUGS = {
     "capital": "capital-stack",
     "about": "about",
     "admin": "admin",
-    "donate": "donate",
     "remit": "send-money",
 }
 
@@ -1256,23 +1148,12 @@ HEADER_NAV = [
     ("capital", "nav_capital"),
 ]
 
-# Reduced header for the simple paths: the two intents + a persistent way
-# back to the full navigator. Footer, language toggle, and ?lang= handling are
-# shared with the full nav — only this list differs.
-SIMPLE_HEADER_NAV = [
-    ("donate", "nav_donate"),
-    ("remit", "nav_remit"),
-    ("home", "nav_full"),
-]
-
-
 class Ctx:
     """Language + query-param aware render context, bound to the active page."""
 
     # Query params carried across links (per-page filters + detail routing).
     _NAV_PARAMS = (
         "lang", "auth", "cap", "fd", "ph", "ot", "gl", "source", "pathway",
-        "who",
     )
 
     def __init__(self, active: str = "home") -> None:
@@ -1289,7 +1170,6 @@ class Ctx:
         self.gl = self._q("gl")             # pathways license filter
         self.source = self._q("source")     # directory detail
         self.pathway = self._q("pathway")   # pathways detail
-        self.who = self._q("who")           # donate path: individual vs org
 
     @staticmethod
     def _q(key: str) -> str | None:
@@ -2345,70 +2225,6 @@ def _pathway_detail(c: Ctx, p: dict, licenses: list[dict]) -> str:
 # Simple-path section builders (Donate / Send money / Volunteer)
 # ---------------------------------------------------------------------------
 
-def category_plain(c: Ctx, s: dict) -> str:
-    """Plain-language description of what a directory entry is."""
-    pair = CATEGORY_PLAIN.get(s.get("category") or "")
-    if pair:
-        return pair[1] if c.lang == "es" else pair[0]
-    return (s.get("category") or "").replace("_", " ")
-
-
-def donate_entries(sources: list[dict], who: str | None) -> list[dict]:
-    """Directory entries a donor can act on: `who` is None (individual) or "org".
-
-    Individual-actionability is derived from flow direction + accepts_from
-    until the dataset grows its planned individual_actionable tag.
-    """
-    out = []
-    for s in sources:
-        if s["flow_direction"] not in SIMPLE_GIVE_FLOWS:
-            continue
-        if not (s.get("url") or "").startswith(("http://", "https://")):
-            continue
-        accepts = set(s.get("accepts_from") or [])
-        if who == "org":
-            if not accepts & ORG_DONOR_TAGS:
-                continue
-        elif "individuals" not in accepts and s["flow_direction"] != "directory":
-            continue
-        out.append(s)
-    return out
-
-
-def simple_source_card(c: Ctx, s: dict, action_key: str, note_html: str = "") -> str:
-    """Plain-language directory card: what it is, how to act, link to detail.
-
-    `note_html` is optional pre-built HTML (e.g. a compliance consequence
-    line) — pass "" unless the entry genuinely needs one.
-    """
-    name = _source_name(c, s)
-    detail = c.page_url("directory", source=s["source_key"])
-    url = (s.get("url") or "").strip()
-    action = (
-        f'<a href="{escape(url)}" {EXT} '
-        f'style="text-decoration:none;background:{BLUE};'
-        'color:#FFF;padding:10px 20px;border-radius:999px;font-size:13px;'
-        f'font-weight:700;white-space:nowrap;">{escape(c.t(action_key))}</a>'
-    )
-    return (
-        '<div style="flex:1 1 320px;max-width:520px;border:1px solid #E1DFD8;'
-        'border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;'
-        'gap:8px;background:#FFF;">'
-        f'<div style="font-size:17px;font-weight:700;color:{BLUE};line-height:1.3;">'
-        f'{escape(name)}</div>'
-        f'<div style="font-size:13.5px;color:{INK};line-height:1.5;">'
-        f'{escape(category_plain(c, s))}</div>'
-        f'<div style="font-size:12.5px;color:{MUTE};">{escape(s.get("org") or "")}</div>'
-        + note_html
-        + '<div style="display:flex;justify-content:space-between;align-items:center;'
-        'gap:12px;margin-top:6px;padding-top:12px;border-top:1px solid #F0EEE9;">'
-        f'{action}'
-        f'<a href="{detail}" style="text-decoration:none;font-size:12.5px;'
-        f'font-weight:700;color:{INK};">{escape(c.t("simple_details"))}</a>'
-        "</div></div>"
-    )
-
-
 def simple_disclaimer_html(c: Ctx) -> str:
     """Muted not-legal-advice line closing every simple-path page."""
     return (
@@ -2492,18 +2308,6 @@ section[id] {scroll-margin-top:70px;}
 .st-key-pwfilter button
   {border:1px solid #D8D5CC;border-radius:999px;padding:3px 14px;min-height:28px;
    font-size:12px;font-weight:700;color:#00247D;background:transparent;}
-.st-key-simplefilters {padding:2px 48px 10px;}
-.st-key-simplefilters [data-testid="stWidgetLabel"] p
-  {font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-   color:#9CA3AF;}
-.st-key-simplefilters [data-testid="stButtonGroup"] button
-  {border:1px solid #D8D5CC;border-radius:999px;padding:3px 13px;min-height:28px;
-   font-size:12px;font-weight:600;color:#12172B;background:transparent;}
-.st-key-simplefilters [data-testid="stButtonGroup"] button[aria-checked="true"],
-.st-key-simplefilters [data-testid="stButtonGroup"] button[kind$="Active"]
-  {background:#00247D !important;color:#FFF !important;border-color:#00247D !important;}
-.st-key-simplefilters [data-testid="stButtonGroup"] button p {font-size:12px;}
-
 /* Glossary tooltip (shared component — see gloss() in layout.py) */
 .gl-term {border-bottom:1px dotted #9CA3AF;cursor:help;position:relative;}
 .gl-term:hover::after, .gl-term:focus::after {
@@ -2528,7 +2332,6 @@ PAGE_FILES = {
     "directory": "pages/4_Directory.py",
     "capital": "pages/5_Capital_Stack.py",
     "about": "pages/6_About.py",
-    "donate": "pages/8_Donate.py",
     "remit": "pages/9_Send_Money.py",
 }
 
@@ -2546,19 +2349,15 @@ def _logo_html(c: Ctx) -> str:
     )
 
 
-def _render_header(c: Ctx, active: str, simple: bool = False) -> None:
+def _render_header(c: Ctx, active: str) -> None:
     """Header row: HTML logo + st.page_link nav + language segmented control.
-
-    `simple` swaps the five-page expert nav for the reduced simple-path nav
-    (Donate / Send money / Full Navigator). Logo, language toggle, and
-    ?lang= handling are identical in both modes.
 
     page_link navigation is handled client-side by Streamlit's router (no
     browser reload); the language toggle reruns over the websocket. Query
     params drop on SPA navigation, so lang/auth persist in session_state
     (see app.py) and Ctx falls back to them.
     """
-    nav = SIMPLE_HEADER_NAV if simple else HEADER_NAV
+    nav = HEADER_NAV
     # This Streamlit build doesn't stamp aria-current on page links, so mark
     # the active page by its (relative) href instead.
     active_href = PAGE_SLUGS.get(active)
@@ -2595,11 +2394,8 @@ def _render_header(c: Ctx, active: str, simple: bool = False) -> None:
                 st.rerun()
 
 
-def render_shell(c: Ctx, active: str, simple: bool = False) -> None:
-    """Top chrome: CSS + flag stripe + widget header (+ breadcrumb off Home).
-
-    `simple=True` renders the reduced simple-path nav (see _render_header).
-    """
+def render_shell(c: Ctx, active: str) -> None:
+    """Top chrome: CSS + flag stripe + widget header (+ breadcrumb off Home)."""
     init_db()
     # Keep session + i18n in sync with the query param for the Admin page.
     st.session_state.lang = c.lang
@@ -2608,7 +2404,7 @@ def render_shell(c: Ctx, active: str, simple: bool = False) -> None:
     # in a new tab while st.html leaves anchors alone — same-tab navigation.
     st.markdown(_BASE_CSS, unsafe_allow_html=True)
     st.html(_flag_stripe())
-    _render_header(c, active, simple)
+    _render_header(c, active)
     if active != "home":
         with st.container(key="crumb"):
             st.page_link(PAGE_FILES["home"], label=c.t("crumb_home"))
@@ -2628,9 +2424,9 @@ def render_body(body: str) -> None:
     )
 
 
-def render_page(c: Ctx, active: str, body: str, simple: bool = False) -> None:
+def render_page(c: Ctx, active: str, body: str) -> None:
     """Single-chunk page: shell + body + footer (pages without widgets)."""
-    render_shell(c, active, simple)
+    render_shell(c, active)
     render_body(body)
     render_footer(c)
 

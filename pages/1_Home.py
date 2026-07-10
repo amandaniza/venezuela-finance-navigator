@@ -1,7 +1,8 @@
 """Home — intent-first front door layered over the full navigator.
 
 Order: masthead (Venezuela Resiliente + what it offers), GL 60 countdown
-(shared urgency signal), two intent cards (donate / send money), then the existing
+(shared urgency signal), two intent cards (donate -> Directory filtered to
+giving flows, send money -> the GL 57 plain-language page), then the existing
 expert Home content (hero, metrics, feature cards) below a #full-navigator
 anchor so nothing is hidden from anyone who already knows what they want.
 Org/lawyer users and volunteer-adjacent inquiries reach everything through
@@ -116,7 +117,10 @@ def _intent_card(href: str, title: str, desc: str, accent: str) -> str:
 
 def _intent_section() -> str:
     cards = (
-        _intent_card(c.page_url("donate"), c.t("intent_donate_t"),
+        # Donate intent lands on the Directory pre-filtered to giving flows —
+        # the Directory is the developed donation view; there is no separate
+        # simplified donate page.
+        _intent_card(c.page_url("directory", fd="give"), c.t("intent_donate_t"),
                      c.t("intent_donate_d"), L.RED)
         + _intent_card(c.page_url("remit"), c.t("intent_remit_t"),
                        c.t("intent_remit_d"), L.BLUE)
