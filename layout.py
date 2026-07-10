@@ -389,15 +389,22 @@ STRINGS: dict[str, dict[str, str]] = {
         "nav_donate": "Donate",
         "nav_remit": "Send money",
         "nav_full": "Full Navigator",
-        "home_welcome": (
-            "Welcome to Venezuela Resiliente. The purpose of this independent "
-            "initiative is to share information about the resources available "
-            "to support rescue and recovery efforts in Venezuela after the "
-            "devastating earthquake of {date}. Here you will find current "
-            "information on: (a) ways to make effective donations to "
-            "multilateral institutions, national organizations, and NGOs that "
-            "work on the ground or offer channels for monetary aid; and "
-            "(b) authorized mechanisms for sending money to individuals and "
+        "home_welcome_eyebrow": "Welcome",
+        "home_welcome_lead": (
+            "The purpose of this independent initiative is to share "
+            "information about the resources available to support rescue and "
+            "recovery efforts in Venezuela after the devastating earthquake "
+            "of {date}. Here you will find current information on:"
+        ),
+        "home_welcome_a_h": "Donations",
+        "home_welcome_a": (
+            "Ways to make effective donations to multilateral institutions, "
+            "national organizations, and NGOs that work on the ground or "
+            "offer channels for monetary aid."
+        ),
+        "home_welcome_b_h": "Money transfers",
+        "home_welcome_b": (
+            "Authorized mechanisms for sending money to individuals and "
             "families (distinct from donations, and not intended for "
             "commercial transactions)."
         ),
@@ -841,19 +848,26 @@ STRINGS: dict[str, dict[str, str]] = {
         "nav_donate": "Donar",
         "nav_remit": "Enviar dinero",
         "nav_full": "Navegador completo",
-        "home_welcome": (
-            "Le damos la bienvenida a Venezuela Resiliente. El propósito de "
-            "esta iniciativa independiente es poner a su disposición "
-            "información sobre los recursos disponibles para contribuir a las "
-            "labores de rescate y recuperación de Venezuela luego del "
-            "devastador terremoto del {date}. Aquí podrá encontrar "
-            "información actualizada sobre: (a) formas de realizar donaciones "
-            "efectivas a instituciones multilaterales, organizaciones "
-            "nacionales y ONG que trabajan sobre el terreno u ofrecen vías "
-            "para canalizar su ayuda monetaria; y (b) mecanismos habilitados "
-            "para realizar transferencias de dinero a personas y familias "
-            "particulares (distinto de donaciones, y no apto para "
-            "transacciones comerciales)."
+        "home_welcome_eyebrow": "Le damos la bienvenida",
+        "home_welcome_lead": (
+            "El propósito de esta iniciativa independiente es poner a su "
+            "disposición información sobre los recursos disponibles para "
+            "contribuir a las labores de rescate y recuperación de Venezuela "
+            "luego del devastador terremoto del {date}. Aquí podrá encontrar "
+            "información actualizada sobre:"
+        ),
+        "home_welcome_a_h": "Donaciones",
+        "home_welcome_a": (
+            "Formas de realizar donaciones efectivas a instituciones "
+            "multilaterales, organizaciones nacionales y ONG que trabajan "
+            "sobre el terreno u ofrecen vías para canalizar su ayuda "
+            "monetaria."
+        ),
+        "home_welcome_b_h": "Transferencias de dinero",
+        "home_welcome_b": (
+            "Mecanismos habilitados para realizar transferencias de dinero a "
+            "personas y familias particulares (distinto de donaciones, y no "
+            "apto para transacciones comerciales)."
         ),
         "intent_heading": "¿Cómo quiere ayudar?",
         "intent_sub": (
@@ -2527,8 +2541,8 @@ def _logo_html(c: Ctx) -> str:
         f'linear-gradient(180deg,{YELLOW} 0 33%,{BLUE} 33% 66%,{RED} 66% 100%);'
         'flex:none;"></div>'
         f'<div style="font-weight:800;font-size:16px;letter-spacing:-0.01em;'
-        f'color:{BLUE};white-space:nowrap;">Reconstruction Finance '
-        f'<span style="color:{RED};">Navigator</span></div></a>'
+        f'color:{BLUE};white-space:nowrap;">Venezuela '
+        f'<span style="color:{RED};">Resiliente</span></div></a>'
     )
 
 
@@ -2536,8 +2550,8 @@ def _render_header(c: Ctx, active: str, simple: bool = False) -> None:
     """Header row: HTML logo + st.page_link nav + language segmented control.
 
     `simple` swaps the five-page expert nav for the reduced simple-path nav
-    (Donate / Send money / Volunteer / Full Navigator). Logo, language toggle,
-    and ?lang= handling are identical in both modes.
+    (Donate / Send money / Full Navigator). Logo, language toggle, and
+    ?lang= handling are identical in both modes.
 
     page_link navigation is handled client-side by Streamlit's router (no
     browser reload); the language toggle reruns over the websocket. Query

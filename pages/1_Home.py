@@ -1,7 +1,7 @@
 """Home — intent-first front door layered over the full navigator.
 
-Order: welcome copy (what this initiative is), GL 60 countdown (shared
-urgency signal), two intent cards (donate / send money), then the existing
+Order: masthead (Venezuela Resiliente + what it offers), GL 60 countdown
+(shared urgency signal), two intent cards (donate / send money), then the existing
 expert Home content (hero, metrics, feature cards) below a #full-navigator
 anchor so nothing is hidden from anyone who already knows what they want.
 Org/lawyer users and volunteer-adjacent inquiries reach everything through
@@ -43,13 +43,41 @@ gl60_days = max((gl60_exp - date.today()).days, 0)
 
 
 def _welcome() -> str:
-    """Site welcome: what Venezuela Resiliente is and what it offers."""
+    """Masthead: names the initiative, then its two offerings side by side.
+
+    The two items reuse the accent colors of the intent cards below (red =
+    donate, blue = send money) so the masthead foreshadows the selector.
+    """
+    def item(head_key: str, body_key: str, accent: str) -> str:
+        return (
+            '<div style="flex:1 1 300px;max-width:460px;">'
+            f'<div style="width:34px;height:4px;border-radius:2px;'
+            f'background:{accent};margin-bottom:10px;"></div>'
+            '<div style="font-size:12px;font-weight:700;letter-spacing:0.07em;'
+            f'text-transform:uppercase;color:{L.INK};margin-bottom:6px;">'
+            f'{escape(c.t(head_key))}</div>'
+            f'<div style="font-size:14px;color:{L.MUTE};line-height:1.6;">'
+            f'{escape(c.t(body_key))}</div></div>'
+        )
+
+    lead = c.t("home_welcome_lead", date=config.EARTHQUAKE_DATE_DISPLAY[c.lang])
     return (
-        '<section style="padding:40px 48px 8px;">'
-        f'<p style="margin:0;font-size:15.5px;color:{L.INK};max-width:820px;'
-        'line-height:1.7;">'
-        f'{escape(c.t("home_welcome", date=config.EARTHQUAKE_DATE_DISPLAY[c.lang]))}'
-        "</p></section>"
+        '<section style="padding:52px 48px 46px;">'
+        '<div style="font-size:12px;font-weight:700;letter-spacing:0.08em;'
+        f'text-transform:uppercase;color:{L.BLUE};">'
+        f'{escape(c.t("home_welcome_eyebrow"))}</div>'
+        '<h1 style="margin:10px 0 0;font-size:46px;font-weight:800;'
+        f'letter-spacing:-0.02em;line-height:1.1;color:{L.INK};">'
+        "Venezuela Resiliente</h1>"
+        '<div style="width:72px;height:5px;border-radius:3px;margin:18px 0 20px;'
+        f'background:linear-gradient(90deg,{L.YELLOW} 0 33%,{L.BLUE} 33% 66%,'
+        f'{L.RED} 66% 100%);"></div>'
+        f'<p style="margin:0 0 28px;font-size:16.5px;color:{L.MUTE};'
+        f'max-width:700px;line-height:1.65;">{escape(lead)}</p>'
+        '<div style="display:flex;gap:36px;flex-wrap:wrap;">'
+        + item("home_welcome_a_h", "home_welcome_a", L.RED)
+        + item("home_welcome_b_h", "home_welcome_b", L.BLUE)
+        + "</div></section>"
     )
 
 
@@ -95,8 +123,8 @@ def _intent_section() -> str:
     )
     return (
         '<section style="padding:52px 48px 20px;">'
-        '<h1 style="margin:0;font-size:34px;font-weight:800;letter-spacing:-0.01em;'
-        f'color:{L.INK};">{escape(c.t("intent_heading"))}</h1>'
+        '<h2 style="margin:0;font-size:34px;font-weight:800;letter-spacing:-0.01em;'
+        f'color:{L.INK};">{escape(c.t("intent_heading"))}</h2>'
         f'<p style="margin:12px 0 28px;font-size:15.5px;color:{L.MUTE};max-width:620px;'
         f'line-height:1.6;">{escape(c.t("intent_sub"))}</p>'
         f'<div style="display:flex;gap:20px;flex-wrap:wrap;">{cards}</div>'

@@ -21,7 +21,7 @@ from layout import DEFAULT_LANG, SUPPORTED_LANGS
 ADMIN_TOKEN = "admin"
 
 st.set_page_config(
-    page_title="Reconstruction Finance Navigator",
+    page_title="Venezuela Resiliente",
     page_icon="🧭",
     layout="wide",
     initial_sidebar_state="collapsed",
