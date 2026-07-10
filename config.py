@@ -102,6 +102,14 @@ PEOPLE_IN_NEED_EARTHQUAKE = 1_800_000
 PEOPLE_IN_NEED_PRE_QUAKE = 7_900_000
 GL60_ISSUED = "2026-06-25"
 GL60_EXPIRES = "2026-10-23"
+# Earthquake date shown in the homepage welcome copy, per language.
+# Seed data ("June 24 quakes") and the GL 60 issue date (2026-06-25) point to
+# June 24; one welcome-copy draft said July 24. Confirm with Ami before
+# publishing — if the date changes, edit only these two values.
+EARTHQUAKE_DATE_DISPLAY = {
+    "en": "June 24, 2026",
+    "es": "24 de junio de 2026",
+}
 # OCHA revised response plan lands the week of this date (leave a UI slot).
 OCHA_REVISED_PLAN_DATE = "2026-07-06"
 

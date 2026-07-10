@@ -100,11 +100,11 @@ in quotes; keep placeholders like `{count}` or `{date}` intact.
 
 ---
 
-## 3b. The simple paths (Donate / Send money / Volunteer)
+## 3b. The simple paths (Donate / Send money)
 
-The plain-language pages at `/donate`, `/send-money`, and `/volunteer` are
-filtered views of the same directory data — there is nothing separate to edit
-per entry. What controls where an entry appears:
+The plain-language pages at `/donate` and `/send-money` are filtered views of
+the same directory data — there is nothing separate to edit per entry. What
+controls where an entry appears:
 
 - **Donate** shows entries whose `flow_direction` is a giving flow
   (`accepts_contributions`, `both`, `direct_to_beneficiaries`, `directory`)
@@ -113,8 +113,6 @@ per entry. What controls where an entry appears:
   `companies` / `foundations` / `governments` / `international_organizations`.
   (This is a stand-in until entries get an explicit `individual_actionable`
   tag — the filter logic lives in `donate_entries()` in `layout.py`.)
-- **Volunteer** shows entries whose `org_type` is in `VOLUNTEER_ORG_TYPES`
-  in `layout.py` (INGOs, diaspora orgs, community funds, etc.).
 - The plain-language line under each name comes from the entry's `category`,
   via the `CATEGORY_PLAIN` map in `layout.py`. If you add a new category,
   add an EN/ES phrase there too, or the raw tag is shown.

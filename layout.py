@@ -164,11 +164,6 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "source_ofac": "OFAC Recent Actions",
         "source_fts": "UNOCHA FTS & Development Bank Announcements",
-        "disclaimer": (
-            "Confidential operational report. Does not constitute legal advice "
-            "or an OFAC determination. Phase 1 MVP: operational "
-            "intelligence only."
-        ),
         # Context bar
         "context_estimate": "UN reconstruction estimate",
         "context_tracked": "Tracked so far",
@@ -356,6 +351,22 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "about_contact_h": "Contact",
         "about_contact_body": "Report an issue or suggest a source:",
+        "about_disclaimer_h": "Disclaimer",
+        "about_disclaimer_body": (
+            "This site is a volunteer effort to compile information and links "
+            "about cooperation, humanitarian assistance, and financing "
+            "initiatives that support reconstruction after the earthquakes in "
+            "Venezuela, under the economic sanctions regime currently in "
+            "force. Compilation is done with an AI engine, followed by "
+            "verification of each initiative. The people responsible for this "
+            "site have no affiliation with the institutions and organizations "
+            "listed, do not participate in the listed projects, and do not "
+            "benefit in any way from contributions made through the linked "
+            "platforms. Source verification and reliability classification "
+            "are approximate and do not imply any responsibility on our part "
+            "for the administration of donated funds or the management of "
+            "aid projects."
+        ),
         # Footer contacts
         "footer_contacts_h": "CONTACTS",
         "contact_maintainer": "Site maintainer: questions, corrections, new sources",
@@ -377,8 +388,19 @@ STRINGS: dict[str, dict[str, str]] = {
         # Simple paths — intent-first front door
         "nav_donate": "Donate",
         "nav_remit": "Send money",
-        "nav_volunteer": "Volunteer",
         "nav_full": "Full Navigator",
+        "home_welcome": (
+            "Welcome to Venezuela Resiliente. The purpose of this independent "
+            "initiative is to share information about the resources available "
+            "to support rescue and recovery efforts in Venezuela after the "
+            "devastating earthquake of {date}. Here you will find current "
+            "information on: (a) ways to make effective donations to "
+            "multilateral institutions, national organizations, and NGOs that "
+            "work on the ground or offer channels for monetary aid; and "
+            "(b) authorized mechanisms for sending money to individuals and "
+            "families (distinct from donations, and not intended for "
+            "commercial transactions)."
+        ),
         "intent_heading": "How do you want to help?",
         "intent_sub": (
             "Pick the option that fits you. We show only what you need, in "
@@ -389,14 +411,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "intent_remit_t": "I want to send money to family",
         "intent_remit_d": (
             "What is allowed right now, which channels work, and what to avoid."
-        ),
-        "intent_vol_t": "I want to volunteer",
-        "intent_vol_d": (
-            "Organizations working on the response, and how to reach them."
-        ),
-        "intent_org_t": "I work for an organization / I'm a lawyer",
-        "intent_org_d": (
-            "Go straight to the full funding directory, licenses, and pathways."
         ),
         "intent_full_link": "Or explore the full navigator ↓",
         "simple_details": "More detail →",
@@ -485,16 +499,6 @@ STRINGS: dict[str, dict[str, str]] = {
             "if the money disappears."
         ),
         "rem_license_link": "Full license details →",
-        # Volunteer path
-        "vol_title": "Volunteer for the response",
-        "vol_intro": (
-            "Organizations working on the earthquake response, what they do, "
-            "and how to reach them. Needs change quickly. Start from each "
-            "organization's own site or contact."
-        ),
-        "vol_reach": "Reach out ↗",
-        "vol_count": "{count} organizations",
-        "vol_none": "No organizations to show yet.",
     },
     "es": {
         "nav_navigator": "Navegador",
@@ -605,11 +609,6 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "source_ofac": "Acciones Recientes de OFAC",
         "source_fts": "UNOCHA FTS y Anuncios de Bancos de Desarrollo",
-        "disclaimer": (
-            "Informe operativo confidencial. No constituye asesoría legal ni "
-            "una determinación de OFAC. Fase 1 MVP: solo inteligencia "
-            "operativa."
-        ),
         # Context bar
         "context_estimate": "Estimación de reconstrucción ONU",
         "context_tracked": "Rastreado hasta ahora",
@@ -802,6 +801,24 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "about_contact_h": "Contacto",
         "about_contact_body": "Reporte un problema o sugiera una fuente:",
+        "about_disclaimer_h": "Descargo de responsabilidad",
+        "about_disclaimer_body": (
+            "Este sitio constituye un esfuerzo voluntario de compilar "
+            "información y enlaces sobre iniciativas de cooperación, "
+            "asistencia humanitaria y financiamiento orientadas a la "
+            "reconstrucción tras los terremotos en Venezuela, bajo el régimen "
+            "de sanciones económicas vigente. La compilación se realiza "
+            "mediante un motor de IA, seguida de una labor de verificación de "
+            "cada iniciativa. Los responsables de este sitio no tienen "
+            "vínculo alguno con las instituciones y organizaciones listadas, "
+            "no participan en los proyectos indicados, y no se benefician en "
+            "modo alguno de las contribuciones realizadas a través de las "
+            "plataformas enlazadas. La verificación de fuentes y la "
+            "clasificación de confiabilidad son aproximadas y no implican "
+            "responsabilidad alguna de nuestra parte respecto a la "
+            "administración de fondos donados ni a la gestión de los "
+            "proyectos de ayuda."
+        ),
         # Contactos del pie de página
         "footer_contacts_h": "CONTACTOS",
         "contact_maintainer": "Responsable del sitio: preguntas, correcciones, nuevas fuentes",
@@ -823,8 +840,21 @@ STRINGS: dict[str, dict[str, str]] = {
         # Rutas simples — portada por intención
         "nav_donate": "Donar",
         "nav_remit": "Enviar dinero",
-        "nav_volunteer": "Voluntariado",
         "nav_full": "Navegador completo",
+        "home_welcome": (
+            "Le damos la bienvenida a Venezuela Resiliente. El propósito de "
+            "esta iniciativa independiente es poner a su disposición "
+            "información sobre los recursos disponibles para contribuir a las "
+            "labores de rescate y recuperación de Venezuela luego del "
+            "devastador terremoto del {date}. Aquí podrá encontrar "
+            "información actualizada sobre: (a) formas de realizar donaciones "
+            "efectivas a instituciones multilaterales, organizaciones "
+            "nacionales y ONG que trabajan sobre el terreno u ofrecen vías "
+            "para canalizar su ayuda monetaria; y (b) mecanismos habilitados "
+            "para realizar transferencias de dinero a personas y familias "
+            "particulares (distinto de donaciones, y no apto para "
+            "transacciones comerciales)."
+        ),
         "intent_heading": "¿Cómo quiere ayudar?",
         "intent_sub": (
             "Elija la opción que corresponda a su caso. Le mostramos solo lo "
@@ -837,14 +867,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "intent_remit_t": "Quiero enviar dinero a mi familia",
         "intent_remit_d": (
             "Qué está permitido ahora, qué canales funcionan y qué evitar."
-        ),
-        "intent_vol_t": "Quiero hacer voluntariado",
-        "intent_vol_d": (
-            "Organizaciones que trabajan en la respuesta y cómo contactarlas."
-        ),
-        "intent_org_t": "Trabajo en una organización / soy profesional legal",
-        "intent_org_d": (
-            "Vaya directo al directorio completo, las licencias y las rutas."
         ),
         "intent_full_link": "O explore el navegador completo ↓",
         "simple_details": "Más detalle →",
@@ -937,16 +959,6 @@ STRINGS: dict[str, dict[str, str]] = {
             "protección si el dinero desaparece."
         ),
         "rem_license_link": "Detalles completos de la licencia →",
-        # Ruta de voluntariado
-        "vol_title": "Voluntariado en la respuesta",
-        "vol_intro": (
-            "Organizaciones que trabajan en la respuesta al terremoto, qué "
-            "hacen y cómo contactarlas. Las necesidades cambian rápido. "
-            "Empiece por el sitio o el contacto de cada organización."
-        ),
-        "vol_reach": "Contactar ↗",
-        "vol_count": "{count} organizaciones",
-        "vol_none": "Aún no hay organizaciones para mostrar.",
     },
 }
 
@@ -1077,13 +1089,6 @@ CATEGORY_PLAIN = {
 SIMPLE_GIVE_FLOWS = FLOW_GIVE | {"directory"}
 ORG_DONOR_TAGS = {
     "companies", "foundations", "governments", "international_organizations",
-}
-
-# Volunteer path: org types where a person can plausibly offer time/skills.
-VOLUNTEER_ORG_TYPES = {
-    "ingo", "faith_based_ingo", "ingo_coalition", "logistics_ngo",
-    "local_venezuelan_ngo", "diaspora_ngo", "community_fund",
-    "red_cross_movement",
 }
 
 CURRENCY_SYMBOLS = config.CURRENCY_SYMBOLS
@@ -1226,7 +1231,6 @@ PAGE_SLUGS = {
     "admin": "admin",
     "donate": "donate",
     "remit": "send-money",
-    "volunteer": "volunteer",
 }
 
 # Top-level header nav (five is the ceiling). Home reached via the logo,
@@ -1238,13 +1242,12 @@ HEADER_NAV = [
     ("capital", "nav_capital"),
 ]
 
-# Reduced header for the simple paths: the three intents + a persistent way
+# Reduced header for the simple paths: the two intents + a persistent way
 # back to the full navigator. Footer, language toggle, and ?lang= handling are
 # shared with the full nav — only this list differs.
 SIMPLE_HEADER_NAV = [
     ("donate", "nav_donate"),
     ("remit", "nav_remit"),
-    ("volunteer", "nav_volunteer"),
     ("home", "nav_full"),
 ]
 
@@ -2358,15 +2361,6 @@ def donate_entries(sources: list[dict], who: str | None) -> list[dict]:
     return out
 
 
-def volunteer_entries(sources: list[dict]) -> list[dict]:
-    """Directory entries where a person can plausibly offer time or skills."""
-    return [
-        s for s in sources
-        if s.get("org_type") in VOLUNTEER_ORG_TYPES
-        and (s.get("url") or "").startswith(("http://", "https://"))
-    ]
-
-
 def simple_source_card(c: Ctx, s: dict, action_key: str, note_html: str = "") -> str:
     """Plain-language directory card: what it is, how to act, link to detail.
 
@@ -2522,7 +2516,6 @@ PAGE_FILES = {
     "about": "pages/6_About.py",
     "donate": "pages/8_Donate.py",
     "remit": "pages/9_Send_Money.py",
-    "volunteer": "pages/10_Volunteer.py",
 }
 
 

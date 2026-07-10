@@ -1,9 +1,11 @@
 """Home — intent-first front door layered over the full navigator.
 
-Order: GL 60 countdown (shared urgency signal), four intent cards (donate /
-send money / volunteer / organization), then the existing expert Home content
-(hero, metrics, feature cards) below a #full-navigator anchor so nothing is
-hidden from anyone who already knows what they want. Old deep links
+Order: welcome copy (what this initiative is), GL 60 countdown (shared
+urgency signal), two intent cards (donate / send money), then the existing
+expert Home content (hero, metrics, feature cards) below a #full-navigator
+anchor so nothing is hidden from anyone who already knows what they want.
+Org/lawyer users and volunteer-adjacent inquiries reach everything through
+the "explore the full navigator" link below the cards. Old deep links
 (?source= / ?pathway=) still redirect to the sub-page that now owns them.
 """
 
@@ -38,6 +40,17 @@ tracked_usd = sum(f.get("amount_usd") or 0 for f in funds)
 active_licenses = sum(1 for lic in licenses if (lic.get("status") or "").lower() == "active")
 gl60_exp = date.fromisoformat(config.GL60_EXPIRES)
 gl60_days = max((gl60_exp - date.today()).days, 0)
+
+
+def _welcome() -> str:
+    """Site welcome: what Venezuela Resiliente is and what it offers."""
+    return (
+        '<section style="padding:40px 48px 8px;">'
+        f'<p style="margin:0;font-size:15.5px;color:{L.INK};max-width:820px;'
+        'line-height:1.7;">'
+        f'{escape(c.t("home_welcome", date=config.EARTHQUAKE_DATE_DISPLAY[c.lang]))}'
+        "</p></section>"
+    )
 
 
 def _countdown_band() -> str:
@@ -79,10 +92,6 @@ def _intent_section() -> str:
                      c.t("intent_donate_d"), L.RED)
         + _intent_card(c.page_url("remit"), c.t("intent_remit_t"),
                        c.t("intent_remit_d"), L.BLUE)
-        + _intent_card(c.page_url("volunteer"), c.t("intent_vol_t"),
-                       c.t("intent_vol_d"), "#146C43")
-        + _intent_card(c.page_url("directory"), c.t("intent_org_t"),
-                       c.t("intent_org_d"), L.YELLOW)
     )
     return (
         '<section style="padding:52px 48px 20px;">'
@@ -179,7 +188,8 @@ def _feature_cards() -> str:
 
 
 body = (
-    _countdown_band()
+    _welcome()
+    + _countdown_band()
     + _intent_section()
     # Full navigator (expert view) — everything the simple layer sits in
     # front of, reachable via the anchor link above.

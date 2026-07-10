@@ -103,12 +103,9 @@ admin = st.Page("pages/7_Admin.py", title="Admin", icon="🛡️", url_path="adm
 # Simple paths — plain-language front door (see layout.py "Simple paths").
 donate = st.Page("pages/8_Donate.py", title="Donate", icon="❤️", url_path="donate")
 remit = st.Page("pages/9_Send_Money.py", title="Send Money", icon="💸", url_path="send-money")
-volunteer = st.Page(
-    "pages/10_Volunteer.py", title="Volunteer", icon="🤝", url_path="volunteer"
-)
 
 public_pages = [home, licenses, pathways, directory, capital, about,
-                donate, remit, volunteer]
+                donate, remit]
 pages = public_pages + [admin] if _is_admin() else public_pages
 
 # position="hidden": pages route by URL (custom header nav), no sidebar chrome.

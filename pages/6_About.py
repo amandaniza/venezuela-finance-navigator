@@ -12,6 +12,19 @@ init_db()
 c = L.Ctx("about")
 
 
+def _disclaimer_block() -> str:
+    """Site-level disclaimer — same credibility-protection treatment as the
+    yellow "under review" labeling on directory entries, at site level."""
+    return (
+        '<div style="max-width:720px;margin-top:36px;background:#FBF3D9;'
+        'border:1px solid #F0DFA8;border-radius:8px;padding:20px 24px;">'
+        '<div style="font-size:15px;font-weight:800;color:#8A6100;'
+        f'margin-bottom:8px;">{escape(c.t("about_disclaimer_h"))}</div>'
+        '<div style="font-size:13.5px;color:#8A6100;line-height:1.65;">'
+        f'{escape(c.t("about_disclaimer_body"))}</div></div>'
+    )
+
+
 def _block(title: str, body_html: str, accent: str = L.BLUE) -> str:
     return (
         '<div style="margin-bottom:28px;max-width:720px;">'
@@ -50,7 +63,7 @@ blocks = (
                    ocha=config.OCHA_REVISED_PLAN_DATE)),
     )
     + _block(c.t("about_contact_h"), escape(c.t("about_contact_body")) + " " + mail_link)
-    + _block("", escape(c.t("disclaimer")), "#9CA3AF")
+    + _disclaimer_block()
 )
 
 body = (
