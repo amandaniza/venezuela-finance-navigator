@@ -417,6 +417,19 @@ STRINGS: dict[str, dict[str, str]] = {
             "What is allowed right now, which channels work, and what to avoid."
         ),
         "intent_full_link": "Or explore the full navigator ↓",
+        # NGO funding-seeking path (organizations looking FOR funding, not
+        # people choosing where to give).
+        "intent_ngo_t": "Looking for funding for your organization?",
+        "intent_ngo_d": (
+            "For organizations working on relief or reconstruction in "
+            "Venezuela: funders in this directory that accept applications "
+            "or proposals."
+        ),
+        "dir_flow_seek": "Accepting applications",
+        "dir_seek_empty": (
+            "No confirmed entries yet. We check each funder by hand before "
+            "listing it here. Meanwhile you can see researched leads:"
+        ),
         "simple_disclaimer": (
             "General information, not legal advice. For your specific "
             "situation, consult a licensed professional."
@@ -851,6 +864,19 @@ STRINGS: dict[str, dict[str, str]] = {
             "Qué está permitido ahora, qué canales funcionan y qué evitar."
         ),
         "intent_full_link": "O explore el navegador completo ↓",
+        # Ruta para organizaciones que buscan financiamiento
+        "intent_ngo_t": "¿Busca financiamiento para su organización?",
+        "intent_ngo_d": (
+            "Para organizaciones que trabajan en el alivio o la "
+            "reconstrucción de Venezuela: financiadores de este directorio "
+            "que aceptan solicitudes o propuestas."
+        ),
+        "dir_flow_seek": "Aceptando solicitudes",
+        "dir_seek_empty": (
+            "Todavía no hay entradas confirmadas. Revisamos cada financiador "
+            "antes de listarlo aquí. Mientras tanto, puede ver las fuentes "
+            "investigadas:"
+        ),
         "simple_disclaimer": (
             "Información general, no asesoría legal. Para su situación "
             "específica, busque asesoría profesional autorizada."
@@ -1971,6 +1997,8 @@ def directory_filter_defs(c: Ctx) -> dict[str, tuple[str, list[tuple[str, object
             (c.t("dir_flow_all"), None),
             (c.t("dir_flow_give"), "give"),
             (c.t("dir_flow_apply"), "apply"),
+            # Confirmed-open-to-applications view (NGO funding-seeking path).
+            (c.t("dir_flow_seek"), "seek"),
         ]),
         "ph": ("dir_filter_phase", [
             (c.t("dir_phase_all"), None),
@@ -1995,6 +2023,10 @@ def apply_directory_filters(c: Ctx, sources: list[dict]) -> list[dict]:
             return s["flow_direction"] in FLOW_GIVE
         if c.fd == "apply":
             return s["flow_direction"] in FLOW_APPLY
+        if c.fd == "seek":
+            # Human-confirmed tag only (see database.py) — flow_direction
+            # says a funder makes grants, not that it takes applications now.
+            return bool(s.get("accepts_applications"))
         return True
 
     def phase_ok(s: dict) -> bool:
@@ -2033,6 +2065,17 @@ def _directory_grid(c: Ctx, sources: list[dict], shown: list[dict]) -> str:
     if shown:
         cards = "".join(_directory_card(c, s) for s in shown)
         grid = f'<div style="display:flex;flex-wrap:wrap;gap:18px;">{cards}</div>'
+    elif c.fd == "seek":
+        # The confirmed-open view starts empty until entries are tagged
+        # (accepts_applications, a human decision) — point at the researched
+        # leads instead of showing a bare "no matches".
+        grid = (
+            f'<p style="font-size:14px;color:{MUTE};max-width:640px;'
+            f'line-height:1.6;">{escape(c.t("dir_seek_empty"))} '
+            f'<a href="{c.filter_href(fd="apply")}" style="color:{BLUE};'
+            f'font-weight:700;text-decoration:none;">'
+            f'{escape(c.t("dir_flow_apply"))} →</a></p>'
+        )
     else:
         grid = f'<p style="font-size:14px;color:{MUTE};">{escape(c.t("dir_none"))}</p>'
     footer = (

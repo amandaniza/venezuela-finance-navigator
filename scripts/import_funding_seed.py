@@ -40,7 +40,20 @@ _COLUMNS = [
     "amount_committed_original", "status", "expires", "accepts_from",
     "funds_go_to", "compliance_notes", "suggested_license",
     "verification_status", "url", "phase", "notes_es", "last_checked",
+    "accepts_applications",
 ]
+
+
+def _accepts_applications(entry: dict) -> int | None:
+    """Human-set tag for the NGO funding-seeking view.
+
+    Only honored when the key is present in the seed entry (a person tagged
+    it); absent means "not yet confirmed" (NULL). Never derived from
+    flow_direction — see the funding_sources schema note.
+    """
+    if "accepts_applications" not in entry:
+        return None
+    return 1 if entry["accepts_applications"] else 0
 
 
 def _row_from_entry(entry: dict) -> dict:
@@ -73,6 +86,7 @@ def _row_from_entry(entry: dict) -> dict:
         "phase": json.dumps(entry.get("phase") or [], ensure_ascii=False),
         "notes_es": entry.get("notes_es") or "",
         "last_checked": config.FUNDING_LAST_CHECKED,
+        "accepts_applications": _accepts_applications(entry),
     }
 
 

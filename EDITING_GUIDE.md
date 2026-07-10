@@ -116,6 +116,30 @@ The two intent cards on Home route as follows:
 
 ---
 
+## 3c. The NGO funding-seeking path (⚠️ needs your tagging)
+
+The Home banner **"Looking for funding for your organization?"** lands on the
+Directory filtered to *confirmed* funders (`/directory?fd=seek`). That view
+shows only entries with `"accepts_applications": true` in
+`navigator_funding_seed.json` — and **no entry has the tag yet**, so the view
+currently shows a "no confirmed entries yet" note.
+
+This is deliberately a human tagging task: `flow_direction: grants_to_ngos`
+only says a funder *makes grants*, not that it is *accepting applications or
+proposals right now*. For each candidate entry, check its official page and
+add one line to the entry:
+
+```json
+"accepts_applications": true
+```
+
+(or `false` if you confirmed it is closed — leaving the key out means
+"not yet checked"). Then re-run the import command from section 1. Good
+candidates to check first: entries whose `flow_direction` is
+`grants_to_ngos` or `both`.
+
+---
+
 ## 4. Licenses, pathways, and live funding flows
 
 - **Licenses & flows** are ingested by the pipeline (`python run_pipeline.py`)

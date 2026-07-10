@@ -86,7 +86,12 @@ CREATE TABLE IF NOT EXISTS funding_sources (
     url TEXT,
     phase TEXT,                 -- JSON array
     notes_es TEXT,
-    last_checked TEXT
+    last_checked TEXT,
+    -- NGO funding-seeking path: 1 = confirmed accepting applications/proposals
+    -- from implementing organizations, 0 = confirmed not, NULL = not yet
+    -- confirmed. Set ONLY from the seed (a human tagging decision) — never
+    -- inferred from flow_direction or other fields.
+    accepts_applications INTEGER
 );
 """
 
@@ -101,13 +106,18 @@ def get_connection(db_path: Path | None = None) -> sqlite3.Connection:
 
 
 # Columns added after the initial release, applied to already-existing DBs.
-# name -> column definition (type + constraints, no name).
-_FUNDS_TB_ADDED_COLUMNS: dict[str, str] = {
-    "Donor": "TEXT",
-    "Recipient_Org": "TEXT",
-    "Amount_USD": "REAL",
-    "Status": "TEXT",
-    "Source_Name": "TEXT",
+# table -> {name -> column definition (type + constraints, no name)}.
+_ADDED_COLUMNS: dict[str, dict[str, str]] = {
+    "funds_tb": {
+        "Donor": "TEXT",
+        "Recipient_Org": "TEXT",
+        "Amount_USD": "REAL",
+        "Status": "TEXT",
+        "Source_Name": "TEXT",
+    },
+    "funding_sources": {
+        "accepts_applications": "INTEGER",
+    },
 }
 
 
@@ -117,13 +127,14 @@ def _migrate(conn: sqlite3.Connection) -> None:
     SQLite has no ``ADD COLUMN IF NOT EXISTS``; we diff against the live
     schema via PRAGMA table_info and add whatever is missing. Idempotent.
     """
-    existing = {
-        row["name"]
-        for row in conn.execute("PRAGMA table_info(funds_tb)").fetchall()
-    }
-    for name, decl in _FUNDS_TB_ADDED_COLUMNS.items():
-        if name not in existing:
-            conn.execute(f"ALTER TABLE funds_tb ADD COLUMN {name} {decl}")
+    for table, columns in _ADDED_COLUMNS.items():
+        existing = {
+            row["name"]
+            for row in conn.execute(f"PRAGMA table_info({table})").fetchall()
+        }
+        for name, decl in columns.items():
+            if name not in existing:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {name} {decl}")
 
 
 # DB paths already initialized in this process. init_db is called by every
@@ -243,7 +254,8 @@ _FUNDING_COLUMNS = (
     "amount_target_usd, amount_committed_usd, amount_notes, currency, "
     "amount_target_original, amount_committed_original, status, expires, "
     "accepts_from, funds_go_to, compliance_notes, suggested_license, "
-    "verification_status, url, phase, notes_es, last_checked"
+    "verification_status, url, phase, notes_es, last_checked, "
+    "accepts_applications"
 )
 
 
@@ -272,6 +284,8 @@ def _row_to_funding_source(row: sqlite3.Row) -> dict[str, Any]:
         "url": row["url"] or "",
         "phase": _parse_json_list(row["phase"]),
         "notes_es": row["notes_es"] or "",
+        # None = not yet confirmed by a human; never inferred (see schema).
+        "accepts_applications": row["accepts_applications"],
         "last_checked": row["last_checked"] or "",
     }
 

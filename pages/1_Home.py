@@ -115,6 +115,24 @@ def _intent_card(href: str, title: str, desc: str, accent: str) -> str:
     )
 
 
+def _ngo_band() -> str:
+    """NGO funding-seeking entry point — a slim banner, distinct from the two
+    personal intent cards, landing on the Directory's confirmed-open view
+    (fd=seek). That view stays empty until entries carry the human-set
+    accepts_applications tag (see EDITING_GUIDE.md)."""
+    return (
+        f'<a href="{c.page_url("directory", fd="seek")}" class="intent-card" '
+        'style="text-decoration:none;display:flex;align-items:center;gap:8px 18px;'
+        'margin-top:20px;max-width:1060px;border:1px solid #E1DFD8;'
+        'border-radius:10px;padding:18px 26px;background:#FBFAF7;flex-wrap:wrap;">'
+        f'<div style="font-size:16px;font-weight:800;color:{L.INK};">'
+        f'{escape(c.t("intent_ngo_t"))}</div>'
+        f'<div style="font-size:13.5px;color:{L.MUTE};line-height:1.5;flex:1 1 320px;">'
+        f'{escape(c.t("intent_ngo_d"))}</div>'
+        f'<div style="font-size:14px;font-weight:700;color:{L.BLUE};">→</div></a>'
+    )
+
+
 def _intent_section() -> str:
     cards = (
         # Donate intent lands on the Directory pre-filtered to giving flows —
@@ -132,7 +150,8 @@ def _intent_section() -> str:
         f'<p style="margin:12px 0 28px;font-size:15.5px;color:{L.MUTE};max-width:620px;'
         f'line-height:1.6;">{escape(c.t("intent_sub"))}</p>'
         f'<div style="display:flex;gap:20px;flex-wrap:wrap;">{cards}</div>'
-        '<p style="margin:26px 0 0;font-size:13.5px;">'
+        + _ngo_band()
+        + '<p style="margin:26px 0 0;font-size:13.5px;">'
         f'<a href="#full-navigator" style="color:{L.MUTE};font-weight:600;">'
         f'{escape(c.t("intent_full_link"))}</a></p></section>'
     )
