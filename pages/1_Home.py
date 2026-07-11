@@ -62,8 +62,8 @@ def _welcome() -> str:
         )
 
     lead = c.t("home_welcome_lead", date=config.EARTHQUAKE_DATE_DISPLAY[c.lang])
-    return (
-        '<section style="padding:52px var(--pad-x) 46px;">'
+    text_col = (
+        '<div style="flex:1.4 1 460px;min-width:280px;">'
         '<div style="font-size:12px;font-weight:700;letter-spacing:0.08em;'
         f'text-transform:uppercase;color:{L.BLUE};">'
         f'{escape(c.t("home_welcome_eyebrow"))}</div>'
@@ -78,7 +78,21 @@ def _welcome() -> str:
         '<div style="display:flex;gap:36px;flex-wrap:wrap;">'
         + item("home_welcome_a_h", "home_welcome_a", L.RED)
         + item("home_welcome_b_h", "home_welcome_b", L.BLUE)
-        + "</div></section>"
+        + "</div></div>"
+    )
+    # Photo fills the previously empty right side; on narrow screens it
+    # wraps below the text (flex-wrap) instead of squeezing it.
+    photo = (
+        f'<img src="{L.photo_data_uri("welcome")}" '
+        f'alt="{escape(c.t("photo_welcome_alt"))}" '
+        'style="flex:1 1 320px;min-width:260px;max-width:520px;width:100%;'
+        'max-height:440px;object-fit:cover;border-radius:10px;'
+        'align-self:stretch;"/>'
+    )
+    return (
+        '<section style="padding:52px var(--pad-x) 46px;display:flex;'
+        f'gap:36px;flex-wrap:wrap;align-items:stretch;">{text_col}{photo}'
+        "</section>"
     )
 
 

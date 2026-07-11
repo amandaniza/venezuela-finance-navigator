@@ -154,7 +154,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "stack_kicker": "TRACKING",
         "stack_heading": "FUNDS TO IMPACT",
         "stack_seeall": "See all Funds",
-        "stack_photo": "PHOTO PLACEHOLDER: hospital reconstruction site",
         "explore_capital": "Filter by capital type",
         "cap_all": "All capital",
         "stack_open_badge": "Open for applications",
@@ -452,6 +451,14 @@ STRINGS: dict[str, dict[str, str]] = {
             "families (distinct from donations, and not intended for "
             "commercial transactions)."
         ),
+        "photo_welcome_alt": (
+            "An excavator clears the rubble of a collapsed building in "
+            "Venezuela"
+        ),
+        "photo_capital_alt": (
+            "A crane and rescue teams work on a collapsed building in "
+            "Venezuela"
+        ),
         "intent_heading": "How do you want to help?",
         "intent_sub": (
             "Pick the option that fits you. We show only what you need, in "
@@ -637,7 +644,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "stack_kicker": "RASTREANDO",
         "stack_heading": "FONDOS HASTA EL IMPACTO",
         "stack_seeall": "Ver todos los Fondos",
-        "stack_photo": "IMAGEN: sitio de reconstrucción hospitalaria",
         "explore_capital": "Filtrar por tipo de capital",
         "cap_all": "Todo el capital",
         "stack_open_badge": "Abierto a solicitudes",
@@ -948,6 +954,14 @@ STRINGS: dict[str, dict[str, str]] = {
             "Mecanismos habilitados para realizar transferencias de dinero a "
             "personas y familias particulares (distinto de donaciones, y no "
             "apto para transacciones comerciales)."
+        ),
+        "photo_welcome_alt": (
+            "Una excavadora retira los escombros de un edificio colapsado "
+            "en Venezuela"
+        ),
+        "photo_capital_alt": (
+            "Una grúa y equipos de rescate trabajan sobre un edificio "
+            "colapsado en Venezuela"
         ),
         "intent_heading": "¿Cómo quiere ayudar?",
         "intent_sub": (
@@ -1341,6 +1355,17 @@ def _mailto(kind: str) -> str:
     }
     subject = quote(subjects.get(kind, subjects["report"]))
     return f"mailto:{CONTACT_EMAIL}?subject={subject}"
+
+
+def photo_data_uri(name: str) -> str:
+    """data: URI for an optimized site photo (assets/img/<name>.jpg).
+
+    Photos ship as data URIs for the same reason as the header flag: st.html
+    sanitizes markup and the app has no static file serving. Put only
+    resized, EXIF-stripped copies in assets/img (originals stay in the
+    gitignored assets/photos drop folder)."""
+    data = (config.ROOT / "assets" / "img" / f"{name}.jpg").read_bytes()
+    return "data:image/jpeg;base64," + b64encode(data).decode("ascii")
 
 
 def gloss(c: "Ctx", term: str, label: str | None = None) -> str:
@@ -1959,11 +1984,10 @@ def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = N
 
     left = (
         '<div style="flex:1 1 300px;">'
-        '<div style="width:100%;height:220px;border-radius:4px;background:'
-        'repeating-linear-gradient(135deg,#F2EFEA 0px,#F2EFEA 14px,#E7E4DC 14px,'
-        '#E7E4DC 28px);display:flex;align-items:center;justify-content:center;'
-        'font:600 12px ui-monospace,monospace;color:#9CA3AF;text-align:center;'
-        f'margin-bottom:24px;padding:20px;">{escape(c.t("stack_photo"))}</div>'
+        f'<img src="{photo_data_uri("capital")}" '
+        f'alt="{escape(c.t("photo_capital_alt"))}" '
+        'style="width:100%;height:220px;object-fit:cover;border-radius:4px;'
+        'margin-bottom:24px;display:block;"/>'
         '<div style="font-size:24px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;">'
         f'<span style="color:{RED};">{escape(c.t("stack_kicker"))}</span> '
         f'{escape(c.t("stack_heading"))}</div>'

@@ -13,3 +13,6 @@ data/navigator.db
 .streamlit/secrets.toml
 .gstack/
 .claude/
+
+# Original photo drop folder (originals may carry EXIF/GPS; only assets/img ships)
+assets/photos/
