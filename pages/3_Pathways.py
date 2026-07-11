@@ -30,7 +30,7 @@ if c.pathway:
 pathways = data_cache.verified_pathways()
 
 heading = (
-    '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;">'
+    '<div style="font-size:clamp(24px,6vw,30px);font-weight:800;letter-spacing:-0.01em;">'
     f'<span style="color:{L.RED};">{escape(c.t("pathways_kicker"))}</span> '
     f'{escape(c.t("pathways_heading"))}</div>'
     f'<p style="margin:12px 0 12px;font-size:15px;color:{L.MUTE};max-width:660px;'
@@ -38,7 +38,7 @@ heading = (
 )
 
 L.render_shell(c, "pathways")
-L.render_body(f'<section id="pathways" style="padding:24px 48px 0;">{heading}</section>')
+L.render_body(f'<section id="pathways" style="padding:24px var(--pad-x) 0;">{heading}</section>')
 
 # --- Optional license filter (clear via widget — websocket rerun, no reload) ---
 if c.gl:
@@ -63,5 +63,5 @@ if pathways:
 else:
     inner = f'<p style="font-size:14px;color:{L.MUTE};">{escape(c.t("pathways_empty"))}</p>'
 
-L.render_body(f'<section style="padding:8px 48px 64px;">{inner}</section>')
+L.render_body(f'<section style="padding:8px var(--pad-x) 64px;">{inner}</section>')
 L.render_footer(c)

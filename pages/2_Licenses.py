@@ -76,8 +76,8 @@ else:
     grid = f'<p style="font-size:14px;color:{L.MUTE};">{escape(c.t("lic_none"))}</p>'
 
 body = (
-    '<section style="padding:24px 48px 64px;">'
-    '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;">'
+    '<section style="padding:24px var(--pad-x) 64px;">'
+    '<div style="font-size:clamp(24px,6vw,30px);font-weight:800;letter-spacing:-0.01em;">'
     f'<span style="color:{L.RED};">OFAC</span> {escape(c.t("nav_licenses"))}</div>'
     f'<p style="margin:12px 0 28px;font-size:15px;color:{L.MUTE};max-width:640px;'
     f'line-height:1.6;">{escape(c.t("lic_page_intro"))}</p>'

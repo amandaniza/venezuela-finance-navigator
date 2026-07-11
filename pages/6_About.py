@@ -67,8 +67,8 @@ blocks = (
 )
 
 body = (
-    '<section style="padding:24px 48px 64px;">'
-    '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;margin-bottom:12px;">'
+    '<section style="padding:24px var(--pad-x) 64px;">'
+    '<div style="font-size:clamp(24px,6vw,30px);font-weight:800;letter-spacing:-0.01em;margin-bottom:12px;">'
     f'{escape(c.t("nav_about"))}</div>'
     f'<p style="margin:0 0 32px;font-size:16px;color:{L.MUTE};max-width:720px;'
     f'line-height:1.6;">{escape(c.t("about_intro"))}</p>'

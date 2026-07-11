@@ -20,6 +20,7 @@ This module renders nothing on import; pages drive the rendering.
 
 from __future__ import annotations
 
+from base64 import b64encode
 from datetime import date, datetime, timedelta
 from html import escape
 from urllib.parse import quote
@@ -1286,17 +1287,17 @@ def _hero(c: Ctx) -> str:
         '<div style="position:absolute;inset:0;background-image:repeating-linear-gradient('
         '115deg,rgba(255,255,255,0.05) 0px,rgba(255,255,255,0.05) 2px,transparent 2px,'
         'transparent 26px);opacity:0.6;"></div>'
-        '<div style="position:absolute;top:22px;right:48px;font:600 10px/1.4 '
+        '<div style="position:absolute;top:22px;right:var(--pad-x);font:600 10px/1.4 '
         'ui-monospace,monospace;color:rgba(255,255,255,0.55);letter-spacing:0.06em;'
         f'text-align:right;max-width:240px;">{escape(c.t("hero_photo"))}</div>'
-        '<div style="position:relative;padding:64px 48px 40px;max-width:900px;">'
-        '<h1 style="margin:0;font-size:46px;font-weight:800;line-height:1.12;'
+        '<div style="position:relative;padding:64px var(--pad-x) 40px;max-width:900px;">'
+        '<h1 style="margin:0;font-size:clamp(30px,6.5vw,46px);font-weight:800;line-height:1.12;'
         'letter-spacing:-0.01em;color:#FFFFFF;">'
         f'{escape(c.t("hero_title_l1"))}<br/>{escape(c.t("hero_title_l2"))}</h1>'
         '<p style="margin:20px 0 0;max-width:620px;font-size:18px;line-height:1.55;'
         f'color:rgba(255,255,255,0.88);">{escape(c.t("app_subtitle"))}</p></div>'
         '<div style="position:relative;display:flex;justify-content:flex-end;'
-        'padding:0 48px 36px;">'
+        'padding:0 var(--pad-x) 36px;">'
         f'<a href="{c.href()}#pathways" style="text-decoration:none;background:{YELLOW};'
         f'color:{INK};padding:16px 30px;border-radius:999px;font-size:15px;'
         f'font-weight:700;">{escape(c.t("hero_cta"))}</a></div></section>'
@@ -1318,7 +1319,7 @@ def _context_bar(c: Ctx, tracked_usd: float) -> str:
             f'{escape(label)}</div></div>'
         )
     return (
-        f'<section style="background:{INK};padding:26px 48px;display:flex;gap:32px;'
+        f'<section style="background:{INK};padding:26px var(--pad-x);display:flex;gap:32px;'
         'flex-wrap:wrap;align-items:center;">'
         + stat(est, c.t("context_estimate"), "#FFF")
         + stat(tracked, c.t("context_tracked"), YELLOW)
@@ -1339,7 +1340,7 @@ def _license_cards(c: Ctx, licenses: list[dict]) -> str:
     )
     if not licenses:
         body = f'<p style="font-size:14px;color:{MUTE};">{escape(c.t("lic_none"))}</p>'
-        return f'<section style="padding:44px 48px 8px;">{label}{body}</section>'
+        return f'<section style="padding:44px var(--pad-x) 8px;">{label}{body}</section>'
 
     cards = []
     for lic in licenses[:3]:
@@ -1376,7 +1377,7 @@ def _license_cards(c: Ctx, licenses: list[dict]) -> str:
     grid = (
         '<div style="display:flex;gap:32px;flex-wrap:wrap;">' + "".join(cards) + "</div>"
     )
-    return f'<section style="padding:44px 48px 8px;">{label}{grid}</section>'
+    return f'<section style="padding:44px var(--pad-x) 8px;">{label}{grid}</section>'
 
 
 def _pill_row(items: list[str]) -> str:
@@ -1391,7 +1392,7 @@ def _pill_row(items: list[str]) -> str:
 def _data_compliance(c: Ctx) -> str:
     left = (
         '<div style="flex:0 0 340px;">'
-        '<div style="font-size:30px;font-weight:800;letter-spacing:-0.01em;line-height:1.15;">'
+        '<div style="font-size:clamp(24px,6vw,30px);font-weight:800;letter-spacing:-0.01em;line-height:1.15;">'
         f'<span style="color:{RED};">{escape(c.t("data_kicker"))}</span> '
         f'{escape(c.t("data_heading"))}</div>'
         f'<p style="margin:16px 0 24px;font-size:15px;line-height:1.6;color:{MUTE};'
@@ -1421,14 +1422,14 @@ def _data_compliance(c: Ctx) -> str:
     )
     right = f'<div style="flex:1;display:flex;gap:20px;flex-wrap:wrap;">{cards}</div>'
     return (
-        '<section style="display:flex;gap:40px;padding:64px 48px;align-items:flex-start;'
+        '<section style="display:flex;gap:40px;padding:64px var(--pad-x);align-items:flex-start;'
         f'flex-wrap:wrap;">{left}{right}</section>'
     )
 
 
 def _signup(c: Ctx) -> str:
     return (
-        f'<section style="background:#F2EFEA;padding:44px 48px;display:flex;gap:40px;'
+        f'<section style="background:#F2EFEA;padding:44px var(--pad-x);display:flex;gap:40px;'
         'align-items:center;flex-wrap:wrap;">'
         '<div style="flex:1 1 320px;font-size:22px;font-weight:800;line-height:1.3;'
         'text-transform:uppercase;">'
@@ -1567,7 +1568,7 @@ def _pathways_section(c: Ctx, pathways: list[dict]) -> str:
     header = (
         '<div style="display:flex;justify-content:space-between;align-items:baseline;'
         'margin-bottom:28px;">'
-        '<div style="font-size:28px;font-weight:800;letter-spacing:-0.01em;">'
+        '<div style="font-size:clamp(23px,5.5vw,28px);font-weight:800;letter-spacing:-0.01em;">'
         f'<span style="color:{RED};">{escape(c.t("pathways_kicker"))}</span> '
         f'{escape(c.t("pathways_heading"))}</div>'
         f'<a href="{c.href()}#pathways" style="text-decoration:none;background:{BLUE};'
@@ -1581,7 +1582,7 @@ def _pathways_section(c: Ctx, pathways: list[dict]) -> str:
             f'{escape(c.t("pathways_empty"))}</p>'
         )
         return (
-            '<section id="pathways" style="padding:64px 48px 20px;">'
+            '<section id="pathways" style="padding:64px var(--pad-x) 20px;">'
             f"{header}{body}</section>"
         )
     note = (
@@ -1593,7 +1594,7 @@ def _pathways_section(c: Ctx, pathways: list[dict]) -> str:
         f'{escape(c.t("rows_shown", count=len(pathways)))}</p>'
     )
     return (
-        '<section id="pathways" style="padding:64px 48px 20px;">'
+        '<section id="pathways" style="padding:64px var(--pad-x) 20px;">'
         f"{header}{_feature_cards(c, pathways)}{note}"
         f"{_pathways_table(c, pathways)}{footer}</section>"
     )
@@ -1615,7 +1616,7 @@ def _metrics_section(c: Ctx, pathways: list[dict]) -> str:
     ]
     metric_html = "".join(
         f'<div style="border-left:3px solid {BLUE};padding-left:16px;">'
-        f'<div style="font-size:30px;font-weight:800;color:{INK};">{escape(v)}</div>'
+        f'<div style="font-size:clamp(24px,6vw,30px);font-weight:800;color:{INK};">{escape(v)}</div>'
         f'<div style="font-size:13.5px;color:{MUTE};margin-top:2px;">{escape(lbl)}</div></div>'
         for v, lbl in metrics
     )
@@ -1637,7 +1638,7 @@ def _metrics_section(c: Ctx, pathways: list[dict]) -> str:
         f'{metric_html}</div></div>'
     )
     return (
-        '<section style="display:flex;gap:48px;padding:64px 48px;align-items:center;'
+        '<section style="display:flex;gap:48px;padding:64px var(--pad-x);align-items:center;'
         f'flex-wrap:wrap;">{photo}{right}</section>'
     )
 
@@ -1653,7 +1654,7 @@ def _dark_banner(c: Ctx) -> str:
             f'{escape(c.t("learn_more"))} ↗</div></a>'
         )
     return (
-        f'<section style="position:relative;background:{DARK_BLUE};padding:56px 48px;'
+        f'<section style="position:relative;background:{DARK_BLUE};padding:56px var(--pad-x);'
         'display:flex;align-items:center;gap:40px;overflow:hidden;flex-wrap:wrap;">'
         '<div style="flex:1 1 380px;z-index:1;">'
         '<div style="color:#FFF;font-size:24px;font-weight:800;line-height:1.3;'
@@ -1807,7 +1808,7 @@ def _capital_stack(c: Ctx, funds: list[dict], known_sources: set[str] | None = N
         f'{articles}</div>'
     )
     return (
-        '<section style="display:flex;gap:48px;padding:64px 48px;flex-wrap:wrap;">'
+        '<section style="display:flex;gap:48px;padding:64px var(--pad-x);flex-wrap:wrap;">'
         f"{left}{right}</section>"
     )
 
@@ -1825,7 +1826,7 @@ def _sources(c: Ctx) -> str:
             'align-items:center;justify-content:center;color:#FFF;font-size:15px;">+</div></a>'
         )
     return (
-        '<section id="sources" style="padding:20px 48px 64px;scroll-margin-top:70px;">'
+        '<section id="sources" style="padding:20px var(--pad-x) 64px;scroll-margin-top:70px;">'
         '<div style="font-size:24px;font-weight:800;letter-spacing:-0.01em;">'
         f'<span style="color:{RED};">{escape(c.t("sources_kicker"))}</span> '
         f'{escape(c.t("sources_heading"))}</div>'
@@ -1870,7 +1871,7 @@ def _footer(c: Ctx) -> str:
         f'<span style="color:#9CA3AF;">{escape(c.t("footer_updated", date=config.FUNDING_LAST_CHECKED))}</span>'
     )
     return (
-        '<footer style="border-top:1px solid #E7E5DF;padding:28px 48px;">'
+        '<footer style="border-top:1px solid #E7E5DF;padding:28px var(--pad-x);">'
         + _contacts_block(c)
         + '<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;'
         f'font-size:13px;margin-bottom:14px;">{links}</div>'
@@ -2047,7 +2048,7 @@ def apply_directory_filters(c: Ctx, sources: list[dict]) -> list[dict]:
 
 def _directory_intro(c: Ctx, total: int) -> str:
     header = (
-        '<div style="font-size:28px;font-weight:800;letter-spacing:-0.01em;margin-bottom:6px;">'
+        '<div style="font-size:clamp(23px,5.5vw,28px);font-weight:800;letter-spacing:-0.01em;margin-bottom:6px;">'
         f'<span style="color:{RED};">{escape(c.t("dir_kicker"))}</span> '
         f'{escape(c.t("dir_heading"))}</div>'
         f'<p style="margin:0 0 6px;font-size:14.5px;color:{MUTE};max-width:680px;'
@@ -2056,7 +2057,7 @@ def _directory_intro(c: Ctx, total: int) -> str:
         f'line-height:1.5;">{escape(c.t("dir_review_note"))}</p>'
     )
     return (
-        '<section id="directory" style="padding:64px 48px 10px;background:#FBFAF7;'
+        '<section id="directory" style="padding:64px var(--pad-x) 10px;background:#FBFAF7;'
         f'scroll-margin-top:70px;">{header}</section>'
     )
 
@@ -2085,7 +2086,7 @@ def _directory_grid(c: Ctx, sources: list[dict], shown: list[dict]) -> str:
         f'text-decoration:none;">{escape(c.t("dir_suggest"))}</a></p>'
     )
     return (
-        '<section style="padding:8px 48px 64px;background:#FBFAF7;">'
+        '<section style="padding:8px var(--pad-x) 64px;background:#FBFAF7;">'
         f"{grid}{footer}</section>"
     )
 
@@ -2189,7 +2190,7 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         f'<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 6px;">'
         f'{_tag(flow_label, fbg, fcol)}{phases}'
         f'{_tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8")}</div>'
-        f'<h1 style="margin:6px 0 4px;font-size:30px;font-weight:800;color:{INK};'
+        f'<h1 style="margin:6px 0 4px;font-size:clamp(24px,6vw,30px);font-weight:800;color:{INK};'
         f'line-height:1.2;">{escape(name)}</h1>'
         f'<div style="font-size:14px;color:{MUTE};margin-bottom:6px;">{escape(s.get("org") or "")}</div>'
         f'{source_link}'
@@ -2211,7 +2212,7 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         + _kv(c.t("detail_notes"), escape(notes or "—"))
     )
     return (
-        '<section style="padding:40px 48px 64px;max-width:960px;">'
+        '<section style="padding:40px var(--pad-x) 64px;max-width:960px;">'
         f"{body}</section>"
     )
 
@@ -2245,7 +2246,7 @@ def _pathway_detail(c: Ctx, p: dict, licenses: list[dict]) -> str:
         f'<div style="margin:18px 0 6px;">'
         f'<span style="font-size:11px;font-weight:700;letter-spacing:0.08em;'
         f'text-transform:uppercase;color:{RED};">{escape(c.t("detail_pathway_kicker"))}</span></div>'
-        f'<h1 style="margin:2px 0 18px;font-size:30px;font-weight:800;color:{INK};'
+        f'<h1 style="margin:2px 0 18px;font-size:clamp(24px,6vw,30px);font-weight:800;color:{INK};'
         f'line-height:1.2;">{escape(p.get("fund_name") or "—")}</h1>'
         '<div style="display:flex;flex-wrap:wrap;gap:40px;">'
         '<div style="flex:1 1 280px;">'
@@ -2261,7 +2262,7 @@ def _pathway_detail(c: Ctx, p: dict, licenses: list[dict]) -> str:
         + lic_ctx
         + "</div></div>"
     )
-    return f'<section style="padding:40px 48px 64px;max-width:960px;">{body}</section>'
+    return f'<section style="padding:40px var(--pad-x) 64px;max-width:960px;">{body}</section>'
 
 
 # ---------------------------------------------------------------------------
@@ -2283,6 +2284,10 @@ def simple_disclaimer_html(c: Ctx) -> str:
 _BASE_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+/* Responsive page gutter: inline section styles reference var(--pad-x), so
+   this one rule retunes every page's margins for narrow screens. */
+:root {--pad-x:48px;}
+@media (max-width:640px) {:root {--pad-x:20px;}}
 #MainMenu {visibility:hidden;}
 header[data-testid="stHeader"] {display:none;}
 /* Hide only Streamlit's own footer, never the app's <footer> in the shell. */
@@ -2309,7 +2314,7 @@ section[id] {scroll-margin-top:70px;}
 /* --- Widget chrome (SPA nav header, breadcrumb, filter pills) --- */
 /* Stack html blocks + widget rows flush, like one continuous document. */
 [data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {gap:0 !important;}
-.st-key-navhdr {padding:15px 48px;border-bottom:1px solid #E7E5DF;background:#FFF;}
+.st-key-navhdr {padding:15px var(--pad-x);border-bottom:1px solid #E7E5DF;background:#FFF;}
 .st-key-navhdr [data-testid="stPageLink-NavLink"] {padding:0;background:transparent;}
 .st-key-navhdr [data-testid="stPageLink-NavLink"] p
   {font-size:13px;font-weight:600;color:#5B6472;white-space:nowrap;}
@@ -2326,13 +2331,13 @@ section[id] {scroll-margin-top:70px;}
 .st-key-navhdr [data-testid="stButtonGroup"] button[kind$="Active"]
   {background:#00247D !important;color:#FFF !important;}
 .st-key-navhdr [data-testid="stButtonGroup"] button p {font-size:12px;font-weight:700;}
-.st-key-crumb {padding:16px 48px 0;}
+.st-key-crumb {padding:16px var(--pad-x) 0;}
 .st-key-crumb [data-testid="stPageLink-NavLink"] {padding:0;background:transparent;}
 .st-key-crumb [data-testid="stPageLink-NavLink"] p
   {font-size:13px;font-weight:700;color:#00247D;}
-.st-key-dirfilters {background:#FBFAF7;padding:0 48px 14px;}
-.st-key-capfilters {padding:2px 48px 8px;}
-.st-key-pwfilter {padding:0 48px 10px;}
+.st-key-dirfilters {background:#FBFAF7;padding:0 var(--pad-x) 14px;}
+.st-key-capfilters {padding:2px var(--pad-x) 8px;}
+.st-key-pwfilter {padding:0 var(--pad-x) 10px;}
 .st-key-dirfilters [data-testid="stWidgetLabel"] p,
 .st-key-capfilters [data-testid="stWidgetLabel"] p
   {font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
@@ -2351,17 +2356,38 @@ section[id] {scroll-margin-top:70px;}
 .st-key-pwfilter button
   {border:1px solid #D8D5CC;border-radius:999px;padding:3px 14px;min-height:28px;
    font-size:12px;font-weight:700;color:#00247D;background:transparent;}
-/* Header flag icon (inline SVG must fill its 34px chip) */
-.ve-flag svg {width:100%;height:100%;display:block;}
 
-/* Glossary tooltip (shared component — see gloss() in layout.py) */
-.gl-term {border-bottom:1px dotted #9CA3AF;cursor:help;position:relative;}
+/* Mobile header: Streamlit stacks st.columns full-width below 640px, which
+   turns the nav into a tall vertical list. Keep it a wrapping row instead:
+   logo, page links, and the language toggle flow onto two compact lines. */
+@media (max-width:640px) {
+  .st-key-navhdr [data-testid="stHorizontalBlock"]
+    {flex-direction:row !important;flex-wrap:wrap !important;
+     gap:8px 18px !important;align-items:center !important;}
+  .st-key-navhdr [data-testid="stColumn"],
+  .st-key-navhdr [data-testid="column"]
+    {width:auto !important;flex:0 0 auto !important;min-width:0 !important;}
+  .st-key-navhdr [data-testid="stButtonGroup"] {margin-left:0;}
+}
+
+/* Glossary tooltip (shared component — see gloss() in layout.py).
+   tabindex on .gl-term makes :focus fire on tap, so definitions also open on
+   touch screens where hover does not exist. */
+.gl-term {border-bottom:1px dotted #9CA3AF;cursor:help;position:relative;
+  -webkit-tap-highlight-color:transparent;}
 .gl-term:hover::after, .gl-term:focus::after {
   content:attr(data-tip);position:absolute;left:50%;transform:translateX(-50%);
   top:135%;z-index:60;
   width:min(280px,70vw);background:#12172B;color:#FFF;padding:10px 12px;
   border-radius:6px;font-size:12px;font-weight:400;line-height:1.5;
   white-space:normal;letter-spacing:normal;text-transform:none;text-align:left;}
+/* On phones a bubble anchored to the term clips at the viewport edge, so the
+   definition shows as a fixed bar along the bottom of the screen instead. */
+@media (max-width:640px) {
+  .gl-term:hover::after, .gl-term:focus::after {
+    position:fixed;left:12px;right:12px;top:auto;bottom:12px;
+    transform:none;width:auto;box-shadow:0 4px 18px rgba(0,0,0,0.35);}
+}
 
 /* Intent cards (simple front door on Home) */
 a.intent-card:hover {border-color:#00247D !important;
@@ -2384,17 +2410,22 @@ PAGE_FILES = {
 
 # Venezuelan flag, square crop (flag-icons project, MIT). An accurate flag —
 # yellow/blue/red bands with the 8-star arc — NOT a hand-built tricolor, which
-# reads as Colombia/Ecuador. Inlined so the header never depends on static
-# file serving; the favicon in app.py uses the same asset.
-_FLAG_SVG = (config.ROOT / "assets" / "ve-square.svg").read_text(encoding="utf-8")
+# reads as Colombia/Ecuador. Served as a base64 data-URI <img> because
+# st.html's sanitizer strips inline <svg>; the favicon in app.py uses the
+# same asset.
+_FLAG_B64 = b64encode(
+    (config.ROOT / "assets" / "ve-square.svg").read_bytes()
+).decode("ascii")
 
 
 def _logo_html(c: Ctx) -> str:
+    alt = "Bandera de Venezuela" if c.lang == "es" else "Flag of Venezuela"
     return (
         f'<a href="{c.page_url("home")}" style="text-decoration:none;display:flex;'
         'align-items:center;gap:12px;">'
-        '<div class="ve-flag" style="width:34px;height:34px;border-radius:8px;'
-        f'overflow:hidden;flex:none;border:1px solid #E1DFD8;">{_FLAG_SVG}</div>'
+        f'<img src="data:image/svg+xml;base64,{_FLAG_B64}" alt="{alt}" '
+        'style="width:34px;height:34px;border-radius:8px;flex:none;'
+        'border:1px solid #E1DFD8;display:block;"/>'
         f'<div style="font-weight:800;font-size:16px;letter-spacing:-0.01em;'
         f'color:{BLUE};white-space:nowrap;">Venezuela '
         f'<span style="color:{RED};">Resiliente</span></div></a>'
@@ -2508,7 +2539,7 @@ def pills_filter(
 def breadcrumb(c: Ctx) -> str:
     """Simple '← Home' link for sub-pages."""
     return (
-        f'<div style="padding:16px 48px 0;">'
+        f'<div style="padding:16px var(--pad-x) 0;">'
         f'<a href="{c.page_url("home")}" style="text-decoration:none;font-size:13px;'
         f'font-weight:700;color:{BLUE};">{escape(c.t("crumb_home"))}</a></div>'
     )

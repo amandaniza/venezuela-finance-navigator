@@ -63,11 +63,11 @@ def _welcome() -> str:
 
     lead = c.t("home_welcome_lead", date=config.EARTHQUAKE_DATE_DISPLAY[c.lang])
     return (
-        '<section style="padding:52px 48px 46px;">'
+        '<section style="padding:52px var(--pad-x) 46px;">'
         '<div style="font-size:12px;font-weight:700;letter-spacing:0.08em;'
         f'text-transform:uppercase;color:{L.BLUE};">'
         f'{escape(c.t("home_welcome_eyebrow"))}</div>'
-        '<h1 style="margin:10px 0 0;font-size:46px;font-weight:800;'
+        '<h1 style="margin:10px 0 0;font-size:clamp(32px,8vw,46px);font-weight:800;'
         f'letter-spacing:-0.02em;line-height:1.1;color:{L.INK};">'
         "Venezuela Resiliente</h1>"
         '<div style="width:72px;height:5px;border-radius:3px;margin:18px 0 20px;'
@@ -85,9 +85,9 @@ def _welcome() -> str:
 def _countdown_band() -> str:
     """GL 60 countdown — the shared urgency signal for every audience."""
     return (
-        f'<section style="background:{L.INK};padding:26px 48px;display:flex;'
+        f'<section style="background:{L.INK};padding:26px var(--pad-x);display:flex;'
         'gap:24px;align-items:center;flex-wrap:wrap;">'
-        f'<div style="font-size:44px;font-weight:800;color:{L.YELLOW};'
+        f'<div style="font-size:clamp(34px,8vw,44px);font-weight:800;color:{L.YELLOW};'
         f'line-height:1;">{gl60_days}</div>'
         '<div style="flex:1 1 320px;">'
         '<div style="font-size:13px;font-weight:700;letter-spacing:0.05em;'
@@ -144,8 +144,8 @@ def _intent_section() -> str:
                        c.t("intent_remit_d"), L.BLUE)
     )
     return (
-        '<section style="padding:52px 48px 20px;">'
-        '<h2 style="margin:0;font-size:34px;font-weight:800;letter-spacing:-0.01em;'
+        '<section style="padding:52px var(--pad-x) 20px;">'
+        '<h2 style="margin:0;font-size:clamp(26px,6.5vw,34px);font-weight:800;letter-spacing:-0.01em;'
         f'color:{L.INK};">{escape(c.t("intent_heading"))}</h2>'
         f'<p style="margin:12px 0 28px;font-size:15.5px;color:{L.MUTE};max-width:620px;'
         f'line-height:1.6;">{escape(c.t("intent_sub"))}</p>'
@@ -162,12 +162,12 @@ def _hero() -> str:
         '<section style="position:relative;min-height:300px;display:flex;'
         'flex-direction:column;justify-content:center;background:linear-gradient('
         f'160deg,{L.DARK_BLUE} 0%,{L.BLUE} 45%,#0a3a8f 75%,{L.DARK_RED} 100%);'
-        'overflow:hidden;padding:56px 48px;">'
+        'overflow:hidden;padding:56px var(--pad-x);">'
         '<div style="position:absolute;inset:0;background-image:repeating-linear-gradient('
         '115deg,rgba(255,255,255,0.05) 0px,rgba(255,255,255,0.05) 2px,transparent 2px,'
         'transparent 26px);opacity:0.6;"></div>'
         '<div style="position:relative;max-width:820px;">'
-        '<h1 style="margin:0;font-size:40px;font-weight:800;line-height:1.14;'
+        '<h1 style="margin:0;font-size:clamp(28px,7vw,40px);font-weight:800;line-height:1.14;'
         'letter-spacing:-0.01em;color:#FFF;">'
         f'{escape(c.t("app_title"))}</h1>'
         '<p style="margin:18px 0 26px;max-width:640px;font-size:18px;line-height:1.55;'
@@ -189,7 +189,7 @@ def _metrics() -> str:
             f'{escape(label)}</div></div>'
         )
     return (
-        f'<section style="background:{L.INK};padding:30px 48px;display:flex;gap:32px;'
+        f'<section style="background:{L.INK};padding:30px var(--pad-x);display:flex;gap:32px;'
         'flex-wrap:wrap;align-items:flex-start;">'
         + stat("≈" + L._fmt_usd(tracked_usd), c.t("m_tracked"), "#FFF")
         + stat(str(active_licenses), c.t("m_licenses"), "#FFF")
@@ -233,7 +233,7 @@ def _feature_cards() -> str:
         )
     )
     return (
-        '<section style="padding:48px;display:flex;gap:20px;flex-wrap:wrap;">'
+        '<section style="padding:48px var(--pad-x);display:flex;gap:20px;flex-wrap:wrap;">'
         f"{cards}</section>"
     )
 

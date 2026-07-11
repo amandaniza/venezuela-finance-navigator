@@ -66,8 +66,8 @@ license_link = (
 )
 
 body = (
-    '<section style="padding:36px 48px 64px;">'
-    '<h1 style="margin:0;font-size:32px;font-weight:800;letter-spacing:-0.01em;'
+    '<section style="padding:36px var(--pad-x) 64px;">'
+    '<h1 style="margin:0;font-size:clamp(25px,6.5vw,32px);font-weight:800;letter-spacing:-0.01em;'
     f'color:{L.INK};">{escape(c.t("rem_title"))}</h1>'
     f'<p style="margin:12px 0 0;font-size:15px;color:{L.MUTE};max-width:640px;'
     f'line-height:1.6;">{escape(c.t("rem_intro"))}</p>'
