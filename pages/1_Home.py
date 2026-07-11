@@ -109,7 +109,7 @@ def _countdown_band() -> str:
         f'{escape(c.t("m_gl60_days"))}</div>'
         '<div style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-top:4px;'
         'max-width:560px;line-height:1.5;">'
-        f'{escape(c.t("gl60_countdown_note", date=config.GL60_EXPIRES))}</div>'
+        f'{escape(c.t("gl60_countdown_note", date=L.fmt_date(config.GL60_EXPIRES, c.lang)))}</div>'
         "</div></section>"
     )
 
@@ -229,7 +229,8 @@ def _feature_cards() -> str:
     cards = (
         _feature_card(
             "licenses", c.t("nav_licenses"), c.t("fc_licenses_desc"),
-            c.t("fc_licenses_teaser", n=active_licenses, date=config.GL60_EXPIRES),
+            c.t("fc_licenses_teaser", n=active_licenses,
+                date=L.fmt_date(config.GL60_EXPIRES, c.lang)),
             L.BLUE,
         )
         + _feature_card(

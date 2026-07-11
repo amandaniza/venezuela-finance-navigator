@@ -59,8 +59,8 @@ blocks = (
     )
     + _block(
         c.t("about_cadence_h"),
-        escape(c.t("about_cadence_body", date=config.FUNDING_LAST_CHECKED,
-                   ocha=config.OCHA_REVISED_PLAN_DATE)),
+        escape(c.t("about_cadence_body", date=L.fmt_date(config.FUNDING_LAST_CHECKED, c.lang),
+                   ocha=L.fmt_date(config.OCHA_REVISED_PLAN_DATE, c.lang))),
     )
     + _block(c.t("about_contact_h"), escape(c.t("about_contact_body")) + " " + mail_link)
     + _disclaimer_block()

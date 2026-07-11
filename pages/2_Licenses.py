@@ -26,7 +26,7 @@ def _license_card(lic: dict) -> str:
 
     exp = L._parse_date(lic.get("expiration_date"))
     exp_line = (
-        f'{c.t("lic_expires")} {exp.isoformat()}' if exp else c.t("lic_no_expiry")
+        f'{c.t("lic_expires")} {L.fmt_date(exp, c.lang)}' if exp else c.t("lic_no_expiry")
     )
     activities = lic.get("activities") or []
     act_html = "".join(

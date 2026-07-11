@@ -54,7 +54,7 @@ def _para(html: str) -> str:
 # (3) Expiration / risk window — driven by the GL 57 row when the DB has one.
 gl57_exp = (gl57 or {}).get("expiration_date")
 if gl57_exp:
-    q3 = escape(c.t("rem_q3_exp")).format(gl=GL57, date=escape(str(gl57_exp)))
+    q3 = escape(c.t("rem_q3_exp")).format(gl=GL57, date=escape(L.fmt_date(gl57_exp, c.lang)))
 else:
     q3 = escape(c.t("rem_q3_noexp")).format(gl=GL57)
 

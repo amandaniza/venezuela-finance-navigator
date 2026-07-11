@@ -289,11 +289,12 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_tracked": "Tracked across flows",
         "m_licenses": "Active licenses",
         "m_pathways": "Verified pathways",
-        "m_gl60_days": "Days until GL 60 expires",
+        "m_gl60_days": "Days left to send aid with U.S. permission",
         "gl60_countdown_note": (
-            "U.S. rules currently allow sending money for earthquake relief "
-            "in Venezuela. That permission is called General License 60 "
-            "(GL 60). It ends on {date}; after that the rules may change."
+            "Sending money from the U.S. to help Venezuela after the "
+            "earthquake is legal today. The permission that allows it is "
+            "called General License 60 (GL 60) and it ends on {date}. "
+            "After that date, the rules may change."
         ),
         "fc_licenses_desc": (
             "The U.S. permissions (OFAC General Licenses) that allow relief "
@@ -785,12 +786,12 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_tracked": "Rastreado en flujos",
         "m_licenses": "Licencias activas",
         "m_pathways": "Rutas verificadas",
-        "m_gl60_days": "Días para que venza la GL 60",
+        "m_gl60_days": "Días que quedan para enviar ayuda con permiso de EE. UU.",
         "gl60_countdown_note": (
-            "Las reglas de EE. UU. permiten hoy enviar dinero para el "
-            "alivio del terremoto en Venezuela. Ese permiso se llama "
-            "Licencia General 60 (GL 60). Termina el {date}; después las "
-            "reglas pueden cambiar."
+            "Hoy es legal enviar dinero desde EE. UU. para ayudar a "
+            "Venezuela tras el terremoto. El permiso que lo autoriza se "
+            "llama Licencia General 60 (GL 60) y vence el {date}. Después "
+            "de esa fecha, las reglas pueden cambiar."
         ),
         "fc_licenses_desc": (
             "Los permisos de EE. UU. (Licencias Generales de OFAC) que "
@@ -1270,6 +1271,28 @@ def _localize_capital(name: str, lang: str) -> str:
 
 def _localize_status(name: str, lang: str) -> str:
     return STATUS_ES.get(name, name) if lang == "es" else name
+
+
+_MONTHS_ES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+    "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+_MONTHS_EN = [
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December",
+]
+
+
+def fmt_date(value: object, lang: str) -> str:
+    """Human date for user-facing copy: "23 de octubre de 2026" / "October
+    23, 2026". Raw ISO dates read as machine output, especially in Spanish.
+    Falls back to the raw value if it does not parse."""
+    d = _parse_date(value)
+    if d is None:
+        return str(value) if value else "—"
+    if lang == "es":
+        return f"{d.day} de {_MONTHS_ES[d.month - 1]} de {d.year}"
+    return f"{_MONTHS_EN[d.month - 1]} {d.day}, {d.year}"
 
 
 def _parse_date(value: object) -> date | None:
@@ -2101,7 +2124,7 @@ def _footer(c: Ctx) -> str:
         f'<a href="{_mailto("report")}" style="text-decoration:none;font-weight:700;'
         f'color:{BLUE};">{escape(c.t("footer_report"))}</a>'
         '<span style="color:#D8D5CC;">·</span>'
-        f'<span style="color:#9CA3AF;">{escape(c.t("footer_updated", date=config.FUNDING_LAST_CHECKED))}</span>'
+        f'<span style="color:#9CA3AF;">{escape(c.t("footer_updated", date=fmt_date(config.FUNDING_LAST_CHECKED, c.lang)))}</span>'
     )
     return (
         '<footer style="border-top:1px solid #E7E5DF;padding:28px var(--pad-x);">'
@@ -2223,7 +2246,7 @@ def _directory_card(c: Ctx, s: dict) -> str:
         f'<a href="{detail}" style="text-decoration:none;font-size:12.5px;font-weight:700;'
         f'color:{INK};">{escape(c.t("dir_details"))}</a>{visit}</div>'
         f'<div style="font-size:11px;color:#9CA3AF;">'
-        f'{escape(c.t("dir_last_checked", date=s.get("last_checked") or "—"))}</div>'
+        f'{escape(c.t("dir_last_checked", date=fmt_date(s.get("last_checked"), c.lang)))}</div>'
         "</div>"
     )
 
@@ -2355,7 +2378,7 @@ def gl60_expiry(licenses: list[dict]) -> str:
 
 
 def _gl60_context(c: Ctx, licenses: list[dict]) -> str:
-    return c.t("detail_gl60_ctx", date=gl60_expiry(licenses))
+    return c.t("detail_gl60_ctx", date=fmt_date(gl60_expiry(licenses), c.lang))
 
 
 def _caf_contribute_block(c: Ctx) -> str:
