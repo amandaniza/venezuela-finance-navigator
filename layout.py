@@ -65,9 +65,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "hero_title_l1": "When Capital Moves,",
         "hero_title_l2": "Relief Follows",
         "app_subtitle": (
-            "Mapping earthquake relief and reconstruction capital to active "
-            "U.S. OFAC General Licenses, so funds move fast and stay "
-            "compliant."
+            "We match relief and reconstruction money to the U.S. Treasury "
+            "permissions (OFAC General Licenses) that allow it, so funds "
+            "can move quickly and legally."
         ),
         "hero_cta": "View Verified Pathways",
         "hero_photo": "PHOTO PLACEHOLDER: reconstruction site, La Guaira / Caracas",
@@ -77,12 +77,12 @@ STRINGS: dict[str, dict[str, str]] = {
         "lic_tag_active": "ACTIVE",
         "lic_tag_expired": "EXPIRED",
         "lic_tag_expiring": "EXPIRING SOON",
-        "lic_none": "No licenses ingested yet. Run the pipeline to populate OFAC actions.",
+        "lic_none": "No licenses loaded yet. Run the data pipeline to load them.",
         "data_kicker": "DATA FOR",
         "data_heading": "COMPLIANCE",
         "data_body": (
-            "Every pathway maps a funding vehicle to the OFAC license that "
-            "authorizes it. Filter by focus area to see what's eligible."
+            "Every pathway connects a fund to the OFAC permission that "
+            "allows it. Filter by focus area to see what is allowed."
         ),
         "data_cta": "See Full Navigator",
         "explore_focus": "Explore by focus area",
@@ -95,17 +95,17 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "gl_gl_term": "GL (General License)",
         "gl_gl_def": (
-            "A blanket authorization issued by OFAC. It allows specific "
-            "transactions, such as earthquake relief, that sanctions "
-            "would otherwise prohibit."
+            "A permission issued by OFAC, the U.S. sanctions agency. It "
+            "allows specific activities, such as earthquake relief, that "
+            "sanctions would otherwise block."
         ),
         "signup_l1": "Stay current with",
         "signup_bold": "expiring license alerts",
         "signup_email": "* Your email",
         "signup_org": "Your organization",
         "signup_consent": (
-            "I agree to receive operational updates on OFAC license status and "
-            "reconstruction funding pathways."
+            "I agree to receive updates about license status and funding "
+            "pathways."
         ),
         "signup_button": "Sign Up",
         "pathways_kicker": "VERIFIED",
@@ -114,17 +114,20 @@ STRINGS: dict[str, dict[str, str]] = {
         "verdict_green": "Green",
         "verdict_yellow": "Yellow",
         "verdict_red": "Red",
-        "feature_green_tmpl": "{fund} clears {license}. Authorized for relief.",
-        "feature_red_tmpl": "{fund} is blocked. Governing license {license} is {status}.",
+        "feature_green_tmpl": "{fund} is covered by {license}. Funds can move.",
+        "feature_red_tmpl": "{fund} is blocked. Its license {license} is {status}.",
         "feature_green_fallback": (
-            "Verified pathways clear their governing OFAC license. Relief "
-            "capital is authorized to move."
+            "Verified pathways passed a human check against their license. "
+            "Money through them is allowed to move."
         ),
         "feature_red_fallback": (
-            "Watch for pathways whose governing license has expired or been "
-            "revoked. Capital is blocked until re-licensed."
+            "If a license expires or is withdrawn, money through that "
+            "pathway stops being allowed. Check before moving funds."
         ),
-        "pathways_note": "Human-verified pathways only. Operational aid, not legal advice.",
+        "pathways_note": (
+            "Every pathway here was checked by a person. This is practical "
+            "guidance, not legal advice."
+        ),
         "pathways_empty": (
             "No verified pathways yet. Verify pathways in Admin to publish them here."
         ),
@@ -132,8 +135,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "power_kicker": "THE POWER OF",
         "power_heading": "COMPLIANCE",
         "power_body": (
-            "Sanctions compliance is the bottleneck between capital and relief. "
-            "Verified pathways let providers and operators move faster, together."
+            "Sanctions rules are the main delay between money and relief. "
+            "Checked pathways help funders and relief groups move faster."
         ),
         "power_photo": "PHOTO PLACEHOLDER: relief worker / field team",
         "metric_active_funds": "Active Relief Funds",
@@ -142,11 +145,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "banner_l1": "Mapping Capital.",
         "banner_l2": "Enabling Relief.",
         "banner_body": (
-            "Trusted, human-verified data helps capital providers and relief "
-            "operators deploy funds without regulatory delay."
+            "Data checked by people helps funders and relief groups move "
+            "money without legal delays."
         ),
         "banner_link1_title": "Compliance Methodology",
-        "banner_link2_title": "Data Pipeline",
+        "banner_link2_title": "Live funding data",
         "learn_more": "Learn More",
         "stack_kicker": "TRACKING",
         "stack_heading": "FUNDS TO IMPACT",
@@ -156,35 +159,43 @@ STRINGS: dict[str, dict[str, str]] = {
         "cap_all": "All capital",
         "stack_open_badge": "Open for applications",
         "stack_total": "{total} tracked across {count} flows",
-        "stack_empty": "No tracked capital yet. Run the pipeline to ingest FTS flows.",
+        "stack_empty": "No funding flows loaded yet.",
         "sources_kicker": "DATA",
         "sources_heading": "SOURCES",
         "sources_body": (
-            "We monitor public regulatory and funding announcements daily so "
+            "We check public license and funding announcements daily so "
             "pathways stay current."
         ),
         "source_ofac": "OFAC Recent Actions",
-        "source_fts": "UNOCHA FTS & Development Bank Announcements",
+        "source_fts": "UN Financial Tracking Service (FTS) and development bank announcements",
         # Context bar
         "context_estimate": "UN reconstruction estimate",
         "context_tracked": "Tracked so far",
         "context_in_need": "People in need (earthquake)",
         "context_gap_note": (
-            "≈{tracked} identified against a ~{estimate} reconstruction bill. "
-            "This directory exists to close that gap."
+            "So far ≈{tracked} has been identified. Rebuilding is estimated "
+            "to cost ~{estimate}. This directory exists to help close that gap."
         ),
         # Funding Directory
         "dir_heading": "FUNDING DIRECTORY",
         "dir_kicker": "RESEARCHED LEADS",
         "dir_intro": (
-            "{count} researched funding sources: where money can be given and where "
-            "NGOs can apply. Every entry links to its authoritative source."
+            "{count} researched funding sources: where money can be given "
+            "and where non-governmental organizations (NGOs) can apply. "
+            "Every entry links to its official page."
         ),
         "dir_review_badge": "Compliance pathway under review",
         "dir_review_note": (
-            "None of these are verified compliance verdicts. They are researched "
-            "leads; a human assigns a Green/Red verdict only after reviewing the "
-            "license text. Verified pathways appear in the Pathways section above."
+            "We research each entry and link to its official page, but a "
+            "person has not yet confirmed the U.S. legal pathway for it. "
+            "That is why every card says “compliance pathway under review”. "
+            "Use extra caution. Entries that passed the human check appear "
+            "on the Pathways page."
+        ),
+        "dir_review_tip": (
+            "Under review: we found and linked this source, but a person "
+            "has not yet confirmed the U.S. legal pathway for it. Use "
+            "extra caution."
         ),
         "dir_filter_flow": "Money direction",
         "dir_flow_all": "All",
@@ -213,14 +224,15 @@ STRINGS: dict[str, dict[str, str]] = {
         "dir_committed": "Committed / raised",
         "dir_visit": "Visit source ↗",
         "dir_details": "Details →",
-        "dir_last_checked": "Last checked {date}",
+        "dir_last_checked": "Link checked {date}",
         "dir_none": "No sources match these filters.",
         "dir_count": "{count} of {total} sources shown",
         "dir_suggest": "Suggest a source or report an issue →",
-        "ocha_slot_title": "OCHA Revised Response Plan",
+        "ocha_slot_title": "Revised UN response plan (OCHA)",
         "ocha_slot_body": (
-            "A consolidated funding requirement lands the week of {date}. This "
-            "slot updates automatically from the FTS API once the appeal is live."
+            "The United Nations humanitarian coordination office (OCHA) "
+            "publishes its updated funding plan the week of {date}. This "
+            "space fills in automatically when the plan is out."
         ),
         "ocha_slot_badge": "Expected week of {date}",
         # Detail view
@@ -234,7 +246,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_compliance": "Compliance notes",
         "detail_suggested": "Suggested license pathway",
         "detail_license_ctx": "License context",
-        "detail_gl60_ctx": "GL 60: earthquake relief authorization, expires {date}.",
+        "detail_gl60_ctx": (
+            "General License 60 (GL 60) is the U.S. permission that allows "
+            "earthquake relief payments. It ends on {date}."
+        ),
         "detail_status": "Status",
         "detail_phase": "Phase",
         "detail_org_type": "Organization type",
@@ -248,10 +263,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_pw_expiry": "License expiration",
         "detail_pw_sectors": "Target sectors",
         "detail_pw_capital": "Capital type",
-        "verif_unverified": "Unverified, pathway under review",
-        "verif_reported_unconfirmed": "Reported, unconfirmed",
-        "verif_platform_vetted": "Platform-vetted",
-        "verif_pipeline": "Pipeline, not yet launched",
+        "verif_unverified": "Not yet checked by a person",
+        "verif_reported_unconfirmed": "Reported in the news, not yet confirmed",
+        "verif_platform_vetted": "Vetted by its hosting platform",
+        "verif_pipeline": "Announced, not yet open",
         # Navigation + chrome
         "app_title": "Reconstruction Finance Navigator",
         "nav_licenses": "Licenses",
@@ -268,8 +283,8 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         # Home
         "home_value_prop": (
-            "A living map of relief and reconstruction financing for Venezuela, "
-            "tagged by sanctions pathway."
+            "A living map of relief and reconstruction money for Venezuela, "
+            "showing the U.S. rule that covers each route."
         ),
         "home_cta": "Explore verified pathways",
         "m_tracked": "Tracked across flows",
@@ -277,16 +292,23 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_pathways": "Verified pathways",
         "m_gl60_days": "Days until GL 60 expires",
         "gl60_countdown_note": (
-            "GL 60 authorizes earthquake-relief transfers into Venezuela. It "
-            "expires {date}. The window to move funds under it is closing."
+            "U.S. rules currently allow sending money for earthquake relief "
+            "in Venezuela. That permission is called General License 60 "
+            "(GL 60). It ends on {date}; after that the rules may change."
         ),
         "fc_licenses_desc": (
-            "The OFAC General Licenses that authorize relief and reconstruction "
-            "transactions."
+            "The U.S. permissions (OFAC General Licenses) that allow relief "
+            "and reconstruction payments."
         ),
-        "fc_pathways_desc": "Human-verified funds mapped to the license that clears them.",
+        "fc_pathways_desc": (
+            "Funds checked by a person and matched to the permission that "
+            "covers them."
+        ),
         "fc_directory_desc": "Researched sources: where to give and where NGOs can apply.",
-        "fc_capital_desc": "Live donor→recipient flows tracked from UNOCHA FTS.",
+        "fc_capital_desc": (
+            "Who gave and who received, live from the UN Financial Tracking "
+            "Service (FTS)."
+        ),
         "fc_licenses_teaser": "{n} active · GL 60 expires {date}",
         "fc_pathways_teaser": "{n} verified pathway(s)",
         "fc_directory_teaser": "{n} sources · relief → reconstruction",
@@ -298,8 +320,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "xl_flow_directory": "See in Directory →",
         # Licenses page
         "lic_page_intro": (
-            "The U.S. OFAC General Licenses that authorize relief and "
-            "reconstruction transactions with Venezuela."
+            "The permissions that allow relief and reconstruction payments "
+            "to Venezuela despite sanctions. Each one is a General License "
+            "(GL) issued by the U.S. Office of Foreign Assets Control (OFAC)."
         ),
         "lic_expires": "Expires",
         "lic_no_expiry": "No stated expiry",
@@ -307,15 +330,17 @@ STRINGS: dict[str, dict[str, str]] = {
         "lic_activities": "Authorized activities",
         # Pathways page
         "pw_intro": (
-            "Funds mapped to the OFAC license that governs them, with a "
-            "human-assigned compliance verdict. Verified entries only."
+            "Funds matched to the Office of Foreign Assets Control (OFAC) "
+            "permission that covers them. A person checked each one and "
+            "rated it Green, Yellow, or Red."
         ),
         "pw_filtered_to": "Filtered to {gl}",
         "pw_clear_filter": "Clear filter",
         # Capital page
         "cap_intro": (
-            "Live funding flows into Venezuela reported to UNOCHA FTS: who "
-            "gave, who received, how much, and where it sits in the pipeline."
+            "Money flowing into Venezuela, as reported to the United "
+            "Nations Financial Tracking Service (FTS): who gave, who "
+            "received, how much, and its current status."
         ),
         # About page
         "about_intro": (
@@ -325,30 +350,35 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "about_verified_h": "What “verified” means",
         "about_verified_body": (
-            "A pathway is marked verified only after a human reviews the license "
-            "text and the fund's own compliance posture and assigns a Green, "
-            "Yellow, or Red verdict. Only verified pathways appear on the "
+            "“Verified” means a person read the license text, looked at how "
+            "the fund handles compliance, and gave it a Green, Yellow, or "
+            "Red rating. Only entries with that rating appear on the "
             "Pathways page."
         ),
         "about_notverified_h": "What it does not mean",
         "about_notverified_body": (
-            "Everything in the Funding Directory is a researched lead marked "
-            "“Compliance pathway under review.” It is not a verdict, not legal "
-            "advice, and not an OFAC determination. This is an informational "
-            "resource; confirm your own compliance before moving funds."
+            "Everything in the Funding Directory is a researched lead "
+            "marked “compliance pathway under review”. That label means no "
+            "one has confirmed the U.S. legal pathway for it yet. It is not "
+            "legal advice and not a decision by the Office of Foreign "
+            "Assets Control (OFAC). Confirm your own compliance before "
+            "moving money."
         ),
         "about_sources_h": "Data sources",
         "about_sources_body": (
-            "OFAC Recent Actions (licenses), UNOCHA FTS (funding flows), and a "
-            "curated directory of researched funding sources, including "
-            "accredited community-organized funds. Each links to its "
-            "authoritative public page."
+            "License news from the U.S. Office of Foreign Assets Control "
+            "(OFAC), funding flows from the United Nations Financial "
+            "Tracking Service (FTS), and a directory of researched funding "
+            "sources, including accredited community funds. Each entry "
+            "links to its official public page."
         ),
         "about_cadence_h": "Update cadence",
         "about_cadence_body": (
-            "Licenses and flows refresh from their source APIs; the directory "
-            "was last checked {date}. OCHA's revised response plan is expected "
-            "the week of {ocha} and will update the tracked totals."
+            "Licenses and funding flows refresh from their sources "
+            "automatically; the directory was last checked {date}. The "
+            "revised response plan from the UN humanitarian coordination "
+            "office (OCHA) is expected the week of {ocha} and will update "
+            "the totals."
         ),
         "about_contact_h": "Contact",
         "about_contact_body": "Report an issue or suggest a source:",
@@ -371,9 +401,12 @@ STRINGS: dict[str, dict[str, str]] = {
         # Footer contacts
         "footer_contacts_h": "CONTACTS",
         "contact_maintainer": "Site maintainer: questions, corrections, new sources",
-        "contact_ofac": "OFAC sanctions & license questions (U.S. Treasury)",
+        "contact_ofac": (
+            "Sanctions and license questions: Office of Foreign Assets "
+            "Control (OFAC), U.S. Treasury"
+        ),
         "contact_caf": "CAF Reconstruction Fund contributions",
-        "contact_fts": "UNOCHA FTS funding-flow data",
+        "contact_fts": "UN Financial Tracking Service (FTS) data",
         # Glossary (hover/tap definitions for acronyms, both modes)
         "gl_mdb_term": "MDB (Multilateral Development Bank)",
         "gl_mdb_def": (
@@ -386,6 +419,19 @@ STRINGS: dict[str, dict[str, str]] = {
             "for example the International Rescue Committee or Save the "
             "Children."
         ),
+        "gl_ocha_term": (
+            "OCHA (United Nations Office for the Coordination of "
+            "Humanitarian Affairs)"
+        ),
+        "gl_ocha_def": (
+            "The UN office that coordinates emergency response and "
+            "publishes the shared funding plans for a crisis."
+        ),
+        "gl_fts_term": "FTS (Financial Tracking Service)",
+        "gl_fts_def": (
+            "OCHA's public database of who gave humanitarian money, who "
+            "received it, and how much."
+        ),
         # Simple paths — intent-first front door
         "home_welcome_eyebrow": "Welcome",
         "home_welcome_lead": (
@@ -396,9 +442,9 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "home_welcome_a_h": "Donations",
         "home_welcome_a": (
-            "Ways to make effective donations to multilateral institutions, "
-            "national organizations, and NGOs that work on the ground or "
-            "offer channels for monetary aid."
+            "Ways to give money that arrives: international institutions, "
+            "national organizations, and non-governmental organizations "
+            "(NGOs) that work on the ground or receive donations for aid."
         ),
         "home_welcome_b_h": "Money transfers",
         "home_welcome_b": (
@@ -446,9 +492,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "rem_q1_a": "Yes, in most cases.",
         "rem_q1_body": (
             "Personal, non-commercial transfers to family in Venezuela are "
-            "generally allowed. A U.S. authorization ({gl}) permits the "
-            "financial services these transfers rely on, including "
-            "transactions involving certain Venezuelan banks."
+            "generally allowed. A U.S. permission ({gl}) covers the banking "
+            "services these transfers use, including certain Venezuelan "
+            "banks."
         ),
         "rem_q2_h": "What channels can I use?",
         "rem_q2_b1": (
@@ -499,9 +545,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "hero_title_l1": "Cuando el Capital se Mueve,",
         "hero_title_l2": "el Alivio Sigue",
         "app_subtitle": (
-            "Vincula el capital de alivio y reconstrucción por terremoto con "
-            "las Licencias Generales OFAC activas, para que los fondos se "
-            "muevan rápido y con cumplimiento."
+            "Vinculamos el dinero de alivio y reconstrucción con los "
+            "permisos del Tesoro de EE. UU. (Licencias Generales de OFAC) "
+            "que lo autorizan, para que los fondos se muevan rápido y de "
+            "forma legal."
         ),
         "hero_cta": "Ver Rutas Verificadas",
         "hero_photo": "IMAGEN: sitio de reconstrucción, La Guaira / Caracas",
@@ -511,12 +558,12 @@ STRINGS: dict[str, dict[str, str]] = {
         "lic_tag_active": "ACTIVA",
         "lic_tag_expired": "VENCIDA",
         "lic_tag_expiring": "POR VENCER",
-        "lic_none": "Aún no hay licencias. Ejecute el pipeline para cargar acciones de OFAC.",
+        "lic_none": "Aún no hay licencias cargadas. Ejecute el proceso de datos para cargarlas.",
         "data_kicker": "DATOS PARA EL",
         "data_heading": "CUMPLIMIENTO",
         "data_body": (
-            "Cada ruta vincula un vehículo de financiamiento con la licencia "
-            "OFAC que lo autoriza. Filtre por área para ver qué es elegible."
+            "Cada ruta conecta un fondo con el permiso de OFAC que lo "
+            "autoriza. Filtre por área para ver qué está permitido."
         ),
         "data_cta": "Ver Navegador Completo",
         "explore_focus": "Explorar por área",
@@ -524,22 +571,23 @@ STRINGS: dict[str, dict[str, str]] = {
         "gl_source_glossary": "FUENTE: GLOSARIO",
         "gl_ofac_term": "OFAC",
         "gl_ofac_def": (
-            "Office of Foreign Assets Control, la agencia del Tesoro de "
-            "EE. UU. que aplica sanciones económicas y comerciales."
+            "Oficina de Control de Activos Extranjeros (Office of Foreign "
+            "Assets Control), la agencia del Tesoro de EE. UU. que aplica "
+            "las sanciones económicas."
         ),
         "gl_gl_term": "GL (Licencia General)",
         "gl_gl_def": (
-            "Autorización general emitida por OFAC que permite transacciones "
-            "específicas, como el alivio por terremoto, que de otro modo "
-            "estarían prohibidas."
+            "Permiso emitido por OFAC, la agencia de sanciones de EE. UU. "
+            "Autoriza actividades específicas, como el alivio por "
+            "terremoto, que las sanciones bloquearían."
         ),
         "signup_l1": "Manténgase al día con",
         "signup_bold": "alertas de vencimiento",
         "signup_email": "* Su correo",
         "signup_org": "Su organización",
         "signup_consent": (
-            "Acepto recibir actualizaciones operativas sobre el estado de "
-            "licencias OFAC y rutas de financiamiento."
+            "Acepto recibir actualizaciones sobre el estado de las "
+            "licencias y las rutas de financiamiento."
         ),
         "signup_button": "Suscribirse",
         "pathways_kicker": "RUTAS",
@@ -548,17 +596,20 @@ STRINGS: dict[str, dict[str, str]] = {
         "verdict_green": "Verde",
         "verdict_yellow": "Amarillo",
         "verdict_red": "Rojo",
-        "feature_green_tmpl": "{fund} cumple con {license}. Autorizado para el alivio.",
-        "feature_red_tmpl": "{fund} está bloqueado. La licencia {license} está {status}.",
+        "feature_green_tmpl": "{fund} está cubierto por {license}. Los fondos pueden moverse.",
+        "feature_red_tmpl": "{fund} está bloqueado. Su licencia {license} está {status}.",
         "feature_green_fallback": (
-            "Las rutas verificadas cumplen con su licencia OFAC. El capital "
-            "de alivio está autorizado para moverse."
+            "Las rutas verificadas pasaron una revisión humana frente a su "
+            "licencia. El dinero puede moverse por ellas."
         ),
         "feature_red_fallback": (
-            "Vigile las rutas cuya licencia haya vencido o sido revocada. "
-            "El capital queda bloqueado hasta obtener una nueva licencia."
+            "Si una licencia vence o se retira, el dinero por esa ruta deja "
+            "de estar permitido. Verifique antes de mover fondos."
         ),
-        "pathways_note": "Solo rutas con verificación humana. Herramienta operativa, no asesoría legal.",
+        "pathways_note": (
+            "Cada ruta aquí fue revisada por una persona. Es una guía "
+            "práctica, no asesoría legal."
+        ),
         "pathways_empty": (
             "Aún no hay rutas verificadas. Verifíquelas en Admin para publicarlas aquí."
         ),
@@ -566,9 +617,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "power_kicker": "EL PODER DEL",
         "power_heading": "CUMPLIMIENTO",
         "power_body": (
-            "El cumplimiento de sanciones es el cuello de botella entre el "
-            "capital y el alivio. Las rutas verificadas permiten avanzar más "
-            "rápido, juntos."
+            "Las reglas de sanciones son la principal demora entre el "
+            "dinero y el alivio. Las rutas revisadas ayudan a avanzar más "
+            "rápido."
         ),
         "power_photo": "IMAGEN: personal de alivio / equipo de campo",
         "metric_active_funds": "Fondos de Alivio Activos",
@@ -577,12 +628,11 @@ STRINGS: dict[str, dict[str, str]] = {
         "banner_l1": "Vinculando Capital.",
         "banner_l2": "Habilitando el Alivio.",
         "banner_body": (
-            "Datos confiables con verificación humana ayudan a las "
-            "organizaciones que proveen capital y operan la ayuda a "
-            "desplegar fondos sin demora regulatoria."
+            "Datos revisados por personas ayudan a quienes financian y a "
+            "los grupos de ayuda a mover dinero sin demoras legales."
         ),
         "banner_link1_title": "Metodología de Cumplimiento",
-        "banner_link2_title": "Pipeline de Datos",
+        "banner_link2_title": "Datos de financiamiento en vivo",
         "learn_more": "Saber Más",
         "stack_kicker": "RASTREANDO",
         "stack_heading": "FONDOS HASTA EL IMPACTO",
@@ -592,36 +642,47 @@ STRINGS: dict[str, dict[str, str]] = {
         "cap_all": "Todo el capital",
         "stack_open_badge": "Abierto a solicitudes",
         "stack_total": "{total} rastreado en {count} flujos",
-        "stack_empty": "Aún no hay capital rastreado. Ejecute el pipeline para ingerir flujos FTS.",
+        "stack_empty": "Aún no hay flujos de financiamiento cargados.",
         "sources_kicker": "FUENTES DE",
         "sources_heading": "DATOS",
         "sources_body": (
-            "Monitoreamos anuncios regulatorios y de financiamiento públicos a "
-            "diario para mantener las rutas actualizadas."
+            "Revisamos a diario los anuncios públicos de licencias y de "
+            "financiamiento para mantener las rutas al día."
         ),
         "source_ofac": "Acciones Recientes de OFAC",
-        "source_fts": "UNOCHA FTS y Anuncios de Bancos de Desarrollo",
+        "source_fts": (
+            "Servicio de Rastreo Financiero (FTS) de la ONU y anuncios de "
+            "bancos de desarrollo"
+        ),
         # Context bar
         "context_estimate": "Estimación de reconstrucción ONU",
         "context_tracked": "Rastreado hasta ahora",
         "context_in_need": "Personas necesitadas (terremoto)",
         "context_gap_note": (
-            "≈{tracked} identificados frente a una factura de reconstrucción de "
-            "~{estimate}. Este directorio busca cerrar esa brecha."
+            "Hasta ahora se han identificado ≈{tracked}. Se estima que "
+            "reconstruir costará ~{estimate}. Este directorio existe para "
+            "ayudar a cerrar esa brecha."
         ),
         # Directorio de Financiamiento
         "dir_heading": "DIRECTORIO DE FINANCIAMIENTO",
         "dir_kicker": "FUENTES INVESTIGADAS",
         "dir_intro": (
-            "{count} fuentes de financiamiento investigadas: dónde se puede donar y "
-            "dónde las ONG pueden postular. Cada entrada enlaza a su fuente oficial."
+            "{count} fuentes de financiamiento investigadas: dónde se puede "
+            "donar y dónde pueden postular las organizaciones no "
+            "gubernamentales (ONG). Cada entrada enlaza a su página oficial."
         ),
         "dir_review_badge": "Ruta de cumplimiento en revisión",
         "dir_review_note": (
-            "Ninguna de estas es un dictamen de cumplimiento verificado. Son "
-            "fuentes investigadas; el dictamen Verde/Rojo se asigna solo tras "
-            "una revisión humana del texto de la licencia. Las rutas "
-            "verificadas aparecen en la sección Rutas más arriba."
+            "Investigamos cada entrada y enlazamos su página oficial, pero "
+            "una persona todavía no ha confirmado su ruta legal en EE. UU. "
+            "Por eso cada tarjeta dice “ruta de cumplimiento en revisión”. "
+            "Use precaución adicional. Las entradas que pasaron la revisión "
+            "humana aparecen en la página de Rutas."
+        ),
+        "dir_review_tip": (
+            "En revisión: encontramos y enlazamos esta fuente, pero una "
+            "persona todavía no ha confirmado su ruta legal en EE. UU. "
+            "Use precaución adicional."
         ),
         "dir_filter_flow": "Dirección del dinero",
         "dir_flow_all": "Todo",
@@ -650,15 +711,16 @@ STRINGS: dict[str, dict[str, str]] = {
         "dir_committed": "Comprometido / recaudado",
         "dir_visit": "Ir a la fuente ↗",
         "dir_details": "Detalles →",
-        "dir_last_checked": "Verificado {date}",
+        "dir_last_checked": "Enlace revisado el {date}",
         "dir_none": "Ninguna fuente coincide con estos filtros.",
         "dir_count": "{count} de {total} fuentes mostradas",
         "dir_suggest": "Sugerir una fuente o reportar un problema →",
-        "ocha_slot_title": "Plan de Respuesta Revisado de OCHA",
+        "ocha_slot_title": "Plan de respuesta revisado de la ONU (OCHA)",
         "ocha_slot_body": (
-            "Un requerimiento de financiamiento consolidado llega la semana del "
-            "{date}. Este espacio se actualiza automáticamente desde la API de FTS "
-            "cuando el llamamiento esté activo."
+            "La Oficina de las Naciones Unidas para la Coordinación de "
+            "Asuntos Humanitarios (OCHA) publica su plan de financiamiento "
+            "actualizado la semana del {date}. Este espacio se llena "
+            "automáticamente cuando el plan salga."
         ),
         "ocha_slot_badge": "Esperado la semana del {date}",
         # Vista de detalle
@@ -672,7 +734,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_compliance": "Notas de cumplimiento",
         "detail_suggested": "Ruta de licencia sugerida",
         "detail_license_ctx": "Contexto de licencia",
-        "detail_gl60_ctx": "GL 60: autorización de alivio por terremoto, vence {date}.",
+        "detail_gl60_ctx": (
+            "La Licencia General 60 (GL 60) es el permiso de EE. UU. que "
+            "autoriza pagos de alivio por el terremoto. Termina el {date}."
+        ),
         "detail_status": "Estado",
         "detail_phase": "Fase",
         "detail_org_type": "Tipo de organización",
@@ -686,10 +751,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_pw_expiry": "Vencimiento de licencia",
         "detail_pw_sectors": "Sectores objetivo",
         "detail_pw_capital": "Tipo de capital",
-        "verif_unverified": "Sin verificar, ruta en revisión",
-        "verif_reported_unconfirmed": "Reportado, sin confirmar",
-        "verif_platform_vetted": "Verificado por la plataforma",
-        "verif_pipeline": "En preparación, aún sin lanzar",
+        "verif_unverified": "Todavía no revisado por una persona",
+        "verif_reported_unconfirmed": "Reportado en prensa, sin confirmar",
+        "verif_platform_vetted": "Avalado por la plataforma que lo aloja",
+        "verif_pipeline": "Anunciado, todavía no abierto",
         # Navegación + chrome
         "app_title": "Navegador de Financiamiento para la Reconstrucción",
         "nav_licenses": "Licencias",
@@ -707,8 +772,8 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         # Inicio
         "home_value_prop": (
-            "Un mapa vivo del financiamiento de ayuda y reconstrucción para "
-            "Venezuela, clasificado por ruta de cumplimiento."
+            "Un mapa vivo del dinero de ayuda y reconstrucción para "
+            "Venezuela, con la regla de EE. UU. que cubre cada ruta."
         ),
         "home_cta": "Explorar rutas verificadas",
         "m_tracked": "Rastreado en flujos",
@@ -716,16 +781,24 @@ STRINGS: dict[str, dict[str, str]] = {
         "m_pathways": "Rutas verificadas",
         "m_gl60_days": "Días para que venza la GL 60",
         "gl60_countdown_note": (
-            "La GL 60 autoriza transferencias de ayuda por terremoto hacia "
-            "Venezuela. Vence el {date}. La ventana para mover fondos se está cerrando."
+            "Las reglas de EE. UU. permiten hoy enviar dinero para el "
+            "alivio del terremoto en Venezuela. Ese permiso se llama "
+            "Licencia General 60 (GL 60). Termina el {date}; después las "
+            "reglas pueden cambiar."
         ),
         "fc_licenses_desc": (
-            "Las Licencias Generales de OFAC que autorizan transacciones de "
-            "ayuda y reconstrucción."
+            "Los permisos de EE. UU. (Licencias Generales de OFAC) que "
+            "autorizan pagos de ayuda y reconstrucción."
         ),
-        "fc_pathways_desc": "Fondos verificados vinculados a la licencia que los habilita.",
+        "fc_pathways_desc": (
+            "Fondos revisados por una persona y vinculados al permiso que "
+            "los cubre."
+        ),
         "fc_directory_desc": "Fuentes investigadas: dónde donar y dónde postulan las ONG.",
-        "fc_capital_desc": "Flujos donante→receptor en vivo, desde UNOCHA FTS.",
+        "fc_capital_desc": (
+            "Quién dio y quién recibió, en vivo desde el Servicio de "
+            "Rastreo Financiero (FTS) de la ONU."
+        ),
         "fc_licenses_teaser": "{n} activas · GL 60 vence {date}",
         "fc_pathways_teaser": "{n} ruta(s) verificada(s)",
         "fc_directory_teaser": "{n} fuentes · alivio → reconstrucción",
@@ -737,8 +810,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "xl_flow_directory": "Ver en el Directorio →",
         # Página de Licencias
         "lic_page_intro": (
-            "Las Licencias Generales de OFAC que autorizan transacciones de "
-            "ayuda y reconstrucción con Venezuela."
+            "Los permisos que autorizan pagos de ayuda y reconstrucción a "
+            "Venezuela pese a las sanciones. Cada uno es una Licencia "
+            "General (GL) emitida por la Oficina de Control de Activos "
+            "Extranjeros de EE. UU. (OFAC)."
         ),
         "lic_expires": "Vence",
         "lic_no_expiry": "Sin fecha de vencimiento",
@@ -746,15 +821,17 @@ STRINGS: dict[str, dict[str, str]] = {
         "lic_activities": "Actividades autorizadas",
         # Página de Rutas
         "pw_intro": (
-            "Fondos vinculados a la licencia OFAC que los rige, con un dictamen "
-            "de cumplimiento asignado tras revisión humana. Solo entradas verificadas."
+            "Fondos vinculados al permiso de la Oficina de Control de "
+            "Activos Extranjeros (OFAC) que los cubre. Una persona revisó "
+            "cada uno y lo calificó Verde, Amarillo o Rojo."
         ),
         "pw_filtered_to": "Filtrado a {gl}",
         "pw_clear_filter": "Quitar filtro",
         # Página de Capital
         "cap_intro": (
-            "Flujos de financiamiento hacia Venezuela reportados a UNOCHA "
-            "FTS: quién dio, quién recibió, cuánto y dónde está en el proceso."
+            "Dinero que fluye hacia Venezuela, según lo reportado al "
+            "Servicio de Rastreo Financiero (FTS) de las Naciones Unidas: "
+            "quién dio, quién recibió, cuánto y en qué estado está."
         ),
         # Página Acerca de
         "about_intro": (
@@ -765,31 +842,36 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "about_verified_h": "Qué significa “verificado”",
         "about_verified_body": (
-            "Una ruta se marca como verificada solo tras una revisión humana "
-            "del texto de la licencia y de la postura de cumplimiento del "
-            "fondo, con un dictamen Verde, Amarillo o Rojo. Solo las rutas "
-            "verificadas aparecen en la página de Rutas."
+            "“Verificado” significa que una persona leyó el texto de la "
+            "licencia, revisó cómo maneja el fondo su cumplimiento y le dio "
+            "una calificación Verde, Amarilla o Roja. Solo las entradas con "
+            "esa calificación aparecen en la página de Rutas."
         ),
         "about_notverified_h": "Qué NO significa",
         "about_notverified_body": (
-            "Todo en el Directorio de Financiamiento es una fuente investigada "
-            "marcada “Ruta de cumplimiento en revisión”. No es un dictamen, ni "
-            "asesoría legal, ni una determinación de OFAC. Es un recurso "
-            "informativo; confirme su propio cumplimiento antes de mover fondos."
+            "Todo en el Directorio de Financiamiento es una fuente "
+            "investigada marcada “ruta de cumplimiento en revisión”. Esa "
+            "etiqueta significa que nadie ha confirmado todavía su ruta "
+            "legal en EE. UU. No es asesoría legal ni una decisión de la "
+            "Oficina de Control de Activos Extranjeros (OFAC). Confirme su "
+            "propio cumplimiento antes de mover dinero."
         ),
         "about_sources_h": "Fuentes de datos",
         "about_sources_body": (
-            "Acciones Recientes de OFAC (licencias), UNOCHA FTS (flujos de "
-            "financiamiento) y un directorio curado de fuentes investigadas, "
-            "que incluye fondos comunitarios acreditados. Cada una enlaza a "
-            "su página pública oficial."
+            "Noticias de licencias de la Oficina de Control de Activos "
+            "Extranjeros de EE. UU. (OFAC), flujos de financiamiento del "
+            "Servicio de Rastreo Financiero (FTS) de las Naciones Unidas y "
+            "un directorio de fuentes investigadas, que incluye fondos "
+            "comunitarios acreditados. Cada entrada enlaza a su página "
+            "pública oficial."
         ),
         "about_cadence_h": "Frecuencia de actualización",
         "about_cadence_body": (
-            "Las licencias y los flujos se actualizan desde sus APIs de origen; "
-            "el directorio se verificó por última vez el {date}. El plan de "
-            "respuesta revisado de OCHA se espera la semana del {ocha} y "
-            "actualizará los totales rastreados."
+            "Las licencias y los flujos se actualizan automáticamente desde "
+            "sus fuentes; el directorio se revisó por última vez el {date}. "
+            "El plan de respuesta revisado de la oficina humanitaria de la "
+            "ONU (OCHA) se espera la semana del {ocha} y actualizará los "
+            "totales."
         ),
         "about_contact_h": "Contacto",
         "about_contact_body": "Reporte un problema o sugiera una fuente:",
@@ -814,9 +896,12 @@ STRINGS: dict[str, dict[str, str]] = {
         # Contactos del pie de página
         "footer_contacts_h": "CONTACTOS",
         "contact_maintainer": "Responsable del sitio: preguntas, correcciones, nuevas fuentes",
-        "contact_ofac": "Consultas de sanciones y licencias OFAC (Tesoro de EE. UU.)",
+        "contact_ofac": (
+            "Consultas de sanciones y licencias: Oficina de Control de "
+            "Activos Extranjeros (OFAC), Tesoro de EE. UU."
+        ),
         "contact_caf": "Contribuciones al Fondo de Reconstrucción CAF",
-        "contact_fts": "Datos de flujos de financiamiento UNOCHA FTS",
+        "contact_fts": "Datos del Servicio de Rastreo Financiero (FTS) de la ONU",
         # Glosario (definiciones al pasar el cursor / tocar, ambos modos)
         "gl_mdb_term": "MDB (Banco Multilateral de Desarrollo)",
         "gl_mdb_def": (
@@ -829,6 +914,19 @@ STRINGS: dict[str, dict[str, str]] = {
             "por ejemplo el International Rescue Committee o Save the "
             "Children."
         ),
+        "gl_ocha_term": (
+            "OCHA (Oficina de las Naciones Unidas para la Coordinación de "
+            "Asuntos Humanitarios)"
+        ),
+        "gl_ocha_def": (
+            "La oficina de la ONU que coordina la respuesta a emergencias y "
+            "publica los planes de financiamiento compartidos de una crisis."
+        ),
+        "gl_fts_term": "FTS (Servicio de Rastreo Financiero)",
+        "gl_fts_def": (
+            "La base de datos pública de OCHA sobre quién dio dinero "
+            "humanitario, quién lo recibió y cuánto."
+        ),
         # Rutas simples — portada por intención
         "home_welcome_eyebrow": "Le damos la bienvenida",
         "home_welcome_lead": (
@@ -840,10 +938,10 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "home_welcome_a_h": "Donaciones",
         "home_welcome_a": (
-            "Formas de realizar donaciones efectivas a instituciones "
-            "multilaterales, organizaciones nacionales y ONG que trabajan "
-            "sobre el terreno u ofrecen vías para canalizar su ayuda "
-            "monetaria."
+            "Formas de donar dinero que llega a su destino: instituciones "
+            "internacionales, organizaciones nacionales y organizaciones no "
+            "gubernamentales (ONG) que trabajan sobre el terreno o reciben "
+            "donaciones para la ayuda."
         ),
         "home_welcome_b_h": "Transferencias de dinero",
         "home_welcome_b": (
@@ -893,10 +991,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "rem_q1_a": "Sí, en la mayoría de los casos.",
         "rem_q1_body": (
             "Las transferencias personales, no comerciales, a familiares en "
-            "Venezuela están generalmente permitidas. Una autorización de "
-            "EE. UU. ({gl}) permite los servicios financieros de los que "
-            "dependen estas transferencias, incluidas las operaciones con "
-            "ciertos bancos venezolanos."
+            "Venezuela están generalmente permitidas. Un permiso de EE. UU. "
+            "({gl}) cubre los servicios bancarios que usan estas "
+            "transferencias, incluidos ciertos bancos venezolanos."
         ),
         "rem_q2_h": "¿Qué canales puedo usar?",
         "rem_q2_b1": (
@@ -947,10 +1044,110 @@ STRINGS: dict[str, dict[str, str]] = {
 SECTOR_ES = {
     "Healthcare": "Salud",
     "Infrastructure": "Infraestructura",
-    "WASH": "WASH",
+    "WASH": "Agua y saneamiento (WASH)",
     "Housing": "Vivienda",
     "Energy": "Energía",
     "Education": "Educación",
+}
+# English display names where the raw tag is an unexplained acronym.
+SECTOR_EN = {
+    "WASH": "Water & sanitation (WASH)",
+}
+# Directory data vocabularies are stored as English snake_case tags; show
+# them as plain words in the active language (detail view).
+ACCEPTS_FROM_LABELS = {
+    "en": {
+        "individuals": "Individuals",
+        "companies": "Companies",
+        "foundations": "Foundations",
+        "governments": "Governments",
+        "international_organizations": "International organizations",
+    },
+    "es": {
+        "individuals": "Personas",
+        "companies": "Empresas",
+        "foundations": "Fundaciones",
+        "governments": "Gobiernos",
+        "international_organizations": "Organizaciones internacionales",
+    },
+}
+ORG_TYPE_LABELS = {
+    "en": {
+        "community_fund": "Community fund",
+        "crowdfunding_platform": "Crowdfunding platform",
+        "diaspora_ngo": "Diaspora NGO",
+        "faith_based_ingo": "Faith-based international NGO",
+        "government_donor": "Government donor",
+        "grantmaker": "Grantmaker",
+        "ingo": "International NGO",
+        "ingo_coalition": "Coalition of international NGOs",
+        "local_venezuelan_ngo": "Local Venezuelan NGO",
+        "logistics_ngo": "Logistics NGO",
+        "multilateral_development_bank": "Multilateral development bank",
+        "red_cross_movement": "Red Cross movement",
+        "regranting_platform": "Fund that re-grants to local organizations",
+        "sovereign_multilateral": "Government-to-government (multilateral)",
+        "un_agency": "UN agency",
+        "un_coordination": "UN coordination office",
+        "un_pooled_fund": "UN pooled fund",
+    },
+    "es": {
+        "community_fund": "Fondo comunitario",
+        "crowdfunding_platform": "Plataforma de recaudación",
+        "diaspora_ngo": "ONG de la diáspora",
+        "faith_based_ingo": "ONG internacional confesional",
+        "government_donor": "Gobierno donante",
+        "grantmaker": "Entidad que otorga subvenciones",
+        "ingo": "ONG internacional",
+        "ingo_coalition": "Coalición de ONG internacionales",
+        "local_venezuelan_ngo": "ONG local venezolana",
+        "logistics_ngo": "ONG de logística",
+        "multilateral_development_bank": "Banco multilateral de desarrollo",
+        "red_cross_movement": "Movimiento de la Cruz Roja",
+        "regranting_platform": "Fondo que redistribuye a organizaciones locales",
+        "sovereign_multilateral": "Financiamiento entre gobiernos (multilateral)",
+        "un_agency": "Agencia de la ONU",
+        "un_coordination": "Oficina de coordinación de la ONU",
+        "un_pooled_fund": "Fondo mancomunado de la ONU",
+    },
+}
+SOURCE_STATUS_LABELS = {
+    "en": {
+        "active": "Active",
+        "pipeline": "Announced, not yet open",
+        "reported": "Reported, not yet confirmed",
+    },
+    "es": {
+        "active": "Activo",
+        "pipeline": "Anunciado, todavía no abierto",
+        "reported": "Reportado, sin confirmar",
+    },
+}
+# License "authorized activities" are stored in English in the DB (they come
+# from OFAC text); translate the known ones so the Spanish pages read
+# natively. Unknown values fall back to the stored English string.
+ACTIVITY_ES = {
+    "Rubble Removal": "Remoción de escombros",
+    "Hospital Repair": "Reparación de hospitales",
+    "Hospital Stabilization": "Estabilización de hospitales",
+    "Oil Extraction": "Extracción de petróleo",
+    "Water Sanitation": "Saneamiento de agua",
+    "WASH": "Agua y saneamiento (WASH)",
+    "Housing Repair": "Reparación de viviendas",
+    "Infrastructure Repair": "Reparación de infraestructura",
+    "Humanitarian Aid": "Ayuda humanitaria",
+    "Energy Restoration": "Restablecimiento de energía",
+    "Contingent contracts": "Contratos contingentes",
+    "earthquake relief efforts in Venezuela":
+        "labores de alivio por el terremoto en Venezuela",
+    "processing or transfer of funds on behalf of third-country "
+    "persons to or from Venezuela in support of earthquake relief":
+        "procesamiento o transferencia de fondos de personas de terceros "
+        "países hacia o desde Venezuela para el alivio del terremoto",
+    "financial services involving certain Venezuelan banks":
+        "servicios financieros con ciertos bancos venezolanos",
+    "personal, non-commercial remittances to Venezuela":
+        "remesas personales, no comerciales, a Venezuela",
 }
 CAPITAL_ES = {
     "Grant": "Subvención",
@@ -1023,6 +1220,8 @@ GLOSSARY = {
     "GL": ("gl_gl_term", "gl_gl_def"),
     "MDB": ("gl_mdb_term", "gl_mdb_def"),
     "INGO": ("gl_ingo_term", "gl_ingo_def"),
+    "OCHA": ("gl_ocha_term", "gl_ocha_def"),
+    "FTS": ("gl_fts_term", "gl_fts_def"),
 }
 
 CURRENCY_SYMBOLS = config.CURRENCY_SYMBOLS
@@ -1042,7 +1241,13 @@ def _get_lang() -> str:
 
 
 def _localize_sector(name: str, lang: str) -> str:
-    return SECTOR_ES.get(name, name) if lang == "es" else name
+    if lang == "es":
+        return SECTOR_ES.get(name, name)
+    return SECTOR_EN.get(name, name)
+
+
+def _localize_activity(name: str, lang: str) -> str:
+    return ACTIVITY_ES.get(name, name) if lang == "es" else name
 
 
 def _localize_capital(name: str, lang: str) -> str:
@@ -1348,7 +1553,7 @@ def _license_cards(c: Ctx, licenses: list[dict]) -> str:
         expired = status in ("expired", "revoked")
         expiring = status == "expiring soon" or _is_expiring_soon(lic.get("expiration_date"))
         acts = lic.get("activities") or []
-        activities = ", ".join(acts)
+        activities = ", ".join(_localize_activity(a, c.lang) for a in acts)
         if len(activities) > 60:  # keep card headlines tight
             activities = activities[:57].rstrip(", ") + "…"
         activities = activities or "—"
@@ -1473,6 +1678,10 @@ def _feature_cards(c: Ctx, pathways: list[dict]) -> str:
         green_text = c.t("feature_green_fallback")
     if red:
         status = (red.get("license_status") or "").lower() or "expired"
+        # The stored status is English; keep the Spanish sentence Spanish.
+        if c.lang == "es":
+            status = {"expired": "vencida", "revoked": "revocada",
+                      "expiring soon": "por vencer"}.get(status, status)
         red_text = c.t(
             "feature_red_tmpl",
             fund=red.get("fund_name") or "",
@@ -1938,10 +2147,13 @@ def _committed_amount(s: dict) -> tuple[str, str]:
     return amt, "dir_target"
 
 
-def _tag(label: str, bg: str, col: str, border: str = "") -> str:
+def _tag(label: str, bg: str, col: str, border: str = "", tip: str = "") -> str:
+    """Pill badge. Pass `tip` to attach a plain-language hover/tap definition
+    (same mechanism as the glossary tooltips — see .gl-term in _BASE_CSS)."""
     b = f"border:1px solid {border};" if border else ""
+    t = f' class="gl-term" tabindex="0" data-tip="{escape(tip)}"' if tip else ""
     return (
-        f'<span style="display:inline-block;background:{bg};color:{col};{b}'
+        f'<span{t} style="display:inline-block;background:{bg};color:{col};{b}'
         'border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700;'
         f'white-space:nowrap;">{escape(label)}</span>'
     )
@@ -1958,7 +2170,8 @@ def _directory_card(c: Ctx, s: dict) -> str:
     border = f"2px solid {YELLOW}" if is_pipeline else "1px solid #E1DFD8"
     detail = c.detail_href(source=s["source_key"])
     url = (s.get("url") or "").strip()
-    review = _tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8")
+    review = _tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8",
+                  tip=c.t("dir_review_tip"))
 
     visit = ""
     if url.startswith(("http://", "https://")):
@@ -2160,7 +2373,11 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
                             s.get("amount_committed_usd"))
     target = _fmt_amount(s["currency"], s.get("amount_target_original"),
                          s.get("amount_target_usd"))
-    accepts = ", ".join(s.get("accepts_from") or []) or "—"
+    accepts_labels = ACCEPTS_FROM_LABELS[c.lang]
+    accepts = ", ".join(
+        accepts_labels.get(a, a.replace("_", " "))
+        for a in (s.get("accepts_from") or [])
+    ) or "—"
     notes = s.get("notes_es") if c.lang == "es" and s.get("notes_es") else s.get("amount_notes")
 
     url = (s.get("url") or "").strip()
@@ -2189,7 +2406,7 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         f'font-size:13px;font-weight:700;color:{BLUE};">{escape(c.t("detail_back"))}</a>'
         f'<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 6px;">'
         f'{_tag(flow_label, fbg, fcol)}{phases}'
-        f'{_tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8")}</div>'
+        f'{_tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8", tip=c.t("dir_review_tip"))}</div>'
         f'<h1 style="margin:6px 0 4px;font-size:clamp(24px,6vw,30px);font-weight:800;color:{INK};'
         f'line-height:1.2;">{escape(name)}</h1>'
         f'<div style="font-size:14px;color:{MUTE};margin-bottom:6px;">{escape(s.get("org") or "")}</div>'
@@ -2203,8 +2420,13 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         + _kv(c.t("detail_goes_to"), escape(s.get("funds_go_to") or "—"))
         + "</div><div style=\"flex:1 1 300px;\">"
         + _kv(c.t("detail_verification"), escape(verif_label))
-        + _kv(c.t("detail_status"), escape(s.get("status") or "—"))
-        + _kv(c.t("detail_org_type"), escape((s.get("org_type") or "").replace("_", " ")))
+        + _kv(c.t("detail_status"),
+              escape(SOURCE_STATUS_LABELS[c.lang].get(
+                  (s.get("status") or "").lower(), s.get("status") or "—")))
+        + _kv(c.t("detail_org_type"),
+              escape(ORG_TYPE_LABELS[c.lang].get(
+                  s.get("org_type") or "",
+                  (s.get("org_type") or "").replace("_", " "))))
         + lic_ctx
         + "</div></div>"
         + _kv(c.t("detail_suggested"), escape(s.get("suggested_license") or "—"))

@@ -98,6 +98,20 @@ All copy lives in `layout.py`, in the `STRINGS` dictionary near the top —
 one `"en"` section and one `"es"` section with matching keys. Change the text
 in quotes; keep placeholders like `{count}` or `{date}` intact.
 
+**Copy standard (applies to all new text):**
+
+- Understandable with no finance or legal background. If a sentence needs a
+  law degree to parse, rewrite it. Legal-register phrasing belongs only in
+  the linked official license text, never in site copy.
+- Say what it means for the reader first, detail after.
+- Spell out every acronym on its first use **on each page** (OFAC, GL, OCHA,
+  FTS, NGO/ONG, MDB, INGO...). A visitor landing on an inner page from a
+  search must not hit an unexplained acronym.
+- Each language reads as if written natively in it. No English words inside
+  Spanish sentences or vice versa (proper names excepted).
+- Spanish is gender-neutral, formal (usted). Short declarative sentences,
+  no em dashes, in both languages.
+
 ---
 
 ## 3b. The intent paths (Donate / Send money)

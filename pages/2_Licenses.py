@@ -30,7 +30,8 @@ def _license_card(lic: dict) -> str:
     )
     activities = lic.get("activities") or []
     act_html = "".join(
-        f'<li style="margin-bottom:4px;">{escape(a)}</li>' for a in activities
+        f'<li style="margin-bottom:4px;">{escape(L._localize_activity(a, c.lang))}</li>'
+        for a in activities
     ) or "<li>—</li>"
 
     # Highlight the card a cross-link targeted via ?gl=.
