@@ -117,6 +117,13 @@ _ADDED_COLUMNS: dict[str, dict[str, str]] = {
     },
     "funding_sources": {
         "accepts_applications": "INTEGER",
+        # Applicant-facing view (fd=seek): tier is "open" (structured
+        # application an org can start today), "partnership" (funds local
+        # orgs via relationship/invitation), or "enabler" (not a funder;
+        # unlocks money from elsewhere). NULL = not applicant-facing.
+        "applicant_tier": "TEXT",
+        "how_to_apply": "TEXT",
+        "how_to_apply_es": "TEXT",
     },
 }
 
@@ -255,7 +262,7 @@ _FUNDING_COLUMNS = (
     "amount_target_original, amount_committed_original, status, expires, "
     "accepts_from, funds_go_to, compliance_notes, suggested_license, "
     "verification_status, url, phase, notes_es, last_checked, "
-    "accepts_applications"
+    "accepts_applications, applicant_tier, how_to_apply, how_to_apply_es"
 )
 
 
@@ -286,6 +293,9 @@ def _row_to_funding_source(row: sqlite3.Row) -> dict[str, Any]:
         "notes_es": row["notes_es"] or "",
         # None = not yet confirmed by a human; never inferred (see schema).
         "accepts_applications": row["accepts_applications"],
+        "applicant_tier": row["applicant_tier"] or "",
+        "how_to_apply": row["how_to_apply"] or "",
+        "how_to_apply_es": row["how_to_apply_es"] or "",
         "last_checked": row["last_checked"] or "",
     }
 

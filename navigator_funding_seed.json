@@ -12,7 +12,8 @@
       "gl60_expires": "2026-10-23"
     },
     "community_funds_added": "2026-07-05 — 4 community/individually organized funds added (accreditation noted per entry)",
-    "link_audit": "2026-07-11 — every donation URL scraped and verified; 11 entries re-pointed from generic org homepages to Venezuela-specific campaign pages (aid-for-life also moved to the correct domain aidforlifeintl.org; wfp-food routes via WFP's ShareTheMeal Venezuela campaign; airlink-logistics via its official Donorbox campaign)"
+    "link_audit": "2026-07-11 — every donation URL scraped and verified; 11 entries re-pointed from generic org homepages to Venezuela-specific campaign pages (aid-for-life also moved to the correct domain aidforlifeintl.org; wfp-food routes via WFP's ShareTheMeal Venezuela campaign; airlink-logistics via its official Donorbox campaign)",
+    "applicant_pass": "2026-07-11 — applicant-facing tiers added (applicant_tier: open/partnership/enabler + how_to_apply/_es). Tier-1 verified via web same day: GlobalGiving intake is cohort-based but ongoing (Pathway program, ~bi-monthly cohorts, free); Airlink partner application is rolling (~1 business day for emergencies); CDP takes no unsolicited applications (contact-first); CAF America validation costs $500 unless donor-covered, 4-6 week review. EXCLUDED and why: IFRC/DREF (flows only through the Venezuelan Red Cross national society); EU/ECHO (pre-certified framework partners only, certification takes years); US State Dept $150M pledge (no open application channel as of 2026-07-11 — recheck grants.gov and state.gov for Venezuela NOFOs; if one appears it becomes a tier-1 entry); PayPal Grant Payments (HELD, not added: availability for Venezuela-domiciled orgs unresolved — resolve or drop); donor-facing lists (UN Crisis Relief, DEC appeal, UNICEF USA, CRS donation pages, Vanguard/NPT)."
   },
   "funding_sources": [
     {
@@ -74,7 +75,11 @@
       "phase": [
         "relief"
       ],
-      "notes_es": "Fondo mancomunado de la ONU que canaliza recursos a ONG locales y socios de primera línea en Venezuela. Uno de los pocos canales donde las ONG venezolanas locales pueden recibir asignaciones."
+      "notes_es": "Fondo mancomunado de la ONU que canaliza recursos a ONG locales y socios de primera línea en Venezuela. Uno de los pocos canales donde las ONG venezolanas locales pueden recibir asignaciones.",
+      "applicant_tier": "open",
+      "accepts_applications": true,
+      "how_to_apply": "Register on OneGMS (the UN grant system), then contact OCHA Venezuela's Humanitarian Financing Unit in Caracas to start the capacity assessment. Onboarding is not fast: organizations not yet registered should start now to be eligible for recovery-phase allocations rather than the current emergency window. In 2025, 79% of direct allocations went to national NGOs, making this the most localization-friendly institutional funder operating in Venezuela. OCHA publishes an eligible-partners list (most recent: February 2026).",
+      "how_to_apply_es": "Regístrese en OneGMS (el sistema de subvenciones de la ONU) y luego contacte a la Unidad de Financiamiento Humanitario de OCHA Venezuela en Caracas para iniciar la evaluación de capacidad. El registro no es rápido: si su organización todavía no está registrada, conviene empezar ahora para optar a las asignaciones de la fase de recuperación, no a la ventana de emergencia actual. En 2025, el 79 % de las asignaciones directas fue a ONG nacionales; es el financiador institucional más favorable a las organizaciones locales que opera en Venezuela. OCHA publica una lista de socios elegibles (la más reciente es de febrero de 2026)."
     },
     {
       "id": "unicef-earthquake-appeal",
@@ -291,7 +296,10 @@
         "relief",
         "recovery"
       ],
-      "notes_es": "Compromiso inicial de USD 35 millones; alianza con el Departamento de Estado de EE.UU. y Walmart. Principal puente entre la diáspora de Miami y la respuesta institucional."
+      "notes_es": "Compromiso inicial de USD 35 millones; alianza con el Departamento de Estado de EE.UU. y Walmart. Principal puente entre la diáspora de Miami y la respuesta institucional.",
+      "applicant_tier": "partnership",
+      "how_to_apply": "GEM works with trusted local NGOs through partnerships; there is no open call. It provides logistical and humanitarian support (initial commitment of $50M in aid) and is transitioning to long-term recovery: housing, schools, and community-led projects. Engage through its Venezuela earthquakes page.",
+      "how_to_apply_es": "GEM trabaja con ONG locales de confianza mediante alianzas; no hay convocatoria abierta. Da apoyo logístico y humanitario (compromiso inicial de 50 millones de dólares en ayuda) y está pasando a la recuperación de largo plazo: vivienda, escuelas y proyectos liderados por la comunidad. El contacto es a través de su página sobre los terremotos de Venezuela."
     },
     {
       "id": "globalgiving-fund",
@@ -318,7 +326,11 @@
       "phase": [
         "relief"
       ],
-      "notes_es": "Fondo que reotorga subvenciones flexibles y rápidas a organizaciones locales — punto de entrada clave para ONG venezolanas que buscan financiamiento."
+      "notes_es": "Fondo que reotorga subvenciones flexibles y rápidas a organizaciones locales — punto de entrada clave para ONG venezolanas que buscan financiamiento.",
+      "applicant_tier": "open",
+      "accepts_applications": true,
+      "how_to_apply": "Apply to become a vetted GlobalGiving partner at globalgiving.org/nonprofits (open to non-US NGOs, free, includes due diligence). Intake runs through the Pathway to GlobalGiving program: you complete an interest survey and join one of the small cohorts that start roughly every two months. Once vetted, local organizations can receive flexible, rapid funding from the Venezuela Earthquake Relief Fund.",
+      "how_to_apply_es": "Postule para ser organización socia verificada de GlobalGiving en globalgiving.org/nonprofits (abierto a ONG fuera de EE. UU., gratuito, incluye una revisión de la organización). La admisión funciona por el programa Pathway to GlobalGiving: se llena una encuesta de interés y se entra a una de las cohortes pequeñas que inician más o menos cada dos meses. Una vez verificada, su organización puede recibir fondos rápidos y flexibles del fondo para el terremoto de Venezuela."
     },
     {
       "id": "cdp-recovery-fund",
@@ -347,7 +359,10 @@
         "recovery",
         "reconstruction"
       ],
-      "notes_es": "Enfocado en recuperación de mediano y largo plazo a través de socios — financiamiento que llega después del ciclo mediático."
+      "notes_es": "Enfocado en recuperación de mediano y largo plazo a través de socios — financiamiento que llega después del ciclo mediático.",
+      "applicant_tier": "partnership",
+      "how_to_apply": "CDP does not accept unsolicited applications: funding is by invitation. Organizations with a strong community-level track record can contact CDP's funds team to introduce themselves. CDP explicitly funds organizations outside the US and focuses on the recovery phase most funders neglect (safe rebuilding, mitigation, resilience). Its grantmaking lags the emergency by months, so getting on their radar early matters.",
+      "how_to_apply_es": "CDP no recibe solicitudes espontáneas: el financiamiento es por invitación. Las organizaciones con trayectoria comprobada de trabajo comunitario pueden contactar al equipo de fondos de CDP para presentarse. CDP financia organizaciones fuera de EE. UU. y se enfoca en la fase de recuperación que la mayoría de los financiadores descuida (reconstrucción segura, mitigación, resiliencia). Sus subvenciones llegan meses después de la emergencia, así que conviene darse a conocer temprano."
     },
     {
       "id": "irc-response",
@@ -453,7 +468,11 @@
       "phase": [
         "relief"
       ],
-      "notes_es": "Medicamentos para lesiones agudas y enfermedades crónicas, entregados a socios de salud en Venezuela."
+      "notes_es": "Medicamentos para lesiones agudas y enfermedades crónicas, entregados a socios de salud en Venezuela.",
+      "applicant_tier": "open",
+      "accepts_applications": true,
+      "how_to_apply": "There is no open call: Venezuelan health-focused organizations can request support directly through Direct Relief's Venezuela emergency page. It has already funded local organizations in this response (Acción Solidaria and GREMCA each received $100,000 emergency grants covering warehousing, local medicine purchase, fuel, transport and communications equipment) and ships medical products to partners such as Fundación Wayuu Taya. The request channel is genuinely usable by organizations they do not already know.",
+      "how_to_apply_es": "No hay convocatoria abierta: las organizaciones venezolanas de salud pueden pedir apoyo directamente desde la página de emergencia de Direct Relief para Venezuela. Ya ha financiado a organizaciones locales en esta respuesta (Acción Solidaria y GREMCA recibieron subvenciones de emergencia de 100 000 dólares cada una, para almacenamiento, compra local de medicinas, combustible, transporte y equipos de comunicación) y envía insumos médicos a socios como la Fundación Wayuu Taya. El canal de solicitud sí funciona para organizaciones que aún no conocen."
     },
     {
       "id": "americares",
@@ -610,7 +629,10 @@
       "phase": [
         "relief"
       ],
-      "notes_es": "Cada campaña listada pasa por debida diligencia reforzada de GoFundMe. Enlazar al centro verificado, no a campañas individuales."
+      "notes_es": "Cada campaña listada pasa por debida diligencia reforzada de GoFundMe. Enlazar al centro verificado, no a campañas individuales.",
+      "applicant_tier": "enabler",
+      "how_to_apply": "A crowdfunding channel, not a funder: GoFundMe's Trust & Safety team reviews earthquake-related fundraisers, including for compliance with evolving regulations and payment-partner policies. If your organization fundraises there, state clearly how the money will be used and where it will go; that speeds up review and builds donor trust.",
+      "how_to_apply_es": "Es un canal de recaudación, no un financiador: el equipo de confianza y seguridad de GoFundMe revisa las campañas relacionadas con el terremoto, incluido el cumplimiento de las reglas y de las políticas de los procesadores de pago. Si su organización recauda ahí, explique con claridad en qué se usará el dinero y a dónde irá; eso agiliza la revisión y da confianza a quienes donan."
     },
     {
       "id": "airlink-logistics",
@@ -637,7 +659,11 @@
       "phase": [
         "relief"
       ],
-      "notes_es": "Transporte aéreo donado o de bajo costo para más de 20 ONG — recurso en especie que las organizaciones pueden solicitar."
+      "notes_es": "Transporte aéreo donado o de bajo costo para más de 20 ONG — recurso en especie que las organizaciones pueden solicitar.",
+      "applicant_tier": "open",
+      "accepts_applications": true,
+      "how_to_apply": "Airlink gives transport, not cash: donated and low-cost airlift to move emergency responders and supplies into Venezuela (20+ partners in this response). Nonprofits apply at airlinkflight.org (Become an NGO Partner). Applications are reviewed on a rolling basis; for emergencies, check the immediate-request box and they usually respond within one business day. Transport is often the real bottleneck for organizations that have supplies but no affordable way to move them.",
+      "how_to_apply_es": "Airlink no da dinero: ofrece transporte aéreo donado o de bajo costo para mover personal de emergencia e insumos hacia Venezuela (más de 20 organizaciones socias en esta respuesta). Las organizaciones sin fines de lucro postulan en airlinkflight.org (Become an NGO Partner). Las solicitudes se revisan de forma continua; en emergencias, marque la casilla de solicitud inmediata y suelen responder en un día hábil. El transporte suele ser el verdadero cuello de botella para quien tiene insumos pero no puede moverlos."
     },
     {
       "id": "wfp-food",
@@ -801,6 +827,120 @@
         "recovery"
       ],
       "notes_es": "Plan de respuesta revisado se lanza la semana del 6 de julio — la cifra consolidada más importante por venir. Monitorear FTS."
+    },
+    {
+      "id": "ingo-local-partnerships",
+      "name_en": "International NGOs with local-partner programs (grouped)",
+      "name_es": "ONG internacionales con programas de socios locales (agrupado)",
+      "org": "IRC, Save the Children, Mercy Corps, CRS/Cáritas Venezuela, International Medical Corps, World Vision, NRC, DRC",
+      "org_type": "ingo_coalition",
+      "category": "ingo_subgranting",
+      "flow_direction": "grants_to_ngos",
+      "applicant_tier": "partnership",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "Local Venezuelan organizations working as implementing partners of the listed INGOs",
+      "compliance_notes": "Each INGO runs its own due diligence on local partners. Do not list individual country-office contacts until each one's active local-partnership intake in Venezuela is verified.",
+      "suggested_license_pathway": "REVIEW — INGO subgrants into Venezuela generally rely on humanitarian authorizations incl. GL 60 (expires 2026-10-23) for US-origin funds.",
+      "verification_status": "unverified",
+      "url": "",
+      "phase": [
+        "relief",
+        "rehabilitation",
+        "reconstruction"
+      ],
+      "notes_es": "Varias ONG internacionales están ampliando su respuesta a través de organizaciones locales. Es dinero real para organizaciones venezolanas, pero se accede construyendo relación con la oficina de país, no con un formulario.",
+      "how_to_apply": "IRC, Save the Children, Mercy Corps, CRS (via Caritas Venezuela), International Medical Corps, World Vision, NRC and DRC are all scaling responses that run through local partners. This is real money for local organizations, but it comes through relationship-building with each country office, not an application form.",
+      "how_to_apply_es": "IRC, Save the Children, Mercy Corps, CRS (con Cáritas Venezuela), International Medical Corps, World Vision, NRC y DRC están ampliando su respuesta a través de socios locales. Es dinero real para organizaciones locales, pero se accede construyendo relación con cada oficina de país, no con un formulario de solicitud."
+    },
+    {
+      "id": "un-partner-portal",
+      "name_en": "UN Partner Portal (UNICEF, WFP, UNHCR, UNDP, PAHO)",
+      "name_es": "Portal de Socios de la ONU (UNICEF, WFP, ACNUR, PNUD, OPS)",
+      "org": "United Nations",
+      "org_type": "un_coordination",
+      "category": "implementing_partner_pathway",
+      "flow_direction": "grants_to_ngos",
+      "applicant_tier": "partnership",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "UNICEF alone estimates $52M needed for earthquake response within a $137.6M 2026 Venezuela appeal; the HRP addendum adds $296M for 1.3M additional people over 6 months.",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "Organizations selected as UN implementing partners in Venezuela",
+      "compliance_notes": "These are implementing-partner agreements, not grants. Registration does not guarantee funding; it mainly serves organizations with existing operational capacity.",
+      "suggested_license_pathway": "REVIEW — UN-system agreements; low OFAC friction under existing humanitarian authorizations.",
+      "verification_status": "unverified",
+      "url": "https://www.unpartnerportal.org/",
+      "phase": [
+        "relief",
+        "rehabilitation"
+      ],
+      "notes_es": "Acuerdos de socio implementador con agencias de la ONU, no subvenciones. Registrarse no garantiza financiamiento.",
+      "how_to_apply": "Register once at unpartnerportal.org and your organization becomes visible to every UN agency looking for implementing partners (UNICEF, WFP, UNHCR, UNDP, PAHO and others). Honest caveat: registration is not funding. This pathway mainly serves organizations that already have operational capacity.",
+      "how_to_apply_es": "Regístrese una sola vez en unpartnerportal.org y su organización queda visible para todas las agencias de la ONU que buscan socios implementadores (UNICEF, WFP, ACNUR, PNUD, OPS y otras). Advertencia honesta: registrarse no es recibir fondos. Esta vía sirve sobre todo a organizaciones que ya tienen capacidad operativa."
+    },
+    {
+      "id": "caf-america-validation",
+      "name_en": "CAF America validation (access to U.S. donor-advised funds)",
+      "name_es": "Validación de CAF America (acceso a fondos asesorados por donantes en EE. UU.)",
+      "org": "CAF America",
+      "org_type": "regranting_platform",
+      "category": "enabler_validation",
+      "flow_direction": "enabler",
+      "applicant_tier": "enabler",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "Grants from US donor-advised funds flow through CAF America to validated organizations",
+      "compliance_notes": "Validation fee is $500 unless a donor covers it; review takes about 4 to 6 weeks; once validated, the organization can receive grants from other donors without paying again until eligibility expires.",
+      "suggested_license_pathway": "REVIEW — grants flow via CAF America (US 501(c)(3)); GL 60 (expires 2026-10-23) relevant for US-origin funds into Venezuela.",
+      "verification_status": "unverified",
+      "url": "https://cafamerica.org/what-we-do/validation/",
+      "phase": [
+        "relief",
+        "rehabilitation",
+        "reconstruction"
+      ],
+      "notes_es": "No es un financiador: es una validación que permite recibir subvenciones de fondos asesorados por donantes (DAF) en EE. UU.",
+      "how_to_apply": "Not a funder: CAF America validates foreign organizations so US donor-advised funds (DAFs) can grant to them — Vanguard Charitable and other DAF sponsors route international grants through CAF America. Submit the Grant Eligibility Application; review takes about 4 to 6 weeks and costs $500 unless a donor covers it. Once validated, later donors can grant without a new fee. Given the size of the Venezuelan diaspora in the US, this may be the highest-leverage single step for a small organization with US-facing supporters.",
+      "how_to_apply_es": "No es un financiador: CAF America valida organizaciones fuera de EE. UU. para que los fondos asesorados por donantes (DAF) puedan enviarles subvenciones; Vanguard Charitable y otros administradores de DAF canalizan sus subvenciones internacionales a través de CAF America. Se presenta la solicitud de elegibilidad (Grant Eligibility Application); la revisión toma de 4 a 6 semanas y cuesta 500 dólares, salvo que un donante cubra el costo. Una vez validada, otros donantes pueden donar sin pagar de nuevo. Por el tamaño de la diáspora venezolana en EE. UU., puede ser el paso de mayor impacto para una organización pequeña con simpatizantes allá."
+    },
+    {
+      "id": "bonterra-nonprofit-support",
+      "name_en": "Bonterra nonprofit support (services, not funding)",
+      "name_es": "Apoyo de Bonterra a organizaciones (servicios, no fondos)",
+      "org": "Bonterra",
+      "org_type": "service_provider",
+      "category": "enabler_services",
+      "flow_direction": "enabler",
+      "applicant_tier": "enabler",
+      "amount_target_usd": null,
+      "amount_committed_usd": null,
+      "amount_notes": "",
+      "status": "active",
+      "expires": null,
+      "accepts_from": [],
+      "funds_go_to": "",
+      "compliance_notes": "",
+      "suggested_license_pathway": "REVIEW — services, not funds transfer.",
+      "verification_status": "unverified",
+      "url": "https://www.bonterratech.com/blog/the-organizations-responding-to-the-june-2026-venezuela-earthquake-and-how-you-can-help",
+      "phase": [
+        "relief",
+        "rehabilitation"
+      ],
+      "notes_es": "Servicios gratuitos o con descuento para organizaciones que responden al terremoto; no entrega dinero.",
+      "how_to_apply": "Not a funder: Bonterra offers reduced-cost and free services for organizations responding on the ground — donation campaign setup, discounted software, and a listing in its verified responder directory. Contact them through the page linked here or via an account representative.",
+      "how_to_apply_es": "No es un financiador: Bonterra ofrece servicios gratuitos o con descuento para organizaciones que responden en el terreno, como montaje de campañas de donación, software con descuento y aparición en su directorio de organizaciones verificadas. Contacte a través de la página enlazada aquí o de un representante de cuenta."
     }
   ]
 }

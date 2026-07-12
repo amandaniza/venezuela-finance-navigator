@@ -40,7 +40,8 @@ _COLUMNS = [
     "amount_committed_original", "status", "expires", "accepts_from",
     "funds_go_to", "compliance_notes", "suggested_license",
     "verification_status", "url", "phase", "notes_es", "last_checked",
-    "accepts_applications",
+    "accepts_applications", "applicant_tier", "how_to_apply",
+    "how_to_apply_es",
 ]
 
 
@@ -87,6 +88,9 @@ def _row_from_entry(entry: dict) -> dict:
         "notes_es": entry.get("notes_es") or "",
         "last_checked": config.FUNDING_LAST_CHECKED,
         "accepts_applications": _accepts_applications(entry),
+        "applicant_tier": entry.get("applicant_tier") or None,
+        "how_to_apply": entry.get("how_to_apply") or "",
+        "how_to_apply_es": entry.get("how_to_apply_es") or "",
     }
 
 

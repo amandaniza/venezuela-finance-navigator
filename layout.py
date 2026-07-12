@@ -480,11 +480,37 @@ STRINGS: dict[str, dict[str, str]] = {
             "Venezuela: funders in this directory that accept applications "
             "or proposals."
         ),
-        "dir_flow_seek": "Accepting applications",
+        "dir_flow_seek": "Funding for organizations",
         "dir_seek_empty": (
             "No confirmed entries yet. We check each funder by hand before "
             "listing it here. Meanwhile you can see researched leads:"
         ),
+        "dir_seek_intro": (
+            "This view is for organizations looking for funds for their "
+            "work in Venezuela. The earthquake response has received about "
+            "$300 million of the roughly $928 million the UN plan asks "
+            "for, so funds are scarce. Here we show which channels take "
+            "applications, which fund through partnerships, and which "
+            "unlock money from other sources."
+        ),
+        "tier_open": "Open application",
+        "tier_open_d": (
+            "Channels with an application process your organization can "
+            "start today."
+        ),
+        "tier_partnership": "Through partnership",
+        "tier_partnership_d": (
+            "They fund local organizations through relationships or "
+            "invitation, not an open call. Do not expect a form; expect to "
+            "introduce your organization."
+        ),
+        "tier_enabler": "Enablers",
+        "tier_enabler_d": (
+            "They do not give money directly. They unlock or speed up "
+            "funds from other sources."
+        ),
+        "detail_how_apply": "How to apply",
+        "flow_enabler_badge": "Enabler",
         "simple_disclaimer": (
             "General information, not legal advice. For your specific "
             "situation, consult a licensed professional."
@@ -985,12 +1011,38 @@ STRINGS: dict[str, dict[str, str]] = {
             "reconstrucción de Venezuela: financiadores de este directorio "
             "que aceptan solicitudes o propuestas."
         ),
-        "dir_flow_seek": "Aceptando solicitudes",
+        "dir_flow_seek": "Financiamiento para organizaciones",
         "dir_seek_empty": (
             "Todavía no hay entradas confirmadas. Revisamos cada financiador "
             "antes de listarlo aquí. Mientras tanto, puede ver las fuentes "
             "investigadas:"
         ),
+        "dir_seek_intro": (
+            "Esta vista es para organizaciones que buscan fondos para su "
+            "trabajo en Venezuela. La respuesta al terremoto ha recibido "
+            "unos 300 millones de dólares de los cerca de 928 millones que "
+            "pide el plan de la ONU, así que los fondos son escasos. Aquí "
+            "mostramos qué canales reciben solicitudes, cuáles financian "
+            "por alianza y cuáles destraban dinero de otras fuentes."
+        ),
+        "tier_open": "Solicitud abierta",
+        "tier_open_d": (
+            "Canales con un proceso de solicitud que su organización puede "
+            "iniciar hoy."
+        ),
+        "tier_partnership": "Vía alianza",
+        "tier_partnership_d": (
+            "Financian a organizaciones locales por relación o invitación, "
+            "no por convocatoria abierta. No espere un formulario; espere "
+            "presentar a su organización."
+        ),
+        "tier_enabler": "Habilitadores",
+        "tier_enabler_d": (
+            "No dan dinero directamente. Destraban o aceleran fondos de "
+            "otras fuentes."
+        ),
+        "detail_how_apply": "Cómo postular",
+        "flow_enabler_badge": "Habilitador",
         "simple_disclaimer": (
             "Información general, no asesoría legal. Para su situación "
             "específica, busque asesoría profesional autorizada."
@@ -1105,6 +1157,7 @@ ORG_TYPE_LABELS = {
         "un_agency": "UN agency",
         "un_coordination": "UN coordination office",
         "un_pooled_fund": "UN pooled fund",
+        "service_provider": "Service provider",
     },
     "es": {
         "community_fund": "Fondo comunitario",
@@ -1124,6 +1177,7 @@ ORG_TYPE_LABELS = {
         "un_agency": "Agencia de la ONU",
         "un_coordination": "Oficina de coordinación de la ONU",
         "un_pooled_fund": "Fondo mancomunado de la ONU",
+        "service_provider": "Proveedor de servicios",
     },
 }
 SOURCE_STATUS_LABELS = {
@@ -1218,6 +1272,8 @@ FLOW_BADGE = {
     "sovereign_financing": "flow_gov_badge",
     "directory": "flow_directory_badge",
     "pipeline": "flow_pipeline_badge",
+    # Not a funder: unlocks or accelerates money from elsewhere (fd=seek).
+    "enabler": "flow_enabler_badge",
 }
 FLOW_GIVE = {"accepts_contributions", "both", "direct_to_beneficiaries"}
 FLOW_APPLY = {"grants_to_ngos", "both"}
@@ -2178,7 +2234,7 @@ def _flow_meta(c: Ctx, flow: str) -> tuple[str, str, str]:
         return label, "#FBF3D9", "#8A6100"
     if flow == "directory":
         return label, "#EDE7F6", "#5B3B8C"
-    if flow in ("government_resource", "sovereign_financing"):
+    if flow in ("government_resource", "sovereign_financing", "enabler"):
         return label, "#F1F3F5", MUTE
     return label, "#E7F4EC", "#146C43"
 
@@ -2206,6 +2262,23 @@ def _tag(label: str, bg: str, col: str, border: str = "", tip: str = "") -> str:
     )
 
 
+TIER_STYLE = {
+    "open": ("#E7F4EC", "#146C43"),
+    "partnership": ("#E7EEF9", "#1E4E9C"),
+    "enabler": ("#F1F3F5", "#5B6472"),
+}
+
+
+def _tier_tag(c: Ctx, s: dict) -> str:
+    """Tier badge for the applicant view (fd=seek): open / partnership /
+    enabler, with the tier's one-line meaning as a tap/hover tooltip."""
+    tier = s.get("applicant_tier") or ""
+    if tier not in TIER_STYLE:
+        return ""
+    bg, col = TIER_STYLE[tier]
+    return _tag(c.t(f"tier_{tier}"), bg, col, tip=c.t(f"tier_{tier}_d"))
+
+
 def _directory_card(c: Ctx, s: dict) -> str:
     name = _source_name(c, s)
     flow_label, fbg, fcol = _flow_meta(c, s["flow_direction"])
@@ -2227,11 +2300,14 @@ def _directory_card(c: Ctx, s: dict) -> str:
             f'style="text-decoration:none;font-size:12.5px;font-weight:700;color:{BLUE};">'
             f'{escape(c.t("dir_visit"))}</a>'
         )
+    # In the applicant view the tier badge leads the row: it is the fact an
+    # organization scans for (can I apply, or is this relationship-based?).
+    tier = _tier_tag(c, s) if c.fd == "seek" else ""
     return (
         f'<div style="flex:1 1 340px;max-width:520px;border:{border};border-radius:6px;'
         'padding:20px 22px;display:flex;flex-direction:column;gap:10px;background:#FFF;">'
         f'<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">'
-        f'{_tag(flow_label, fbg, fcol)}{phases}</div>'
+        f'{tier}{_tag(flow_label, fbg, fcol)}{phases}</div>'
         f'<a href="{detail}" style="text-decoration:none;font-size:17px;font-weight:700;'
         f'color:{BLUE};line-height:1.3;">{escape(name)}</a>'
         f'<div style="font-size:12.5px;color:{MUTE};">{escape(s.get("org") or "")}</div>'
@@ -2285,9 +2361,10 @@ def apply_directory_filters(c: Ctx, sources: list[dict]) -> list[dict]:
         if c.fd == "apply":
             return s["flow_direction"] in FLOW_APPLY
         if c.fd == "seek":
-            # Human-confirmed tag only (see database.py) — flow_direction
-            # says a funder makes grants, not that it takes applications now.
-            return bool(s.get("accepts_applications"))
+            # Human-tagged applicant view only (see database.py) —
+            # flow_direction says a funder makes grants, not that an
+            # organization has a usable way in.
+            return bool(s.get("applicant_tier"))
         return True
 
     def phase_ok(s: dict) -> bool:
@@ -2301,6 +2378,13 @@ def apply_directory_filters(c: Ctx, sources: list[dict]) -> list[dict]:
         return _org_layer(s["org_type"]) == c.ot
 
     shown = [s for s in sources if flow_ok(s) and phase_ok(s) and layer_ok(s)]
+    if c.fd == "seek":
+        # Applicant view groups by tier: open channels first, then
+        # partnership funders, then enablers (see _directory_grid).
+        order = {"open": 0, "partnership": 1, "enabler": 2}
+        shown.sort(key=lambda s: (order.get(s.get("applicant_tier"), 9),
+                                  _source_name(c, s)))
+        return shown
     # OCHA pipeline slot always first — the "obvious slot" for the July-6 plan.
     shown.sort(key=lambda s: (s["verification_status"] != "pipeline",))
     return shown
@@ -2322,14 +2406,44 @@ def _directory_intro(c: Ctx, total: int) -> str:
     )
 
 
+def _seek_tier_header(c: Ctx, tier: str) -> str:
+    """Section divider for the applicant view: tier name + one-line meaning."""
+    return (
+        '<div style="flex:1 1 100%;margin:10px 0 0;">'
+        f'<div style="font-size:16px;font-weight:800;color:{INK};">'
+        f'{escape(c.t(f"tier_{tier}"))}</div>'
+        f'<div style="font-size:13px;color:{MUTE};line-height:1.5;'
+        f'max-width:640px;">{escape(c.t(f"tier_{tier}_d"))}</div></div>'
+    )
+
+
 def _directory_grid(c: Ctx, sources: list[dict], shown: list[dict]) -> str:
-    if shown:
+    if shown and c.fd == "seek":
+        # Applicant view: intro (funding-gap context), then cards grouped
+        # under tier headers so partnership/enabler entries are never
+        # mistaken for open grant calls.
+        parts = [
+            f'<p style="margin:0 0 8px;font-size:14px;color:{INK};'
+            f'max-width:680px;line-height:1.6;">'
+            f'{escape(c.t("dir_seek_intro"))}</p>'
+        ]
+        seen: set[str] = set()
+        for s in shown:
+            tier = s.get("applicant_tier") or ""
+            if tier and tier not in seen:
+                seen.add(tier)
+                parts.append(_seek_tier_header(c, tier))
+            parts.append(_directory_card(c, s))
+        grid = (
+            '<div style="display:flex;flex-wrap:wrap;gap:18px;">'
+            + "".join(parts) + "</div>"
+        )
+    elif shown:
         cards = "".join(_directory_card(c, s) for s in shown)
         grid = f'<div style="display:flex;flex-wrap:wrap;gap:18px;">{cards}</div>'
     elif c.fd == "seek":
-        # The confirmed-open view starts empty until entries are tagged
-        # (accepts_applications, a human decision) — point at the researched
-        # leads instead of showing a bare "no matches".
+        # Fallback if no entry carries an applicant tier — point at the
+        # researched leads instead of showing a bare "no matches".
         grid = (
             f'<p style="font-size:14px;color:{MUTE};max-width:640px;'
             f'line-height:1.6;">{escape(c.t("dir_seek_empty"))} '
@@ -2448,16 +2562,36 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
 
     how = _caf_contribute_block(c) if s["source_key"] == "caf-reconstruction-fund" else ""
 
+    # Applicant-facing entries: how an organization can apply or engage,
+    # in the active language (how_to_apply_es / how_to_apply).
+    apply_txt = (
+        s.get("how_to_apply_es")
+        if c.lang == "es" and s.get("how_to_apply_es")
+        else s.get("how_to_apply")
+    )
+    apply_block = ""
+    if apply_txt:
+        apply_block = (
+            '<div style="margin:18px 0 6px;padding:18px 20px;'
+            'border:1px solid #D8E3F5;border-radius:6px;background:#F5F8FE;'
+            'max-width:680px;">'
+            f'<div style="font-size:13px;font-weight:800;color:{BLUE};'
+            f'margin-bottom:6px;">{escape(c.t("detail_how_apply"))}</div>'
+            f'<div style="font-size:13.5px;color:{INK};line-height:1.6;">'
+            f'{escape(apply_txt)}</div></div>'
+        )
+
     body = (
         f'<a href="{c.href(source=None, pathway=None)}" style="text-decoration:none;'
         f'font-size:13px;font-weight:700;color:{BLUE};">{escape(c.t("detail_back"))}</a>'
         f'<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 6px;">'
-        f'{_tag(flow_label, fbg, fcol)}{phases}'
+        f'{_tier_tag(c, s)}{_tag(flow_label, fbg, fcol)}{phases}'
         f'{_tag(c.t("dir_review_badge"), "#FBF3D9", "#8A6100", "#F0DFA8", tip=c.t("dir_review_tip"))}</div>'
         f'<h1 style="margin:6px 0 4px;font-size:clamp(24px,6vw,30px);font-weight:800;color:{INK};'
         f'line-height:1.2;">{escape(name)}</h1>'
         f'<div style="font-size:14px;color:{MUTE};margin-bottom:6px;">{escape(s.get("org") or "")}</div>'
         f'{source_link}'
+        f'{apply_block}'
         f'{how}'
         '<div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:20px;">'
         '<div style="flex:1 1 300px;">'

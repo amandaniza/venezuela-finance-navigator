@@ -130,27 +130,34 @@ The two intent cards on Home route as follows:
 
 ---
 
-## 3c. The NGO funding-seeking path (⚠️ needs your tagging)
+## 3c. The NGO funding-seeking path (tiers)
 
-The Home banner **"Looking for funding for your organization?"** lands on the
-Directory filtered to *confirmed* funders (`/directory?fd=seek`). That view
-shows only entries with `"accepts_applications": true` in
-`navigator_funding_seed.json` — and **no entry has the tag yet**, so the view
-currently shows a "no confirmed entries yet" note.
+The Home banner **"¿Busca financiamiento para su organización?"** lands on
+the Directory's applicant view (`/directory?fd=seek`), which groups entries
+into three tiers via the `applicant_tier` field in
+`navigator_funding_seed.json`:
 
-This is deliberately a human tagging task: `flow_direction: grants_to_ngos`
-only says a funder *makes grants*, not that it is *accepting applications or
-proposals right now*. For each candidate entry, check its official page and
-add one line to the entry:
+| Tier value | Label on site | Meaning |
+|---|---|---|
+| `open` | Solicitud abierta | Structured application an org can start today. Also set `"accepts_applications": true`. |
+| `partnership` | Vía alianza | Funds local orgs via relationship/invitation, not an open call. |
+| `enabler` | Habilitadores | Not a funder; unlocks or speeds up money from elsewhere. |
 
-```json
-"accepts_applications": true
-```
+**Never present a partnership/enabler entry as an open grant call** — that
+erodes trust with exactly the users this tab serves. Each applicant-facing
+entry also carries `how_to_apply` (EN) and `how_to_apply_es` (the "Cómo
+postular" box on its detail page). Leave `applicant_tier` out entirely for
+donor-facing-only entries. After editing, re-run the import command from
+section 1.
 
-(or `false` if you confirmed it is closed — leaving the key out means
-"not yet checked"). Then re-run the import command from section 1. Good
-candidates to check first: entries whose `flow_direction` is
-`grants_to_ngos` or `both`.
+**Deliberately excluded from this tab** (so the question doesn't recur):
+IFRC/DREF (flows only through the Venezuelan Red Cross), EU/ECHO
+(pre-certified framework partners only), the US State Dept $150M pledge (no
+open application channel as of 2026-07-11 — worth rechecking grants.gov and
+state.gov for Venezuela NOFOs; if one appears it becomes an `open` entry),
+and PayPal Grant Payments (**held**: whether Venezuela-domiciled orgs can
+use it is unresolved — resolve or drop before adding). Full notes in the
+seed's `meta.applicant_pass`.
 
 ---
 
