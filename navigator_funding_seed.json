@@ -13,7 +13,7 @@
     },
     "community_funds_added": "2026-07-05 — 4 community/individually organized funds added (accreditation noted per entry)",
     "link_audit": "2026-07-11 — every donation URL scraped and verified; 11 entries re-pointed from generic org homepages to Venezuela-specific campaign pages (aid-for-life also moved to the correct domain aidforlifeintl.org; wfp-food routes via WFP's ShareTheMeal Venezuela campaign; airlink-logistics via its official Donorbox campaign)",
-    "applicant_pass": "2026-07-11 — applicant-facing tiers added (applicant_tier: open/partnership/enabler + how_to_apply/_es). Tier-1 verified via web same day: GlobalGiving intake is cohort-based but ongoing (Pathway program, ~bi-monthly cohorts, free); Airlink partner application is rolling (~1 business day for emergencies); CDP takes no unsolicited applications (contact-first); CAF America validation costs $500 unless donor-covered, 4-6 week review. EXCLUDED and why: IFRC/DREF (flows only through the Venezuelan Red Cross national society); EU/ECHO (pre-certified framework partners only, certification takes years); US State Dept $150M pledge (no open application channel as of 2026-07-11 — recheck grants.gov and state.gov for Venezuela NOFOs; if one appears it becomes a tier-1 entry); PayPal Grant Payments (HELD, not added: availability for Venezuela-domiciled orgs unresolved — resolve or drop); donor-facing lists (UN Crisis Relief, DEC appeal, UNICEF USA, CRS donation pages, Vanguard/NPT)."
+    "applicant_pass": "2026-07-11 — applicant-facing tiers added (applicant_tier: open/partnership/enabler + how_to_apply/_es). Tier-1 verified via web same day: GlobalGiving intake is cohort-based but ongoing (Pathway program, ~bi-monthly cohorts, free); Airlink partner application is rolling (~1 business day for emergencies); CDP takes no unsolicited applications (contact-first); CAF America validation costs $500 unless donor-covered, 4-6 week review. EXCLUDED and why: IFRC/DREF (flows only through the Venezuelan Red Cross national society); EU/ECHO (pre-certified framework partners only, certification takes years); US State Dept $150M pledge (no open application channel as of 2026-07-11 — recheck grants.gov and state.gov for Venezuela NOFOs; if one appears it becomes a tier-1 entry); PayPal Grant Payments (HELD, not added: availability for Venezuela-domiciled orgs unresolved — resolve or drop); donor-facing lists (UN Crisis Relief, DEC appeal, UNICEF USA, CRS donation pages, Vanguard/NPT). 2026-07-12: GEM removed from the applicant tiers — Ami confirmed GEM does not offer funding for nonprofits; its donor-facing entry stays. Do not re-add it as a partnership funder."
   },
   "funding_sources": [
     {
@@ -296,10 +296,7 @@
         "relief",
         "recovery"
       ],
-      "notes_es": "Compromiso inicial de USD 35 millones; alianza con el Departamento de Estado de EE.UU. y Walmart. Principal puente entre la diáspora de Miami y la respuesta institucional.",
-      "applicant_tier": "partnership",
-      "how_to_apply": "GEM works with trusted local NGOs through partnerships; there is no open call. It provides logistical and humanitarian support (initial commitment of $50M in aid) and is transitioning to long-term recovery: housing, schools, and community-led projects. Engage through its Venezuela earthquakes page.",
-      "how_to_apply_es": "GEM trabaja con ONG locales de confianza mediante alianzas; no hay convocatoria abierta. Da apoyo logístico y humanitario (compromiso inicial de 50 millones de dólares en ayuda) y está pasando a la recuperación de largo plazo: vivienda, escuelas y proyectos liderados por la comunidad. El contacto es a través de su página sobre los terremotos de Venezuela."
+      "notes_es": "Compromiso inicial de USD 35 millones; alianza con el Departamento de Estado de EE.UU. y Walmart. Principal puente entre la diáspora de Miami y la respuesta institucional."
     },
     {
       "id": "globalgiving-fund",

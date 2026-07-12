@@ -151,7 +151,10 @@ donor-facing-only entries. After editing, re-run the import command from
 section 1.
 
 **Deliberately excluded from this tab** (so the question doesn't recur):
-IFRC/DREF (flows only through the Venezuelan Red Cross), EU/ECHO
+GEM / Global Empowerment Mission (Ami confirmed 2026-07-12 it does not
+offer funding for nonprofits — donor-facing entry stays, do not re-add it
+as a partnership funder), IFRC/DREF (flows only through the Venezuelan Red
+Cross), EU/ECHO
 (pre-certified framework partners only), the US State Dept $150M pledge (no
 open application channel as of 2026-07-11 — worth rechecking grants.gov and
 state.gov for Venezuela NOFOs; if one appears it becomes an `open` entry),
