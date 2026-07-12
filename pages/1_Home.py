@@ -171,44 +171,17 @@ def _intent_section() -> str:
     )
 
 
-def _hero() -> str:
-    return (
-        '<section style="position:relative;min-height:300px;display:flex;'
-        'flex-direction:column;justify-content:center;background:linear-gradient('
-        f'160deg,{L.DARK_BLUE} 0%,{L.BLUE} 45%,#0a3a8f 75%,{L.DARK_RED} 100%);'
-        'overflow:hidden;padding:56px var(--pad-x);">'
-        '<div style="position:absolute;inset:0;background-image:repeating-linear-gradient('
-        '115deg,rgba(255,255,255,0.05) 0px,rgba(255,255,255,0.05) 2px,transparent 2px,'
-        'transparent 26px);opacity:0.6;"></div>'
-        '<div style="position:relative;max-width:820px;">'
-        '<h1 style="margin:0;font-size:clamp(28px,7vw,40px);font-weight:800;line-height:1.14;'
-        'letter-spacing:-0.01em;color:#FFF;">'
-        f'{escape(c.t("app_title"))}</h1>'
-        '<p style="margin:18px 0 26px;max-width:640px;font-size:18px;line-height:1.55;'
-        f'color:rgba(255,255,255,0.9);">{escape(c.t("home_value_prop"))}</p>'
-        f'<a href="{c.page_url("pathways")}" style="text-decoration:none;background:'
-        f'{L.YELLOW};color:{L.INK};padding:14px 28px;border-radius:999px;font-size:15px;'
-        f'font-weight:700;display:inline-block;">{escape(c.t("home_cta"))}</a>'
-        "</div></section>"
-    )
+def _title_banner() -> str:
+    """Slim blue banner naming the tool, directly under the header nav.
 
-
-def _metrics() -> str:
-    def stat(value: str, label: str, accent: str) -> str:
-        return (
-            '<div style="flex:1 1 200px;">'
-            f'<div style="font-size:30px;font-weight:800;color:{accent};">{escape(value)}</div>'
-            f'<div style="font-size:12px;font-weight:600;letter-spacing:0.04em;'
-            f'text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:4px;">'
-            f'{escape(label)}</div></div>'
-        )
+    Replaces the old hero + metrics band (removed 2026-07-12 at Ami's
+    request): title only, no value prop, no CTA, no metric numbers."""
     return (
-        f'<section style="background:{L.INK};padding:30px var(--pad-x);display:flex;gap:32px;'
-        'flex-wrap:wrap;align-items:flex-start;">'
-        + stat("≈" + L._fmt_usd(tracked_usd), c.t("m_tracked"), "#FFF")
-        + stat(str(active_licenses), c.t("m_licenses"), "#FFF")
-        + stat(str(len(pathways)), c.t("m_pathways"), "#FFF")
-        + "</section>"
+        f'<section style="background:linear-gradient(160deg,{L.DARK_BLUE} 0%,'
+        f'{L.BLUE} 60%,#0a3a8f 100%);padding:20px var(--pad-x);">'
+        '<h2 style="margin:0;font-size:clamp(17px,4vw,22px);font-weight:800;'
+        'line-height:1.25;letter-spacing:-0.01em;color:#FFF;">'
+        f'{escape(c.t("app_title"))}</h2></section>'
     )
 
 
@@ -254,14 +227,13 @@ def _feature_cards() -> str:
 
 
 body = (
-    _welcome()
+    _title_banner()
+    + _welcome()
     + _countdown_band()
     + _intent_section()
-    # Full navigator (expert view) — everything the simple layer sits in
-    # front of, reachable via the anchor link above.
+    # Full navigator (expert view) — the feature cards, reachable via the
+    # anchor link above.
     + '<div id="full-navigator" style="scroll-margin-top:70px;">'
-    + _hero()
-    + _metrics()
     + _feature_cards()
     + "</div>"
 )
