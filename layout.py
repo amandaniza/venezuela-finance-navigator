@@ -474,12 +474,31 @@ STRINGS: dict[str, dict[str, str]] = {
         "intent_full_link": "Or explore the full navigator ↓",
         # NGO funding-seeking path (organizations looking FOR funding, not
         # people choosing where to give).
-        "intent_ngo_t": "Looking for funding for your organization?",
+        "intent_ngo_t": "Looking for funds for my organization",
         "intent_ngo_d": (
             "For organizations working on relief or reconstruction in "
             "Venezuela: funders in this directory that accept applications "
             "or proposals."
         ),
+        # 2026-07 landing redesign (see handoff/HANDOFF.md).
+        "home_hero_title": "Reconstruction Finance Navigator",
+        "home_hero_lead": (
+            "An independent initiative that gathers verified information to make "
+            "donations and money transfers for reconstruction after the {date} "
+            "earthquake in Venezuela easier — legally, safely, and transparently."
+        ),
+        "home_cta_help": "I want to help →",
+        "home_cta_explore": "Explore the navigator",
+        "gl60_countdown_short": (
+            "General License 60 (GL 60) allows transfers from the U.S. today "
+            "and expires on {date}."
+        ),
+        "gl60_see_license": "See the license →",
+        "intent_donate_cta": "See where to donate →",
+        "intent_remit_cta": "See how to send →",
+        "intent_ngo_cta": "See funders →",
+        "fullnav_heading": "The full navigator",
+        "fullnav_sub": "For funders, NGOs, and compliance specialists",
         "dir_flow_seek": "Funding for organizations",
         "dir_seek_empty": (
             "No confirmed entries yet. We check each funder by hand before "
@@ -1005,12 +1024,32 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "intent_full_link": "O explore el navegador completo ↓",
         # Ruta para organizaciones que buscan financiamiento
-        "intent_ngo_t": "¿Busca financiamiento para su organización?",
+        "intent_ngo_t": "Busco fondos para mi organización",
         "intent_ngo_d": (
             "Para organizaciones que trabajan en el alivio o la "
             "reconstrucción de Venezuela: financiadores de este directorio "
             "que aceptan solicitudes o propuestas."
         ),
+        # Rediseño del landing 2026-07 (ver handoff/HANDOFF.md).
+        "home_hero_title": "Navegador de Financiamiento para la Reconstrucción",
+        "home_hero_lead": (
+            "Iniciativa independiente que reúne información verificada para "
+            "facilitar donaciones y envíos de dinero destinados a las labores de "
+            "reconstrucción tras el terremoto del {date} en Venezuela, de manera "
+            "legal, segura y transparente."
+        ),
+        "home_cta_help": "Quiero ayudar →",
+        "home_cta_explore": "Explorar el navegador",
+        "gl60_countdown_short": (
+            "La Licencia General 60 (GL 60) autoriza hoy los envíos desde "
+            "EE. UU. y vence el {date}."
+        ),
+        "gl60_see_license": "Ver la licencia →",
+        "intent_donate_cta": "Ver dónde donar →",
+        "intent_remit_cta": "Ver cómo enviar →",
+        "intent_ngo_cta": "Ver financiadores →",
+        "fullnav_heading": "El navegador completo",
+        "fullnav_sub": "Para financiadores, ONG y especialistas en cumplimiento",
         "dir_flow_seek": "Financiamiento para organizaciones",
         "dir_seek_empty": (
             "Todavía no hay entradas confirmadas. Revisamos cada financiador "
@@ -2795,6 +2834,14 @@ section[id] {scroll-margin-top:70px;}
 /* Intent cards (simple front door on Home) */
 a.intent-card:hover {border-color:#00247D !important;
   box-shadow:0 3px 14px rgba(0,36,125,0.10);}
+
+/* Home hero CTAs (2026-07 landing redesign): on phones the primary CTA
+   becomes a single full-width button and the secondary "explore" link is
+   hidden — the full navigator is still reachable by scrolling. */
+@media (max-width:640px) {
+  .home-hero-ctas a {display:block;flex:1 1 100%;text-align:center;}
+  .home-hero-ctas a:nth-child(2) {display:none;}
+}
 </style>
 """
 
