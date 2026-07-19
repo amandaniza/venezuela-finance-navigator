@@ -114,12 +114,13 @@ EARTHQUAKE_DATE_DISPLAY = {
 OCHA_REVISED_PLAN_DATE = "2026-07-06"
 
 # Contact for "report an issue / suggest a source" (site maintainer).
-CONTACT_EMAIL = "amandanizagm@gmail.com"
+CONTACT_EMAIL = "venezuelaresiliente@outlook.com"
 
 # Contacts listed in the site footer: (label string key, display text, href).
 # Edit here to add/remove footer contacts — see EDITING_GUIDE.md.
 FOOTER_CONTACTS = [
-    ("contact_maintainer", "amandanizagm@gmail.com", "mailto:amandanizagm@gmail.com"),
+    ("contact_maintainer", "venezuelaresiliente@outlook.com",
+     "mailto:venezuelaresiliente@outlook.com"),
     ("contact_ofac", "ofac_feedback@treasury.gov · 1-800-540-6322",
      "mailto:ofac_feedback@treasury.gov"),
     ("contact_caf", "alianzas@caf.com · trustfunds@caf.com", "mailto:alianzas@caf.com"),

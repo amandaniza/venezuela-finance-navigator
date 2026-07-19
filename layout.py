@@ -95,9 +95,10 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "gl_gl_term": "GL (General License)",
         "gl_gl_def": (
-            "A permission issued by OFAC, the U.S. sanctions agency. It "
-            "allows specific activities, such as earthquake relief, that "
-            "sanctions would otherwise block."
+            "A rule from OFAC, the U.S. sanctions office, that makes a "
+            "specific activity legal — such as sending earthquake relief — "
+            "even though sanctions would normally block it. It applies to "
+            "money connected to the United States."
         ),
         "signup_l1": "Stay current with",
         "signup_bold": "expiring license alerts",
@@ -246,8 +247,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_suggested": "Suggested license pathway",
         "detail_license_ctx": "License context",
         "detail_gl60_ctx": (
-            "General License 60 (GL 60) is the U.S. permission that allows "
-            "earthquake relief payments. It ends on {date}."
+            "General License 60 (GL 60) is the U.S. rule that lets people and "
+            "banks in the United States send earthquake-relief payments to "
+            "Venezuela. It ends on {date}."
         ),
         "detail_status": "Status",
         "detail_phase": "Phase",
@@ -320,14 +322,31 @@ STRINGS: dict[str, dict[str, str]] = {
         "xl_flow_directory": "See in Directory →",
         # Licenses page
         "lic_page_intro": (
-            "The permissions that allow relief and reconstruction payments "
-            "to Venezuela despite sanctions. Each one is a General License "
-            "(GL) issued by the U.S. Office of Foreign Assets Control (OFAC)."
+            "These are U.S. rules that make certain relief and reconstruction "
+            "payments to Venezuela legal, even though sanctions are in place. "
+            "Each one is called a General License (GL), issued by the U.S. "
+            "Treasury's Office of Foreign Assets Control (OFAC). They matter "
+            "most for money that moves in U.S. dollars or through U.S. banks."
         ),
         "lic_expires": "Expires",
         "lic_no_expiry": "No stated expiry",
         "lic_official_source": "Official OFAC source ↗",
         "lic_activities": "Authorized activities",
+        # Plain-language note for donors reading from outside the U.S.
+        "lic_nonus_h": "Reading this from outside the United States?",
+        "lic_nonus_body": (
+            "These are United States permissions. U.S. sanctions rules — and "
+            "the licenses that lift them, like GL 60 — mainly apply to people "
+            "and companies in the United States, and to money that moves in "
+            "U.S. dollars or through U.S. banks. If you give from another "
+            "country, in your local currency, to a relief organization based "
+            "outside the U.S., these licenses usually do not limit you. Two "
+            "things still matter: dollar transfers often pass through U.S. "
+            "banks, which brings these rules back into play, and your own "
+            "country may have its own rules about Venezuela. The simplest "
+            "route is usually to give to a well-known relief organization in "
+            "your own country. This is general information, not legal advice."
+        ),
         # Pathways page
         "pw_intro": (
             "Funds matched to the Office of Foreign Assets Control (OFAC) "
@@ -400,7 +419,7 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         # Footer contacts
         "footer_contacts_h": "CONTACTS",
-        "contact_maintainer": "Site maintainer: questions, corrections, new sources",
+        "contact_maintainer": "Site contact: corrections and new sources",
         "contact_ofac": (
             "Sanctions and license questions: Office of Foreign Assets "
             "Control (OFAC), U.S. Treasury"
@@ -630,9 +649,10 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "gl_gl_term": "GL (Licencia General)",
         "gl_gl_def": (
-            "Permiso emitido por OFAC, la agencia de sanciones de EE. UU. "
-            "Autoriza actividades específicas, como el alivio por "
-            "terremoto, que las sanciones bloquearían."
+            "Una regla de OFAC, la oficina de sanciones de EE. UU., que "
+            "vuelve legal una actividad específica —como enviar ayuda por el "
+            "terremoto— aunque las sanciones normalmente la bloquearían. Se "
+            "aplica al dinero vinculado a Estados Unidos."
         ),
         "signup_l1": "Manténgase al día con",
         "signup_bold": "alertas de vencimiento",
@@ -752,7 +772,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "layer_diaspora": "Diáspora / público",
         "layer_community": "Fondos comunitarios",
         "layer_platform": "Plataforma / directorio",
-        "flow_give_badge": "Done aquí",
+        "flow_give_badge": "Dona aquí",
         "flow_apply_badge": "ONG pueden postular",
         "flow_both_badge": "Donar o postular",
         "flow_direct_badge": "Directo a familias",
@@ -787,8 +807,9 @@ STRINGS: dict[str, dict[str, str]] = {
         "detail_suggested": "Ruta de licencia sugerida",
         "detail_license_ctx": "Contexto de licencia",
         "detail_gl60_ctx": (
-            "La Licencia General 60 (GL 60) es el permiso de EE. UU. que "
-            "autoriza pagos de alivio por el terremoto. Termina el {date}."
+            "La Licencia General 60 (GL 60) es la regla de EE. UU. que permite "
+            "a personas y bancos en Estados Unidos enviar pagos de ayuda por "
+            "el terremoto a Venezuela. Termina el {date}."
         ),
         "detail_status": "Estado",
         "detail_phase": "Fase",
@@ -862,15 +883,33 @@ STRINGS: dict[str, dict[str, str]] = {
         "xl_flow_directory": "Ver en el Directorio →",
         # Página de Licencias
         "lic_page_intro": (
-            "Los permisos que autorizan pagos de ayuda y reconstrucción a "
-            "Venezuela pese a las sanciones. Cada uno es una Licencia "
-            "General (GL) emitida por la Oficina de Control de Activos "
-            "Extranjeros de EE. UU. (OFAC)."
+            "Estas son reglas de EE. UU. que vuelven legales ciertos pagos de "
+            "ayuda y reconstrucción a Venezuela, aun con las sanciones "
+            "vigentes. Cada una se llama Licencia General (GL) y la emite la "
+            "Oficina de Control de Activos Extranjeros del Tesoro de EE. UU. "
+            "(OFAC). Importan sobre todo para el dinero que se mueve en "
+            "dólares o a través de bancos estadounidenses."
         ),
         "lic_expires": "Vence",
         "lic_no_expiry": "Sin fecha de vencimiento",
         "lic_official_source": "Fuente oficial de OFAC ↗",
         "lic_activities": "Actividades autorizadas",
+        # Nota en lenguaje claro para quienes donan desde fuera de EE. UU.
+        "lic_nonus_h": "¿Nos lee desde fuera de Estados Unidos?",
+        "lic_nonus_body": (
+            "Estos son permisos de Estados Unidos. Las sanciones de EE. UU. "
+            "—y las licencias que las levantan, como la GL 60— se aplican "
+            "sobre todo a personas y empresas en Estados Unidos, y al dinero "
+            "que se mueve en dólares o a través de bancos estadounidenses. Si "
+            "usted dona desde otro país, en su moneda local, a una "
+            "organización de ayuda con sede fuera de EE. UU., por lo general "
+            "estas licencias no lo limitan. Dos cosas siguen importando: las "
+            "transferencias en dólares suelen pasar por bancos de EE. UU., lo "
+            "que reactiva estas reglas, y su propio país puede tener sus "
+            "propias normas sobre Venezuela. La vía más sencilla suele ser "
+            "donar a una organización de ayuda reconocida en su propio país. "
+            "Esta es información general, no asesoría legal."
+        ),
         # Página de Rutas
         "pw_intro": (
             "Fondos vinculados al permiso de la Oficina de Control de "
@@ -947,7 +986,7 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         # Contactos del pie de página
         "footer_contacts_h": "CONTACTOS",
-        "contact_maintainer": "Responsable del sitio: preguntas, correcciones, nuevas fuentes",
+        "contact_maintainer": "Contacto del sitio: correcciones y nuevas fuentes",
         "contact_ofac": (
             "Consultas de sanciones y licencias: Oficina de Control de "
             "Activos Extranjeros (OFAC), Tesoro de EE. UU."
@@ -2579,6 +2618,18 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         for a in (s.get("accepts_from") or [])
     ) or "—"
     notes = s.get("notes_es") if c.lang == "es" and s.get("notes_es") else s.get("amount_notes")
+    # Free-text detail fields have Spanish variants so the detail page reads in
+    # a single language; fall back to English if a translation is missing.
+    funds_go_to = (
+        s.get("funds_go_to_es")
+        if c.lang == "es" and s.get("funds_go_to_es")
+        else s.get("funds_go_to")
+    )
+    compliance_notes = (
+        s.get("compliance_notes_es")
+        if c.lang == "es" and s.get("compliance_notes_es")
+        else s.get("compliance_notes")
+    )
 
     url = (s.get("url") or "").strip()
     source_link = ""
@@ -2637,7 +2688,7 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
         + _kv(c.t("detail_committed"), f"<b>{escape(committed)}</b>")
         + _kv(c.t("detail_target"), escape(target))
         + _kv(c.t("detail_accepts"), escape(accepts))
-        + _kv(c.t("detail_goes_to"), escape(s.get("funds_go_to") or "—"))
+        + _kv(c.t("detail_goes_to"), escape(funds_go_to or "—"))
         + "</div><div style=\"flex:1 1 300px;\">"
         + _kv(c.t("detail_verification"), escape(verif_label))
         + _kv(c.t("detail_status"),
@@ -2649,8 +2700,12 @@ def _source_detail(c: Ctx, s: dict, licenses: list[dict]) -> str:
                   (s.get("org_type") or "").replace("_", " "))))
         + lic_ctx
         + "</div></div>"
-        + _kv(c.t("detail_suggested"), escape(s.get("suggested_license") or "—"))
-        + _kv(c.t("detail_compliance"), escape(s.get("compliance_notes") or "—"))
+        # "Suggested license pathway" is internal analyst shorthand (REVIEW/N/A
+        # notes), not donor-facing copy — hidden from the public detail view per
+        # Ami (2026-07). The GL 60 "License context" block above covers the
+        # donor-facing point. The raw field still drives that block's logic and
+        # remains in the data for maintainers.
+        + _kv(c.t("detail_compliance"), escape(compliance_notes or "—"))
         + _kv(c.t("detail_notes"), escape(notes or "—"))
     )
     return (

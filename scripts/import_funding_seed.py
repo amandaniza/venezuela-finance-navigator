@@ -41,7 +41,7 @@ _COLUMNS = [
     "funds_go_to", "compliance_notes", "suggested_license",
     "verification_status", "url", "phase", "notes_es", "last_checked",
     "accepts_applications", "applicant_tier", "how_to_apply",
-    "how_to_apply_es",
+    "how_to_apply_es", "funds_go_to_es", "compliance_notes_es",
 ]
 
 
@@ -78,7 +78,9 @@ def _row_from_entry(entry: dict) -> dict:
         "expires": entry.get("expires"),
         "accepts_from": json.dumps(entry.get("accepts_from") or [], ensure_ascii=False),
         "funds_go_to": entry.get("funds_go_to") or "",
+        "funds_go_to_es": entry.get("funds_go_to_es") or "",
         "compliance_notes": entry.get("compliance_notes") or "",
+        "compliance_notes_es": entry.get("compliance_notes_es") or "",
         # Deliberately free text, NOT a join to licenses_tb.
         "suggested_license": entry.get("suggested_license_pathway") or "",
         # Preserve verbatim — never coerce to a verdict.

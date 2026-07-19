@@ -124,6 +124,10 @@ _ADDED_COLUMNS: dict[str, dict[str, str]] = {
         "applicant_tier": "TEXT",
         "how_to_apply": "TEXT",
         "how_to_apply_es": "TEXT",
+        # Spanish translations of the two free-text detail fields, so the
+        # source detail page is single-language (see item 2, 2026-07 edits).
+        "funds_go_to_es": "TEXT",
+        "compliance_notes_es": "TEXT",
     },
 }
 
@@ -262,7 +266,8 @@ _FUNDING_COLUMNS = (
     "amount_target_original, amount_committed_original, status, expires, "
     "accepts_from, funds_go_to, compliance_notes, suggested_license, "
     "verification_status, url, phase, notes_es, last_checked, "
-    "accepts_applications, applicant_tier, how_to_apply, how_to_apply_es"
+    "accepts_applications, applicant_tier, how_to_apply, how_to_apply_es, "
+    "funds_go_to_es, compliance_notes_es"
 )
 
 
@@ -285,7 +290,9 @@ def _row_to_funding_source(row: sqlite3.Row) -> dict[str, Any]:
         "expires": row["expires"],
         "accepts_from": _parse_json_list(row["accepts_from"]),
         "funds_go_to": row["funds_go_to"] or "",
+        "funds_go_to_es": row["funds_go_to_es"] or "",
         "compliance_notes": row["compliance_notes"] or "",
+        "compliance_notes_es": row["compliance_notes_es"] or "",
         "suggested_license": row["suggested_license"] or "",
         "verification_status": row["verification_status"] or "unverified",
         "url": row["url"] or "",

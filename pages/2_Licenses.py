@@ -70,6 +70,20 @@ def _license_card(lic: dict) -> str:
     )
 
 
+def _nonus_note() -> str:
+    """Plain-language callout: what these U.S. licenses mean for donors who
+    are reading from outside the United States (item 1 of the 2026-07 edits)."""
+    return (
+        '<div style="margin:0 0 30px;max-width:720px;border:1px solid #D8E3F5;'
+        f'border-left:4px solid {L.BLUE};border-radius:8px;background:#F5F8FE;'
+        'padding:18px 22px;">'
+        f'<div style="font-size:14px;font-weight:800;color:{L.BLUE};'
+        f'margin-bottom:8px;">🌍 {escape(c.t("lic_nonus_h"))}</div>'
+        f'<div style="font-size:13.5px;color:{L.INK};line-height:1.65;">'
+        f'{escape(c.t("lic_nonus_body"))}</div></div>'
+    )
+
+
 if licenses:
     cards = "".join(_license_card(lic) for lic in licenses)
     grid = f'<div style="display:flex;gap:20px;flex-wrap:wrap;">{cards}</div>'
@@ -80,8 +94,9 @@ body = (
     '<section style="padding:24px var(--pad-x) 64px;">'
     '<div style="font-size:clamp(24px,6vw,30px);font-weight:800;letter-spacing:-0.01em;">'
     f'<span style="color:{L.RED};">OFAC</span> {escape(c.t("nav_licenses"))}</div>'
-    f'<p style="margin:12px 0 28px;font-size:15px;color:{L.MUTE};max-width:640px;'
+    f'<p style="margin:12px 0 22px;font-size:15px;color:{L.MUTE};max-width:640px;'
     f'line-height:1.6;">{escape(c.t("lic_page_intro"))}</p>'
+    f'{_nonus_note()}'
     f'{grid}</section>'
 )
 L.render_page(c, "licenses", body)
